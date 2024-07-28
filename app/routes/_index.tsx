@@ -5,7 +5,7 @@ import { Data } from "~/types/playerTypes";
 import data from "~/data/players.json";
 import { PlayerBand } from "~/components/ui/players.tsx/player-band";
 
-export const loader = () => {
+export const loader = async () => {
   const typedData: Data = data as Data;
 
   const teamNames = Object.keys(typedData);
