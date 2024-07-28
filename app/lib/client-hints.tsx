@@ -30,7 +30,7 @@ export function ClientHintCheck({ nonce }: { nonce: string }) {
   const { revalidate } = useRevalidator();
   React.useEffect(
     () => subscribeToSchemeChange(() => revalidate()),
-    [revalidate]
+    [revalidate],
   );
 
   return (

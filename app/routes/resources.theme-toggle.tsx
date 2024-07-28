@@ -42,14 +42,14 @@ export const action: ActionFunction = async ({ request }) => {
       headers: {
         "Set-Cookie": setTheme(theme),
       },
-    }
+    },
   );
 };
 
 export function useOptimisticTheme(): Theme | null {
   const fetchers = useFetchers();
   const themeFetcher = fetchers.find(
-    (f) => f.formAction === "/resources/theme-toggle"
+    (f) => f.formAction === "/resources/theme-toggle",
   );
 
   const optimisticTheme = themeFetcher?.formData?.get("theme");
@@ -67,7 +67,7 @@ export function ThemeToggle() {
   const handleThemeChange = (theme: Theme) => {
     fetcher.submit(
       { theme },
-      { method: "post", action: "/resources/theme-toggle" }
+      { method: "post", action: "/resources/theme-toggle" },
     );
   };
 

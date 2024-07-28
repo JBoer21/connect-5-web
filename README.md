@@ -8,9 +8,7 @@ I often reached out to implementing my own optimistic dark-mode logic every-sing
 
 ## Screenshot
 
-
 <img width="1107" alt="Screenshot 2024-01-25 at 14 22 47" src="https://github.com/rajeshdavidbabu/remix-shadcn-starter/assets/15684795/4611ba00-be8f-48a9-9648-a59fb56249b6">
-
 
 ## Development
 
