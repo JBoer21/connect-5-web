@@ -25,7 +25,7 @@ import { AnimatedTooltipPreview } from "~/components/animated-preview";
 import { HeroParallaxDemo } from "~/components/parallax-preview";
 import { AnimatedPinDemo } from "~/components/animated-3d-pin";
 
-export default function Index() {
+export default function Test() {
   return (
     <section className="flex flex-col w-full min-h-screen">
       <nav className="flex items-center justify-between w-full p-4">
