@@ -1,8 +1,8 @@
-import { json, Link } from "@remix-run/react";
+import { json, Link, useLoaderData } from "@remix-run/react";
 import { Waypoints } from "lucide-react";
 import { ThemeToggle } from "./resources.theme-toggle";
 import { PlayerCard } from "~/components/ui/players.tsx/player-card";
-import { Player, Team, Data } from "~/types/playerTypes";
+import { Data } from "~/types/playerTypes";
 import data from "~/data/players.json";
 
 export const loader = () => {
@@ -29,22 +29,30 @@ export const loader = () => {
 };
 
 export default function Index() {
-  return (
-    <div>
-      <nav className="flex items-center justify-between w-full p-4">
-        <Link to="/" className="flex items-center space-x-2">
-          <Waypoints />
-          <h1 className="text-xl font-semibold">Connect 5</h1>
-        </Link>
-        <ThemeToggle />
-      </nav>
-
-      <div className="px-4">
-        <PlayerCard
-          name="Zlatan Ibrahimovic"
-          imageUrl="https://cdn.fifacm.com/content/media/imgs/fifa21/players/p41236.png?v=22"
-        />
+    const { teamName, players } = useLoaderData();
+  
+    return (
+      <div>
+        <nav className="flex items-center justify-between w-full p-4">
+          <Link to="/" className="flex items-center space-x-2">
+            <Waypoints />
+            <h1 className="text-xl font-semibold">Connect 5</h1>
+          </Link>
+          <ThemeToggle />
+        </nav>
+  
+        <div className="px-4">
+          <h2 className="mb-4 text-2xl font-bold">Team: {teamName}</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {players.map((player) => (
+              <PlayerCard
+                key={player.id}
+                name={player.short_name}
+                imageUrl={player.player_image_url}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
