@@ -4,6 +4,15 @@ import { ThemeToggle } from "./resources.theme-toggle";
 import { Data } from "~/types/playerTypes";
 import data from "~/data/players.json";
 import { PlayerBand } from "~/components/ui/players.tsx/player-band";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "~/components/ui/select";
+import { teams } from "~/data/teams";
 
 export const loader = async () => {
   const typedData: Data = data as Data;
@@ -53,6 +62,21 @@ export default function Index() {
             }))}
           />
         </>
+      </div>
+
+      <div className="flex items-center justify-center p-6">
+        <Select>
+          <SelectTrigger className="w-[250px]">
+            <SelectValue placeholder="Select a club" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              {teams.map((team, index) => (
+                <SelectItem value = {team} key={index}>{team}</SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </div>
     </div>
   );
