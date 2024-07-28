@@ -1,13 +1,31 @@
-import { Link } from "@remix-run/react";
+import { json, Link } from "@remix-run/react";
 import { Waypoints } from "lucide-react";
 import { ThemeToggle } from "./resources.theme-toggle";
 import { PlayerCard } from "~/components/ui/players.tsx/player-card";
-
+import { Player, Team, Data } from "~/types/playerTypes";
 import data from "~/data/players.json";
 
 export const loader = () => {
-  console.log(data);
-  return null;
+  const typedData: Data = data as Data;
+
+  const teamNames = Object.keys(typedData);
+  const randomTeamName = teamNames[Math.floor(Math.random() * teamNames.length)]
+  const randomTeam = typedData[randomTeamName]
+
+  const allPlayers = randomTeam.players;
+  const shuffledPlayers = [...allPlayers].sort(() => 0.5 - Math.random());
+
+  const selectedPlayers = shuffledPlayers.slice(0, 5);
+
+  const sortedPlayers = selectedPlayers.sort((a,b) => b.num_clubs - a.num_clubs);
+
+  return json(
+    {
+        teamName: randomTeamName,
+        players: sortedPlayers
+    }
+  )
+  
 };
 
 export default function Index() {
