@@ -3,6 +3,13 @@ import { Waypoints } from "lucide-react";
 import { ThemeToggle } from "./resources.theme-toggle";
 import { PlayerCard } from "~/components/ui/players.tsx/player-card";
 
+import data from "~/data/players.json";
+
+export const loader = () => {
+  console.log(data);
+  return null;
+};
+
 export default function Index() {
   return (
     <div>
