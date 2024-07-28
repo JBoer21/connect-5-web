@@ -15,11 +15,11 @@ export function PlayerCard({ name, imageUrl }: PlayerCardProps) {
           </center>
         </CardHeader>
         <CardContent className="pt-0">
-          <div className="h-[12rem] rounded-lg overflow-hidden">
+          <div className="h-[12rem] rounded-lg overflow-hidden flex items-center justify-center">
             <img
               src={imageUrl}
               alt={`${name}'s`}
-              className="object-cover w-full h-full"
+              className="object-contain max-w-full max-h-full"
             />
           </div>
         </CardContent>
