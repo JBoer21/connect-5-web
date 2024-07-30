@@ -13,6 +13,8 @@ import {
   SelectValue,
 } from "~/components/ui/select";
 import { teams } from "~/data/teams";
+import { Button } from "~/components/ui/button";
+import { useState } from "react";
 
 export const loader = async () => {
   const typedData: Data = data as Data;
@@ -39,6 +41,11 @@ export const loader = async () => {
 
 export default function Index() {
   const { teamName, players } = useLoaderData();
+  const [selectedTeam, setSelectedTeam] = useState("");
+
+  const handleSubmit = () => {
+    console.log("Selected team:", selectedTeam);
+  };
 
   return (
     <div>
@@ -64,19 +71,25 @@ export default function Index() {
         </>
       </div>
 
-      <div className="flex items-center justify-center p-6">
-        <Select>
+      <div className="flex items-center justify-center p-6 space-x-4">
+        <Select onValueChange={setSelectedTeam}>
           <SelectTrigger className="w-[250px]">
             <SelectValue placeholder="Select a club" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
               {teams.map((team, index) => (
-                <SelectItem value = {team} key={index}>{team}</SelectItem>
+                <SelectItem value={team} key={index}>{team}</SelectItem>
               ))}
             </SelectGroup>
           </SelectContent>
         </Select>
+        <Button 
+          onClick={handleSubmit} 
+          className="text-white bg-green-500 hover:bg-green-600"
+        >
+          Submit
+        </Button>
       </div>
     </div>
   );
