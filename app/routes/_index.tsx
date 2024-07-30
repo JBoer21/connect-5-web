@@ -79,13 +79,15 @@ export default function Index() {
           <SelectContent>
             <SelectGroup>
               {teams.map((team, index) => (
-                <SelectItem value={team} key={index}>{team}</SelectItem>
+                <SelectItem value={team} key={index}>
+                  {team}
+                </SelectItem>
               ))}
             </SelectGroup>
           </SelectContent>
         </Select>
-        <Button 
-          onClick={handleSubmit} 
+        <Button
+          onClick={handleSubmit}
           className="text-white bg-green-500 hover:bg-green-600"
         >
           Submit
