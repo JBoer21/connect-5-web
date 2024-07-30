@@ -46,13 +46,12 @@ export default function Index() {
   const [selectedTeam, setSelectedTeam] = useState(null);
 
   const handleSubmit = () => {
-
     if (!selectedTeam) {
       toast({
         title: "Uh oh",
         description: "Please make sure to choose a team!",
-        variant: "destructive"
-      })
+        variant: "destructive",
+      });
     }
     console.log("Selected team:", selectedTeam);
   };
