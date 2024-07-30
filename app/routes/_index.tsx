@@ -15,6 +15,7 @@ import {
 import { teams } from "~/data/teams";
 import { Button } from "~/components/ui/button";
 import { useState } from "react";
+import { useToast } from "~/components/ui/use-toast";
 
 export const loader = async () => {
   const typedData: Data = data as Data;
@@ -40,10 +41,19 @@ export const loader = async () => {
 };
 
 export default function Index() {
+  const { toast } = useToast();
   const { teamName, players } = useLoaderData();
-  const [selectedTeam, setSelectedTeam] = useState("");
+  const [selectedTeam, setSelectedTeam] = useState(null);
 
   const handleSubmit = () => {
+
+    if (!selectedTeam) {
+      toast({
+        title: "Uh oh",
+        description: "Please make sure to choose a team!",
+        variant: "destructive"
+      })
+    }
     console.log("Selected team:", selectedTeam);
   };
 
