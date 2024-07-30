@@ -45,6 +45,8 @@ export default function Index() {
   const { teamName, players } = useLoaderData();
   const [selectedTeam, setSelectedTeam] = useState(null);
 
+  const [attempts, setAttempts] = useState(1);
+
   const handleSubmit = () => {
     if (!selectedTeam) {
       toast({
@@ -52,8 +54,23 @@ export default function Index() {
         description: "Please make sure to choose a team!",
         variant: "destructive",
       });
+    } else {
+      setAttempts(attempts + 1);
     }
-    console.log("Selected team:", selectedTeam);
+
+    if (selectedTeam === teamName) {
+      toast({
+        title: "Correct",
+        description: `You answered correctly in ${attempts} tries!`,
+        variant: "default",
+      });
+    } else {
+      toast({
+        title: "Incorrect guess",
+        description: "Try again!",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
