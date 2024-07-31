@@ -44,7 +44,7 @@ export default function Index() {
   const { toast } = useToast();
   const { teamName, players } = useLoaderData();
   const [selectedTeam, setSelectedTeam] = useState(null);
-  const [isAbleToGuess, setAbleToGuess] = useState(true)
+  const [isAbleToGuess, setAbleToGuess] = useState(true);
 
   const [attempts, setAttempts] = useState(1);
 
