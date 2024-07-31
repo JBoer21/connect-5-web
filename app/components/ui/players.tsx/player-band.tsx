@@ -5,11 +5,12 @@ interface Player {
   imageUrl: string;
 }
 
-interface PlayerRowProps {
+interface PlayerBandProps {
   players: Player[];
+  visible: number;
 }
 
-export function PlayerBand({ players }: PlayerRowProps) {
+export function PlayerBand({ players, visible }: PlayerBandProps) {
   return (
     <div className="flex items-center justify-center gap-2 p-4 overflow-x-auto">
       {players.slice(0, 5).map((player, index) => (
@@ -17,7 +18,7 @@ export function PlayerBand({ players }: PlayerRowProps) {
           key={index}
           name={player.name}
           imageUrl={player.imageUrl}
-          show={true}
+          show={index < visible}
         />
       ))}
     </div>

@@ -44,8 +44,11 @@ export default function Index() {
   const { toast } = useToast();
   const { teamName, players } = useLoaderData();
   const [selectedTeam, setSelectedTeam] = useState(null);
+  const [isAbleToGuess, setAbleToGuess] = useState(true)
 
   const [attempts, setAttempts] = useState(1);
+
+  const [visibleCards, setVisibleCards] = useState(1);
 
   const handleSubmit = () => {
     if (!selectedTeam) {
@@ -54,9 +57,10 @@ export default function Index() {
         description: "Please make sure to choose a team!",
         variant: "destructive",
       });
-    } else {
-      setAttempts(attempts + 1);
+      return;
     }
+
+    setAttempts(attempts + 1);
 
     if (selectedTeam === teamName) {
       toast({
@@ -70,6 +74,7 @@ export default function Index() {
         description: "Try again!",
         variant: "destructive",
       });
+      setVisibleCards(Math.min(visibleCards + 1, 5));
     }
   };
 
@@ -93,6 +98,7 @@ export default function Index() {
               name: player.short_name,
               imageUrl: player.player_image_url,
             }))}
+            visible={visibleCards}
           />
         </>
       </div>
