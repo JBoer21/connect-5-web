@@ -68,6 +68,7 @@ export default function Index() {
         description: `You answered correctly in ${attempts} tries!`,
         variant: "default",
       });
+      setAbleToGuess(false);
     } else {
       toast({
         title: "Incorrect guess",
@@ -75,6 +76,9 @@ export default function Index() {
         variant: "destructive",
       });
       setVisibleCards(Math.min(visibleCards + 1, 5));
+      if (visibleCards === 5) {
+        setAbleToGuess(false);
+      }
     }
   };
 
@@ -103,28 +107,30 @@ export default function Index() {
         </>
       </div>
 
-      <div className="flex items-center justify-center p-6 space-x-4">
-        <Select onValueChange={setSelectedTeam}>
-          <SelectTrigger className="w-[250px]">
-            <SelectValue placeholder="Select a club" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              {teams.map((team, index) => (
-                <SelectItem value={team} key={index}>
-                  {team}
-                </SelectItem>
-              ))}
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-        <Button
-          onClick={handleSubmit}
-          className="text-white bg-green-500 hover:bg-green-600"
-        >
-          Submit
-        </Button>
-      </div>
+      {isAbleToGuess && (
+        <div className="flex items-center justify-center p-6 space-x-4">
+          <Select onValueChange={setSelectedTeam}>
+            <SelectTrigger className="w-[250px]">
+              <SelectValue placeholder="Select a club" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {teams.map((team, index) => (
+                  <SelectItem value={team} key={index}>
+                    {team}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+          <Button
+            onClick={handleSubmit}
+            className="text-white bg-green-500 hover:bg-green-600"
+          >
+            Submit
+          </Button>
+        </div>
+      )}
     </div>
   );
 }
