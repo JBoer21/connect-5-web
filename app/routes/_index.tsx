@@ -69,6 +69,7 @@ export default function Index() {
         variant: "default",
       });
       setAbleToGuess(false);
+      setVisibleCards(5);
     } else {
       toast({
         title: "Incorrect guess",
