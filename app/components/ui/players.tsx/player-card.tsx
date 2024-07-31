@@ -10,7 +10,9 @@ export function PlayerCard({ name, imageUrl, show = false }: PlayerCardProps) {
   return (
     <Card className="w-[12rem]">
       <CardHeader className="py-2">
-        <CardTitle className="text-sm text-center">{name}</CardTitle>
+        <CardTitle className="text-sm text-center">
+          {show ? name : " "}
+        </CardTitle>
       </CardHeader>
       <CardContent className="p-2">
         <div className="h-[9rem] rounded overflow-hidden flex items-center justify-center">

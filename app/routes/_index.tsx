@@ -46,6 +46,8 @@ export default function Index() {
   const [selectedTeam, setSelectedTeam] = useState(null);
   const [isAbleToGuess, setAbleToGuess] = useState(true);
 
+  const [guesses, setGuesses] = useState([]);
+
   const [attempts, setAttempts] = useState(1);
 
   const [visibleCards, setVisibleCards] = useState(1);
