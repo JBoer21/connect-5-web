@@ -16,28 +16,10 @@ import { teams } from "~/data/teams";
 import { Button } from "~/components/ui/button";
 import { useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
+import { setGame } from "~/lib/utils/index_utils";
 
 export const loader = async () => {
-  const typedData: Data = data as Data;
-
-  const teamNames = Object.keys(typedData);
-  const randomTeamName =
-    teamNames[Math.floor(Math.random() * teamNames.length)];
-  const randomTeam = typedData[randomTeamName];
-
-  const allPlayers = randomTeam.players;
-  const shuffledPlayers = [...allPlayers].sort(() => 0.5 - Math.random());
-
-  const selectedPlayers = shuffledPlayers.slice(0, 5);
-
-  const sortedPlayers = selectedPlayers.sort(
-    (a, b) => b.num_clubs - a.num_clubs,
-  );
-
-  return json<IndexLoaderData>({
-    teamName: randomTeamName,
-    players: sortedPlayers,
-  });
+  return setGame();
 };
 
 export default function Index() {
