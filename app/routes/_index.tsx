@@ -1,4 +1,4 @@
-import { json, Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { Waypoints } from "lucide-react";
 import { ThemeToggle } from "./resources.theme-toggle";
 import { Data, IndexLoaderData } from "~/types/playerTypes";
@@ -45,6 +45,7 @@ export default function Index() {
     }
 
     setAttempts(attempts + 1);
+    setGuesses([...guesses, selectedTeam]);
 
     if (selectedTeam === teamName) {
       toast({
