@@ -1,7 +1,7 @@
 import { json, Link, useLoaderData } from "@remix-run/react";
 import { Waypoints } from "lucide-react";
 import { ThemeToggle } from "./resources.theme-toggle";
-import { Data } from "~/types/playerTypes";
+import { Data, IndexLoaderData } from "~/types/playerTypes";
 import data from "~/data/players.json";
 import { PlayerBand } from "~/components/ui/players.tsx/player-band";
 import {
@@ -34,7 +34,7 @@ export const loader = async () => {
     (a, b) => b.num_clubs - a.num_clubs,
   );
 
-  return json({
+  return json<IndexLoaderData>({
     teamName: randomTeamName,
     players: sortedPlayers,
   });
@@ -42,8 +42,8 @@ export const loader = async () => {
 
 export default function Index() {
   const { toast } = useToast();
-  const { teamName, players } = useLoaderData();
-  const [selectedTeam, setSelectedTeam] = useState(null);
+  const { teamName, players } = useLoaderData<IndexLoaderData>();
+  const [selectedTeam, setSelectedTeam] = useState<string>('');
   const [isAbleToGuess, setAbleToGuess] = useState(true);
 
   const [guesses, setGuesses] = useState([]);
@@ -53,7 +53,7 @@ export default function Index() {
   const [visibleCards, setVisibleCards] = useState(1);
 
   const handleSubmit = () => {
-    if (!selectedTeam) {
+    if (!selectedTeam || selectedTeam === '') {
       toast({
         title: "Uh oh",
         description: "Please make sure to choose a team!",

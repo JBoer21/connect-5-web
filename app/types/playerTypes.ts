@@ -15,3 +15,13 @@ export interface Team {
 export interface Data {
   [teamName: string]: Team;
 }
+
+export interface IndexLoaderData {
+  teamName: string;
+  players: Array<{
+    short_name: string;
+    player_image_url: string;
+    num_clubs: number;
+  }>;
+}
+
