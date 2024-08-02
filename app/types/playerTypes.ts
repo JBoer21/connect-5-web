@@ -24,4 +24,3 @@ export interface IndexLoaderData {
     num_clubs: number;
   }>;
 }
-

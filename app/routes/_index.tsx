@@ -43,7 +43,7 @@ export const loader = async () => {
 export default function Index() {
   const { toast } = useToast();
   const { teamName, players } = useLoaderData<IndexLoaderData>();
-  const [selectedTeam, setSelectedTeam] = useState<string>('');
+  const [selectedTeam, setSelectedTeam] = useState<string>("");
   const [isAbleToGuess, setAbleToGuess] = useState(true);
 
   const [guesses, setGuesses] = useState([]);
@@ -53,7 +53,7 @@ export default function Index() {
   const [visibleCards, setVisibleCards] = useState(1);
 
   const handleSubmit = () => {
-    if (!selectedTeam || selectedTeam === '') {
+    if (!selectedTeam || selectedTeam === "") {
       toast({
         title: "Uh oh",
         description: "Please make sure to choose a team!",
