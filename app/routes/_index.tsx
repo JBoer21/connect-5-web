@@ -1,8 +1,7 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { Waypoints } from "lucide-react";
 import { ThemeToggle } from "./resources.theme-toggle";
-import { Data, IndexLoaderData } from "~/types/playerTypes";
-import data from "~/data/players.json";
+import { IndexLoaderData } from "~/types/player1Types";
 import { PlayerBand } from "~/components/ui/players.tsx/player-band";
 import {
   Select,
@@ -16,10 +15,12 @@ import { teams } from "~/data/teams";
 import { Button } from "~/components/ui/button";
 import { useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
-import { setGame } from "~/lib/utils/index_utils";
+import { setGame1 } from "~/lib/utils/index_utils";
+import { setGame2 } from "~/lib/utils/index_utils2";
 
 export const loader = async () => {
-  return setGame();
+  setGame2();
+  return setGame1();
 };
 
 export default function Index() {

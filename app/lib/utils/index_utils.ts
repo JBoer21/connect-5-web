@@ -1,12 +1,12 @@
 import { json } from "@remix-run/node";
 import data from "~/data/players.json";
-import { Data, IndexLoaderData } from "~/types/playerTypes";
+import { Data, IndexLoaderData } from "~/types/player1Types";
 
-export function setGame() {
+export function setGame1() {
   const typedData: Data = data as Data;
 
   const teamNames = Object.keys(typedData);
-  const randomTeamName =
+  const randomTeamName = 
     teamNames[Math.floor(Math.random() * teamNames.length)];
   const randomTeam = typedData[randomTeamName];
 
