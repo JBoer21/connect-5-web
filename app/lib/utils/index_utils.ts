@@ -6,6 +6,7 @@ export function setGame() {
   const typedData: ClubData = data as ClubData;
 
   const teamNames = Object.keys(typedData);
+
   const randomTeamName =
     teamNames[Math.floor(Math.random() * teamNames.length)];
   const randomTeam = typedData[randomTeamName];
@@ -18,9 +19,6 @@ export function setGame() {
   const sortedPlayers = selectedPlayers.sort(
     (a, b) => b.num_clubs - a.num_clubs,
   );
-
-  console.log(randomTeamName, randomTeam.logo, sortedPlayers);
-
   return json<IndexLoaderData>({
     teamName: randomTeamName,
     teamLogo: randomTeam.logo,
