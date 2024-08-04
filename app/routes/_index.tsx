@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { Waypoints } from "lucide-react";
 import { ThemeToggle } from "./resources.theme-toggle";
-import { IndexLoaderData } from "~/types/player1Types";
+import { IndexLoaderData } from "~/types/playerTypes";
 import { PlayerBand } from "~/components/ui/players.tsx/player-band";
 import {
   Select,
@@ -15,12 +15,10 @@ import { teams } from "~/data/teams";
 import { Button } from "~/components/ui/button";
 import { useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
-import { setGame1 } from "~/lib/utils/index_utils";
-import { setGame2 } from "~/lib/utils/index_utils2";
+import { setGame } from "~/lib/utils/index_utils";
 
 export const loader = async () => {
-  setGame2();
-  return setGame1();
+  return setGame();
 };
 
 export default function Index() {
@@ -86,8 +84,8 @@ export default function Index() {
           </h2>
           <PlayerBand
             players={players.map((player) => ({
-              name: player.short_name,
-              imageUrl: player.player_image_url,
+              name: player.name,
+              imageUrl: player.image_url,
             }))}
             visible={visibleCards}
           />
