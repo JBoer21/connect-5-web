@@ -8,7 +8,7 @@ interface PlayerCardProps {
 
 export function PlayerCard({ name, imageUrl, show = false }: PlayerCardProps) {
   return (
-    <Card className="w-[12rem]">
+    <Card className={show ? "w-[12rem] transition-transform duration-200 hover:scale-105 hover:shadow-lg" : "w-[12rem]"}>
       <CardHeader className="py-2">
         <CardTitle className="text-sm text-center">
           {show ? name : " "}

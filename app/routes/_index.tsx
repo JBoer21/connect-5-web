@@ -65,6 +65,9 @@ export default function Index() {
         setAbleToGuess(false);
       }
     }
+
+    console.log(guesses)
+
   };
 
   return (
