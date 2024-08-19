@@ -87,7 +87,7 @@ export default function Index() {
       <div className="px-4">
         <>
           <h2 className="mb-4 text-2xl font-bold text-center">
-            Team: {teamName}
+            {/* Team: {teamName} */}
           </h2>
           <PlayerBand
             players={players.map((player) => ({
