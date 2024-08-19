@@ -20,9 +20,7 @@ import {
 } from "~/components/ui/select";
 import { ThemeToggle } from "./resources.theme-toggle";
 import { Hero3DCard } from "~/components/hero-3d-card";
-import { TextRevealCardPreview } from "~/components/text-reveal-preview";
 import { AnimatedTooltipPreview } from "~/components/animated-preview";
-import { HeroParallaxDemo } from "~/components/parallax-preview";
 import { AnimatedPinDemo } from "~/components/animated-3d-pin";
 
 export default function Test() {
