@@ -81,7 +81,7 @@ export default function Index() {
           <Waypoints />
           <h1 className="text-xl font-semibold">Connect 5</h1>
         </Link>
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </nav>
 
       <div className="px-4">
