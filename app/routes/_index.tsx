@@ -22,6 +22,10 @@ export const loader = async () => {
 };
 
 export default function Index() {
+
+  // const lastPlayedDate = localStorage.getItem('lastPlayedDate');
+  // const currentDate = new Date().toDateString();
+
   const { toast } = useToast();
   const { teamName, players } = useLoaderData<IndexLoaderData>();
   const [selectedTeam, setSelectedTeam] = useState<string>("");
