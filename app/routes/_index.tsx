@@ -16,6 +16,7 @@ import { useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
 import { HoverHelp } from "~/components/ui/info/info";
+import { GuessesTable } from "~/components/ui/info/guesses";
 
 export const loader = async () => {
   return setGame();
@@ -122,6 +123,12 @@ export default function Index() {
           </Button>
         </div>
       )}
+
+      <center>
+      <div className="flex items-center" style = {{width: '600px'}}>
+        <GuessesTable guesses={["Hello"]} />
+      </div>
+      </center>
     </div>
   );
 }
