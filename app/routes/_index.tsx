@@ -124,11 +124,13 @@ export default function Index() {
         </div>
       )}
 
-      <center>
-        <div className="flex items-center" style={{ width: "600px" }}>
-          <GuessesTable guesses={["Hello"]} />
+      {isAbleToGuess && attempts > 1 && (
+        <div className="flex justify-center">
+          <div className="flex items-center" style={{ width: "600px" }}>
+            <GuessesTable guesses={guesses} />
+          </div>
         </div>
-      </center>
+      )}
     </div>
   );
 }
