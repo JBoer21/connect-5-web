@@ -80,9 +80,9 @@ export default function Index() {
           <h1 className="text-xl font-semibold">Connect 5</h1>
         </div>
         {/* <ThemeToggle /> */}
-        <HoverHelp/>
+        <HoverHelp />
       </nav>
-      
+
       <div className="px-4">
         <>
           <h2 className="mb-4 text-2xl font-bold text-center">
