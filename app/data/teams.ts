@@ -89,7 +89,7 @@ export const teams = [
   "Parma",
   "PSV",
   "Racing Club",
-  "Racing Club de Lens",
+  "Lens",
   "RB Leipzig",
   "RC Celta de Vigo",
   "RCD Espanyol de Barcelona",
