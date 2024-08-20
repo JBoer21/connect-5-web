@@ -125,9 +125,9 @@ export default function Index() {
       )}
 
       <center>
-      <div className="flex items-center" style = {{width: '600px'}}>
-        <GuessesTable guesses={["Hello"]} />
-      </div>
+        <div className="flex items-center" style={{ width: "600px" }}>
+          <GuessesTable guesses={["Hello"]} />
+        </div>
       </center>
     </div>
   );
