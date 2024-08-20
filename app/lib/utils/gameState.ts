@@ -8,7 +8,7 @@ export function getAvailableTeams(): string[] {
 }
 
 export function removeTeam(teamName: string): void {
-  availableTeams = availableTeams.filter(team => team !== teamName);
+  availableTeams = availableTeams.filter((team) => team !== teamName);
 }
 
 export function resetTeams(): void {

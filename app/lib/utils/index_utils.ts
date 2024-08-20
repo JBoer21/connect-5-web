@@ -7,18 +7,19 @@ import { getAvailableTeams, removeTeam, resetTeams } from "./gameState";
 
 export function setGame() {
   const typedData: ClubData = data as ClubData;
-  
+
   let teamNames = getAvailableTeams();
 
-  console.log(teamNames.length)
-  
+  console.log(teamNames.length);
+
   // If all teams have been used, reset the available teams
   if (teamNames.length === 0) {
     resetTeams();
     teamNames = getAvailableTeams();
   }
 
-  const randomTeamName = teamNames[Math.floor(Math.random() * teamNames.length)];
+  const randomTeamName =
+    teamNames[Math.floor(Math.random() * teamNames.length)];
   const randomTeam = typedData[randomTeamName];
 
   // Remove the selected team from available teams

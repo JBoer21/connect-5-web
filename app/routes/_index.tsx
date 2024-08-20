@@ -1,6 +1,5 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { Waypoints } from "lucide-react";
-import { ThemeToggle } from "./resources.theme-toggle";
 import { IndexLoaderData } from "~/types/playerTypes";
 import { PlayerBand } from "~/components/ui/players.tsx/player-band";
 import {
@@ -16,13 +15,13 @@ import { Button } from "~/components/ui/button";
 import { useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
+import { HoverHelp } from "~/components/ui/info/info";
 
 export const loader = async () => {
   return setGame();
 };
 
 export default function Index() {
-
   // const lastPlayedDate = localStorage.getItem('lastPlayedDate');
   // const currentDate = new Date().toDateString();
 
@@ -70,20 +69,20 @@ export default function Index() {
       }
     }
 
-    console.log(guesses)
-
+    console.log(guesses);
   };
 
   return (
     <div>
       <nav className="flex items-center justify-between w-full p-4">
-        <Link to="/" className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2">
           <Waypoints />
           <h1 className="text-xl font-semibold">Connect 5</h1>
-        </Link>
+        </div>
         {/* <ThemeToggle /> */}
+        <HoverHelp/>
       </nav>
-
+      
       <div className="px-4">
         <>
           <h2 className="mb-4 text-2xl font-bold text-center">

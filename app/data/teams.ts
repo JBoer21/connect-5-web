@@ -137,5 +137,5 @@ export const teams = [
   "Vissel Kobe",
   "Hertha BSC",
   "Racing Club de Lens",
-  "Club de Foot Montréal"
+  "Club de Foot Montréal",
 ];
