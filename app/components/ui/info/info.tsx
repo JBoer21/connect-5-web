@@ -38,7 +38,8 @@ export function HoverHelp() {
         </div>
       </HoverCardTrigger>
       <HoverCardContent>
-        All 5 of these players have played for the same club - the more guesses you get wrong, the easier it gets.
+        All 5 of these players have played for the same club - the more guesses
+        you get wrong, the easier it gets.
       </HoverCardContent>
     </HoverCard>
   );

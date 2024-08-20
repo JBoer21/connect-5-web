@@ -138,4 +138,4 @@ export const teams = [
   "West Ham United",
   "Wolverhampton Wanderers",
   "Zenit St. Petersburg",
-]
+];
