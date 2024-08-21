@@ -85,18 +85,16 @@ export default function Index() {
       </nav>
 
       <div className="px-4">
-        <>
-          <h2 className="mb-4 text-2xl font-bold text-center">
-            {/* Team: {teamName} */}
-          </h2>
-          <PlayerBand
-            players={players.map((player) => ({
-              name: player.name,
-              imageUrl: player.image_url,
-            }))}
-            visible={visibleCards}
-          />
-        </>
+        <h2 className="mb-4 text-2xl font-bold text-center">
+          {/* Team: {teamName} */}
+        </h2>
+        <PlayerBand
+          players={players.map((player) => ({
+            name: player.name,
+            imageUrl: player.image_url,
+          }))}
+          visible={visibleCards}
+        />
       </div>
 
       {isAbleToGuess && (
@@ -126,11 +124,16 @@ export default function Index() {
 
       {isAbleToGuess && attempts > 1 && (
         <div className="flex justify-center">
-          <div className="flex items-center" style={{ width: "600px" }}>
+          <div
+            className="flex items-center p-4 border-2 border-black rounded-lg"
+            style={{ width: "400px" }}
+          >
             <GuessesTable guesses={guesses} />
           </div>
         </div>
       )}
+
+      {!isAbleToGuess && <div className="flex justify-center">{teamName}</div>}
     </div>
   );
 }
