@@ -30,7 +30,13 @@ export const TeamSelect: React.FC<TeamSelectProps> = ({
             <SelectItem
               value={team}
               key={index}
-              className={incorrectGuesses.includes(team) ? "text-red-500" : ""}
+              className={`
+                ${
+                  incorrectGuesses.includes(team)
+                    ? "text-red-500 font-bold hover:text-red-600 hover:font-extrabold"
+                    : ""
+                }
+              `}
             >
               {team}
             </SelectItem>
