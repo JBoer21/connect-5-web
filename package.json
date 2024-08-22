@@ -10,7 +10,8 @@
     "start": "remix-serve ./build/index.js",
     "format": "prettier --write .",
     "typecheck": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "alphabetize-teams": "node alphabetizeTeams.js"
   },
   "dependencies": {
     "@epic-web/client-hints": "^1.2.2",

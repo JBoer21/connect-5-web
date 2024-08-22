@@ -1,26 +1,41 @@
-describe('Testing setup', () => {
-    test('basic test setup is working', () => {
-      expect(true).toBe(true);
-    });
-  
-    test('basic math operations work', () => {
-      expect(1 + 1).toBe(2);
-      expect(5 - 3).toBe(2);
-      expect(2 * 3).toBe(6);
-      expect(10 / 2).toBe(5);
-    });
-  
-    test('string operations work', () => {
-      expect('hello'.length).toBe(5);
-      expect('hello '.trim()).toBe('hello');
-      expect('hello'.toUpperCase()).toBe('HELLO');
-    });
-  
-    test('array operations work', () => {
-      const array = [1, 2, 3];
-      expect(array.length).toBe(3);
-      expect(array.includes(2)).toBe(true);
-      expect(array.indexOf(4)).toBe(-1);
+import { teams } from "./teams";
+
+describe("Teams data is correct", () => {
+  test("Teams array is nonempty", () => {
+    expect(teams.length).toBeGreaterThan(0);
+  });
+
+  test("Teams array contains only strings", () => {
+    teams.forEach((team) => {
+      expect(typeof team).toBe("string");
     });
   });
-  
+
+  test("Teams array has no duplicate entries", () => {
+    const uniqueTeams = new Set(teams);
+    expect(uniqueTeams.size).toBe(teams.length);
+  });
+
+  test("Teams array contains expected teams", () => {
+    const expectedTeams = [
+      "Real Madrid CF",
+      "FC Barcelona",
+      "Manchester United",
+      "Liverpool",
+    ];
+    expectedTeams.forEach((team) => {
+      expect(teams).toContain(team);
+    });
+  });
+
+  test("Teams array has no empty strings", () => {
+    teams.forEach((team) => {
+      expect(team.trim()).not.toBe("");
+    });
+  });
+
+  test("Teams array is sorted alphabetically", () => {
+    const sortedTeams = [...teams].sort((a, b) => a.localeCompare(b));
+    expect(teams).toEqual(sortedTeams);
+  });
+});
