@@ -24,6 +24,7 @@ export default function Index() {
   const [isAbleToGuess, setAbleToGuess] = useState(true);
 
   const [guesses, setGuesses] = useState([]);
+  const [incorrectGuesses, setIncorrectGuesses] = useState<string[]>([]);
 
   const [attempts, setAttempts] = useState(1);
 
@@ -60,6 +61,7 @@ export default function Index() {
       if (visibleCards === 5) {
         setAbleToGuess(false);
       }
+      setIncorrectGuesses([...incorrectGuesses, selectedTeam]);
     }
 
     console.log(guesses);
@@ -91,7 +93,10 @@ export default function Index() {
 
       {isAbleToGuess && (
         <div className="flex items-center justify-center p-6 space-x-4">
-          <TeamSelect onValueChange={setSelectedTeam} />
+          <TeamSelect
+            onValueChange={setSelectedTeam}
+            incorrectGuesses={incorrectGuesses}
+          />
           <Button
             onClick={handleSubmit}
             className="text-white bg-green-500 hover:bg-green-600"

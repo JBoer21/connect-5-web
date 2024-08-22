@@ -12,9 +12,13 @@ import { teams } from "~/data/teams";
 
 interface TeamSelectProps {
   onValueChange: (value: string) => void;
+  incorrectGuesses: string[];
 }
 
-export const TeamSelect: React.FC<TeamSelectProps> = ({ onValueChange }) => {
+export const TeamSelect: React.FC<TeamSelectProps> = ({
+  onValueChange,
+  incorrectGuesses,
+}) => {
   return (
     <Select onValueChange={onValueChange}>
       <SelectTrigger className="w-[250px]">
@@ -23,7 +27,11 @@ export const TeamSelect: React.FC<TeamSelectProps> = ({ onValueChange }) => {
       <SelectContent>
         <SelectGroup>
           {teams.map((team, index) => (
-            <SelectItem value={team} key={index}>
+            <SelectItem
+              value={team}
+              key={index}
+              className={incorrectGuesses.includes(team) ? "text-red-500" : ""}
+            >
               {team}
             </SelectItem>
           ))}
