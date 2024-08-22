@@ -64,9 +64,11 @@ export const teams = [
   "Juventus",
   "KRC Genk",
   "LA Galaxy",
+  "Las Palmas",
   "Lazio",
   "Leeds United",
   "Leicester City",
+  "Lens",
   "Levante Unión Deportiva",
   "Liverpool",
   "LOSC Lille",
@@ -89,7 +91,6 @@ export const teams = [
   "Parma",
   "PSV",
   "Racing Club",
-  "Lens",
   "RB Leipzig",
   "RC Celta de Vigo",
   "RCD Espanyol de Barcelona",
@@ -127,7 +128,6 @@ export const teams = [
   "Toulouse Football Club",
   "TSG Hoffenheim",
   "Udinese",
-  "Las Palmas",
   "Valencia CF",
   "VfB Stuttgart",
   "VfL Wolfsburg",
@@ -137,5 +137,5 @@ export const teams = [
   "West Bromwich Albion",
   "West Ham United",
   "Wolverhampton Wanderers",
-  "Zenit St. Petersburg",
-];
+  "Zenit St. Petersburg"
+]
