@@ -22,7 +22,6 @@ export default function Index() {
   const [selectedTeam, setSelectedTeam] = useState<string>("");
   const [isAbleToGuess, setAbleToGuess] = useState(true);
 
-  const [guesses, setGuesses] = useState([]);
   const [incorrectGuesses, setIncorrectGuesses] = useState<string[]>([]);
 
   const [attempts, setAttempts] = useState(1);
@@ -40,7 +39,6 @@ export default function Index() {
     }
 
     setAttempts(attempts + 1);
-    setGuesses([...guesses, selectedTeam]);
 
     if (selectedTeam === teamName) {
       toast({
@@ -62,8 +60,6 @@ export default function Index() {
       }
       setIncorrectGuesses([...incorrectGuesses, selectedTeam]);
     }
-
-    console.log(guesses);
   };
 
   return (
