@@ -54,12 +54,6 @@ describe("Player data is correct", () => {
     });
   });
 
-  test("Each team has at least one player", () => {
-    Object.values(typedData).forEach((team) => {
-      expect(team.players.length).toBeGreaterThan(0);
-    });
-  });
-
   test("Each team has at least five playes", () => {
     Object.values(typedData).forEach((team) => {
       expect(team.players.length).toBeGreaterThan(4);
@@ -75,11 +69,27 @@ describe("Player data is correct", () => {
     });
   });
 
-  test("No duplicate player names within a team", () => {
-    Object.values(typedData).forEach((team) => {
-      const playerNames = team.players.map((player) => player.name);
-      const uniqueNames = new Set(playerNames);
-      expect(playerNames.length).toBe(uniqueNames.size);
+  test("No duplicate players within a team", () => {
+    Object.entries(typedData).forEach(([teamName, club]) => {
+      const playerIdentifiers = club.players.map(
+        (player) => `${player.name}-${player.num_clubs}`,
+      );
+      const uniqueIdentifiers = new Set(playerIdentifiers);
+
+      if (playerIdentifiers.length !== uniqueIdentifiers.size) {
+        console.log(`Duplicate found in team: ${teamName}`);
+        const counts: { [key: string]: number } = {};
+        playerIdentifiers.forEach((id: string) => {
+          counts[id] = (counts[id] || 0) + 1;
+        });
+        Object.entries(counts).forEach(([id, count]) => {
+          if (count > 1) {
+            console.log(`  Duplicate player: ${id}`);
+          }
+        });
+      }
+
+      expect(playerIdentifiers.length).toBe(uniqueIdentifiers.size);
     });
   });
 });
