@@ -265,6 +265,16 @@
     "logo": "https://cdn.sofifa.net/teams/241/60.png",
     "players": [
       {
+        "name": "G. dos Santos",
+        "image_url": "https://cdn.sofifa.net/players/170/369/18_120.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "E. Gudjohnsen",
+        "image_url": "https://cdn.sofifa.net/players/005/744/16_240.png",
+        "num_clubs": 5
+      },
+      {
         "name": "Z. Ibrahimovic",
         "image_url": "https://cdn.sofifa.net/players/041/236/22_120.png",
         "num_clubs": 7
@@ -696,6 +706,11 @@
     "name": "Manchester United",
     "logo": "https://cdn.sofifa.net/teams/11/60.png",
     "players": [
+      {
+        "name": "G. Rossi",
+        "image_url": "https://cdn.sofifa.net/players/162/409/17_120.png",
+        "num_clubs": 2
+      },
       {
         "name": "Z. Ibrahimovic",
         "image_url": "https://cdn.sofifa.net/players/041/236/22_120.png",
@@ -1405,6 +1420,16 @@
     "logo": "https://cdn.sofifa.net/teams/10/60.png",
     "players": [
       {
+        "name": "T. Adarabioyo",
+        "image_url": "https://cdn.sofifa.net/players/222/104/24_240.png",
+        "num_clubs": 6
+      },
+      {
+        "name": "S. Sinclair",
+        "image_url": "https://cdn.sofifa.net/players/204/529/20_120.png",
+        "num_clubs": 6
+      },
+      {
         "name": "E. Adebayor",
         "image_url": "https://cdn.sofifa.net/players/053/050/19_120.png",
         "num_clubs": 7
@@ -1646,6 +1671,11 @@
     "logo": "https://cdn.sofifa.net/teams/175/60.png",
     "players": [
       {
+        "name": "K. De Bruyne",
+        "image_url": "https://cdn.sofifa.net/players/192/985/22_120.png",
+        "num_clubs": 1
+      },
+      {
         "name": "Nicklas Bendtner",
         "image_url": "https://futhead.cursecdn.com/static/img/19/players/167706.png",
         "num_clubs": 5
@@ -1796,6 +1826,11 @@
     "name": "Atl\u00e9tico de Madrid",
     "logo": "https://cdn.sofifa.net/teams/240/60.png",
     "players": [
+      {
+        "name": "L. Torreira",
+        "image_url": "https://cdn.sofifa.net/players/223/959/22_120.png",
+        "num_clubs": 3
+      },
       {
         "name": "T. Motta",
         "image_url": "https://cdn.sofifa.net/players/049/370/18_120.png",
@@ -2043,6 +2078,21 @@
     "logo": "https://cdn.sofifa.net/teams/69/60.png",
     "players": [
       {
+        "name": "Vinicius",
+        "image_url": "https://cdn.sofifa.net/players/244/621/21_120.png",
+        "num_clubs": 4
+      },
+      {
+        "name": "E. Gudjohnsen",
+        "image_url": "https://cdn.sofifa.net/players/005/744/16_240.png",
+        "num_clubs": 5
+      },
+      {
+        "name": "E. Abidal",
+        "image_url": "https://cdn.sofifa.net/players/141/645/15_240.png",
+        "num_clubs": 5
+      },
+      {
         "name": "E. Adebayor",
         "image_url": "https://cdn.sofifa.net/players/053/050/19_120.png",
         "num_clubs": 7
@@ -2254,6 +2304,21 @@
     "logo": "https://cdn.sofifa.net/teams/18/60.png",
     "players": [
       {
+        "name": "D. Yedlin",
+        "image_url": "https://cdn.sofifa.net/players/212/722/22_240.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "G. dos Santos",
+        "image_url": "https://cdn.sofifa.net/players/170/369/18_120.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "E. Gudjohnsen",
+        "image_url": "https://cdn.sofifa.net/players/005/744/16_240.png",
+        "num_clubs": 5
+      },
+      {
         "name": "K. Boateng",
         "image_url": "https://cdn.sofifa.net/players/173/909/20_120.png",
         "num_clubs": 8
@@ -2455,7 +2520,7 @@
     "logo": "https://cdn.sofifa.net/teams/5/60.png",
     "players": [
       {
-        "name": "M. Batshuayi",
+        "name": "S. Sinclair",
         "image_url": "https://cdn.sofifa.net/players/204/529/20_120.png",
         "num_clubs": 6
       },
@@ -3477,6 +3542,11 @@
     "logo": "https://cdn.sofifa.net/teams/78/60.png",
     "players": [
       {
+        "name": "S. Sinclair",
+        "image_url": "https://cdn.sofifa.net/players/204/529/20_120.png",
+        "num_clubs": 6
+      },
+      {
         "name": "J. Denayer",
         "image_url": "https://cdn.sofifa.net/players/220/182/22_120.png",
         "num_clubs": 5
@@ -3532,6 +3602,11 @@
     "name": "Roma",
     "logo": "https://cdn.sofifa.net/teams/52/60.png",
     "players": [
+      {
+        "name": "M. Bradley",
+        "image_url": "https://cdn.sofifa.net/players/155/887/24_240.png",
+        "num_clubs": 6
+      },
       {
         "name": "Emerson",
         "image_url": "https://cdn.sofifa.net/players/210/736/21_120.png",
@@ -4337,11 +4412,6 @@
         "num_clubs": 5
       },
       {
-        "name": "M. Arnautovic",
-        "image_url": "https://cdn.sofifa.net/players/184/200/22_120.png",
-        "num_clubs": 5
-      },
-      {
         "name": "X. Shaqiri",
         "image_url": "https://cdn.sofifa.net/players/193/348/22_120.png",
         "num_clubs": 5
@@ -4617,6 +4687,11 @@
     "name": "Everton",
     "logo": "https://cdn.sofifa.net/teams/7/60.png",
     "players": [
+      {
+        "name": "L. Saha",
+        "image_url": "https://cdn.sofifa.net/players/003/912/13_240.png",
+        "num_clubs": 2
+      },
       {
         "name": "L. Digne",
         "image_url": "https://cdn.sofifa.net/players/200/458/22_120.png",
@@ -5538,6 +5613,11 @@
     "name": "Lazio",
     "logo": "https://cdn.sofifa.net/teams/46/60.png",
     "players": [
+      {
+        "name": "L. Saha",
+        "image_url": "https://cdn.sofifa.net/players/003/912/13_240.png",
+        "num_clubs": 2
+      },
       {
         "name": "Felipe Caicedo",
         "image_url": "https://futhead.cursecdn.com/static/img/15/players/175254.png",
@@ -7475,11 +7555,6 @@
         "num_clubs": 2
       },
       {
-        "name": "Granero",
-        "image_url": "https://cdn.sofifa.net/players/178/085/20_120.png",
-        "num_clubs": 2
-      },
-      {
         "name": "Gerard Moreno",
         "image_url": "https://cdn.sofifa.net/players/208/093/22_120.png",
         "num_clubs": 2
@@ -7505,11 +7580,6 @@
         "num_clubs": 1
       },
       {
-        "name": "Melendo",
-        "image_url": "https://cdn.sofifa.net/players/236/679/20_120.png",
-        "num_clubs": 1
-      },
-      {
         "name": "Embarba",
         "image_url": "https://cdn.sofifa.net/players/219/953/22_120.png",
         "num_clubs": 1
@@ -7517,11 +7587,6 @@
       {
         "name": "Lucas Vazquez",
         "image_url": "https://cdn.sofifa.net/players/208/618/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "Loren",
-        "image_url": "https://cdn.sofifa.net/players/242/348/20_120.png",
         "num_clubs": 1
       }
     ]
@@ -7632,6 +7697,11 @@
     "logo": "https://cdn.sofifa.net/teams/457/60.png",
     "players": [
       {
+        "name": "C. Bravo",
+        "image_url": "https://cdn.sofifa.net/players/174/543/19_120.png",
+        "num_clubs": 3
+      },
+      {
         "name": "Bruma",
         "image_url": "https://cdn.sofifa.net/players/211/368/19_120.png",
         "num_clubs": 5
@@ -7692,11 +7762,6 @@
         "num_clubs": 3
       },
       {
-        "name": "Merino",
-        "image_url": "https://cdn.sofifa.net/players/225/193/22_120.png",
-        "num_clubs": 3
-      },
-      {
         "name": "Odriozola",
         "image_url": "https://cdn.sofifa.net/players/234/035/22_120.png",
         "num_clubs": 3
@@ -7727,104 +7792,14 @@
         "num_clubs": 2
       },
       {
-        "name": "Jonathas",
-        "image_url": "https://cdn.sofifa.net/players/189/169/18_120.png",
-        "num_clubs": 2
-      },
-      {
         "name": "T. Hernandez",
         "image_url": "https://cdn.sofifa.net/players/232/656/22_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "Portu",
-        "image_url": "https://cdn.sofifa.net/players/205/070/22_120.png",
         "num_clubs": 2
       },
       {
         "name": "A. Isak",
         "image_url": "https://cdn.sofifa.net/players/233/731/22_120.png",
         "num_clubs": 2
-      },
-      {
-        "name": "Ruben Pardo",
-        "image_url": "https://cdn.sofifa.net/players/204/523/18_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "Mikel Gonzalez",
-        "image_url": "https://cdn.sofifa.net/players/172/294/15_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "Moya",
-        "image_url": "https://cdn.sofifa.net/players/110/677/20_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "Illarramendi",
-        "image_url": "https://cdn.sofifa.net/players/190/584/22_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "Granero",
-        "image_url": "https://cdn.sofifa.net/players/178/085/20_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "Inigo Martinez",
-        "image_url": "https://cdn.sofifa.net/players/204/525/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "Zaldua",
-        "image_url": "https://cdn.sofifa.net/players/220/132/21_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "Nacho Monreal",
-        "image_url": "https://cdn.sofifa.net/players/177/604/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "R. Le Normand",
-        "image_url": "https://cdn.sofifa.net/players/233/486/23_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "Xabi Prieto",
-        "image_url": "https://cdn.sofifa.net/players/146/482/18_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "Aritz Elustondo",
-        "image_url": "https://cdn.sofifa.net/players/226/221/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "Oyarzabal",
-        "image_url": "https://cdn.sofifa.net/players/230/142/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "Zubeldia",
-        "image_url": "https://cdn.sofifa.net/players/233/738/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "D. Zurutuza",
-        "image_url": "https://cdn.sofifa.net/players/172/290/18_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "Agirretxe",
-        "image_url": "https://cdn.sofifa.net/players/161/793/17_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "Zubimendi",
-        "image_url": "https://cdn.sofifa.net/players/248/148/23_120.png",
-        "num_clubs": 1
       }
     ]
   },
@@ -7832,6 +7807,16 @@
     "name": "Borussia M\u00f6nchengladbach",
     "logo": "https://cdn.sofifa.net/teams/23/60.png",
     "players": [
+      {
+        "name": "L. de Jong",
+        "image_url": "https://cdn.sofifa.net/players/189/805/22_120.png",
+        "num_clubs": 3
+      },
+      {
+        "name": "M. Bradley",
+        "image_url": "https://cdn.sofifa.net/players/155/887/24_240.png",
+        "num_clubs": 6
+      },
       {
         "name": "V. Lazaro",
         "image_url": "https://cdn.sofifa.net/players/211/147/21_120.png",
@@ -8009,6 +7994,11 @@
     "logo": "https://cdn.sofifa.net/teams/191/60.png",
     "players": [
       {
+        "name": "T. Minamino",
+        "image_url": "https://sofifa.com/player/226627/takumi-minamino/240048",
+        "num_clubs": 6
+      },
+      {
         "name": "V. Lazaro",
         "image_url": "https://cdn.sofifa.net/players/211/147/21_120.png",
         "num_clubs": 6
@@ -8089,6 +8079,11 @@
     "name": "Olympique Lyonnais",
     "logo": "https://cdn.sofifa.net/teams/66/60.png",
     "players": [
+      {
+        "name": "E. Abidal",
+        "image_url": "https://cdn.sofifa.net/players/141/645/15_240.png",
+        "num_clubs": 5
+      },
       {
         "name": "Emerson",
         "image_url": "https://cdn.sofifa.net/players/210/736/21_120.png",
@@ -8285,28 +8280,8 @@
         "num_clubs": 1
       },
       {
-        "name": "A. Lacazette",
-        "image_url": "https://cdn.sofifa.net/players/193/301/22_120.png",
-        "num_clubs": 1
-      },
-      {
         "name": "Bruno Guimaraes",
         "image_url": "https://cdn.sofifa.net/players/247/851/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "H. Aouar",
-        "image_url": "https://cdn.sofifa.net/players/234/906/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "A. Lopes",
-        "image_url": "https://cdn.sofifa.net/players/199/482/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "M. Caqueret",
-        "image_url": "https://cdn.sofifa.net/players/246/646/23_120.png",
         "num_clubs": 1
       }
     ]
@@ -8315,6 +8290,21 @@
     "name": "PSV",
     "logo": "https://cdn.sofifa.net/teams/247/60.png",
     "players": [
+      {
+        "name": "Park Ji-sung",
+        "image_url": "https://cdn.sofifa.net/players/039/943/14_240.png",
+        "num_clubs": 3
+      },
+      {
+        "name": "R. Rodriguez",
+        "image_url": "https://cdn.sofifa.net/players/193/352/20_120.png",
+        "num_clubs": 3
+      },
+      {
+        "name": "E. Gudjohnsen",
+        "image_url": "https://cdn.sofifa.net/players/005/744/16_240.png",
+        "num_clubs": 5
+      },
       {
         "name": "G. Wijnaldum",
         "image_url": "https://cdn.sofifa.net/players/181/291/22_120.png",
@@ -8462,6 +8452,26 @@
     "logo": "https://cdn.sofifa.net/teams/38/60.png",
     "players": [
       {
+        "name": "M. Arnautovic",
+        "image_url": "https://cdn.sofifa.net/players/184/200/22_120.png",
+        "num_clubs": 5
+      },
+      {
+        "name": "P. Mertesacker",
+        "image_url": "https://cdn.sofifa.net/players/053/612/18_120.png",
+        "num_clubs": 1
+      },
+      {
+        "name": "M. Klose",
+        "image_url": "https://cdn.sofifa.net/players/011/141/16_120.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "K. De Bruyne",
+        "image_url": "https://cdn.sofifa.net/players/192/985/22_120.png",
+        "num_clubs": 1
+      },
+      {
         "name": "M. Kruse",
         "image_url": "https://cdn.sofifa.net/players/183/574/22_120.png",
         "num_clubs": 5
@@ -8537,11 +8547,6 @@
         "num_clubs": 2
       },
       {
-        "name": "L. Sane",
-        "image_url": "https://cdn.sofifa.net/players/192/333/17_120.png",
-        "num_clubs": 2
-      },
-      {
         "name": "O. Toprak",
         "image_url": "https://cdn.sofifa.net/players/185/239/20_120.png",
         "num_clubs": 2
@@ -8565,21 +8570,6 @@
         "name": "Z. Junuzovic",
         "image_url": "https://cdn.sofifa.net/players/173/474/18_120.png",
         "num_clubs": 2
-      },
-      {
-        "name": "N. Petersen",
-        "image_url": "https://cdn.sofifa.net/players/183/580/19_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "M. Eggestein",
-        "image_url": "https://cdn.sofifa.net/players/226/168/20_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "J. Pavlenka",
-        "image_url": "https://cdn.sofifa.net/players/236/583/22_120.png",
-        "num_clubs": 1
       }
     ]
   },
@@ -8587,6 +8577,16 @@
     "name": "West Bromwich Albion",
     "logo": "https://cdn.sofifa.net/teams/109/60.png",
     "players": [
+      {
+        "name": "T. Adarabioyo",
+        "image_url": "https://cdn.sofifa.net/players/222/104/24_240.png",
+        "num_clubs": 6
+      },
+      {
+        "name": "S. Sinclair",
+        "image_url": "https://cdn.sofifa.net/players/204/529/20_120.png",
+        "num_clubs": 6
+      },
       {
         "name": "Nicolas Anelka",
         "image_url": "https://futhead.cursecdn.com/static/img/14/players/5809.png",
@@ -8834,8 +8834,28 @@
   },
   "Galatasaray SK": {
     "name": "Galatasaray SK",
-    "logo": "Galatasaray SK",
+    "logo": "https://cdn.sofifa.net/meta/team/34/60.png",
     "players": [
+      {
+        "name": "Vinicius",
+        "image_url": "https://cdn.sofifa.net/players/244/621/21_120.png",
+        "num_clubs": 4
+      },
+      {
+        "name": "D. Yedlin",
+        "image_url": "https://cdn.sofifa.net/players/212/722/22_240.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "G. dos Santos",
+        "image_url": "https://cdn.sofifa.net/players/170/369/18_120.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "D. Drogba",
+        "image_url": "https://cdn.sofifa.net/players/031/432/17_120.png",
+        "num_clubs": 1
+      },
       {
         "name": "J. Denayer",
         "image_url": "https://cdn.sofifa.net/players/220/182/22_120.png",
@@ -8990,26 +9010,6 @@
         "name": "L. Torreira",
         "image_url": "https://cdn.sofifa.net/players/223/959/23_120.png",
         "num_clubs": 1
-      },
-      {
-        "name": "E. Colak",
-        "image_url": "https://cdn.sofifa.net/players/199/952/18_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "S. Kaya",
-        "image_url": "https://cdn.sofifa.net/players/167/812/15_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "S. Inan",
-        "image_url": "https://cdn.sofifa.net/players/124/607/17_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "F. Muslera",
-        "image_url": "https://cdn.sofifa.net/players/182/494/22_120.png",
-        "num_clubs": 1
       }
     ]
   },
@@ -9017,6 +9017,26 @@
     "name": "Newcastle United",
     "logo": "https://cdn.sofifa.net/teams/13/60.png",
     "players": [
+      {
+        "name": "L. Saha",
+        "image_url": "https://cdn.sofifa.net/players/003/912/13_240.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "G. Rossi",
+        "image_url": "https://cdn.sofifa.net/players/162/409/17_120.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "D. Yedlin",
+        "image_url": "https://cdn.sofifa.net/players/212/722/22_240.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "L. de Jong",
+        "image_url": "https://cdn.sofifa.net/players/189/805/22_120.png",
+        "num_clubs": 3
+      },
       {
         "name": "Joselu",
         "image_url": "https://cdn.sofifa.net/players/173/608/23_120.png",
@@ -9078,11 +9098,6 @@
         "num_clubs": 3
       },
       {
-        "name": "M. Sissoko",
-        "image_url": "https://cdn.sofifa.net/players/183/394/21_120.png",
-        "num_clubs": 3
-      },
-      {
         "name": "L. Karius",
         "image_url": "https://cdn.sofifa.net/players/203/775/20_120.png",
         "num_clubs": 3
@@ -9105,11 +9120,6 @@
       {
         "name": "M. Sels",
         "image_url": "https://cdn.sofifa.net/players/199/641/21_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "F. Coloccini",
-        "image_url": "https://cdn.sofifa.net/players/048/745/16_120.png",
         "num_clubs": 2
       },
       {
@@ -9487,6 +9497,16 @@
     "name": "Aston Villa",
     "logo": "Aston Villa",
     "players": [
+      {
+        "name": "S. Sinclair",
+        "image_url": "https://cdn.sofifa.net/players/204/529/20_120.png",
+        "num_clubs": 6
+      },
+      {
+        "name": "M. Bradley",
+        "image_url": "https://cdn.sofifa.net/players/155/887/24_240.png",
+        "num_clubs": 6
+      },
       {
         "name": "Scott Carson",
         "image_url": "https://futhead.cursecdn.com/static/img/17/players/157804.png",
@@ -10522,6 +10542,11 @@
     "logo": "https://cdn.sofifa.net/teams/65/60.png",
     "players": [
       {
+        "name": "E. Abidal",
+        "image_url": "https://cdn.sofifa.net/players/141/645/15_240.png",
+        "num_clubs": 5
+      },
+      {
         "name": "Rony Lopes",
         "image_url": "https://cdn.sofifa.net/players/212/692/20_120.png",
         "num_clubs": 6
@@ -11309,6 +11334,16 @@
     "logo": "Fulham",
     "players": [
       {
+        "name": "L. Saha",
+        "image_url": "https://cdn.sofifa.net/players/003/912/13_240.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "E. Gudjohnsen",
+        "image_url": "https://cdn.sofifa.net/players/005/744/16_240.png",
+        "num_clubs": 5
+      },
+      {
         "name": "A. Taarabt",
         "image_url": "https://cdn.sofifa.net/players/179/605/16_120.png",
         "num_clubs": 5
@@ -11404,6 +11439,16 @@
     "name": "Sunderland",
     "logo": "https://cdn.sofifa.net/teams/106/60.png",
     "players": [
+      {
+        "name": "L. Saha",
+        "image_url": "https://cdn.sofifa.net/players/003/912/13_240.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "D. Yedlin",
+        "image_url": "https://cdn.sofifa.net/players/212/722/22_240.png",
+        "num_clubs": 2
+      },
       {
         "name": "Nicklas Bendtner",
         "image_url": "https://futhead.cursecdn.com/static/img/19/players/167706.png",
@@ -11792,6 +11837,11 @@
     "name": "Genoa",
     "logo": "https://cdn.sofifa.net/teams/110556/60.png",
     "players": [
+      {
+        "name": "G. Rossi",
+        "image_url": "https://cdn.sofifa.net/players/162/409/17_120.png",
+        "num_clubs": 2
+      },
       {
         "name": "Felipe Caicedo",
         "image_url": "https://futhead.cursecdn.com/static/img/15/players/175254.png",
@@ -12221,6 +12271,11 @@
     "name": "Crystal Palace",
     "logo": "https://cdn.sofifa.net/teams/1799/60.png",
     "players": [
+      {
+        "name": "S. Sinclair",
+        "image_url": "https://cdn.sofifa.net/players/204/529/20_120.png",
+        "num_clubs": 6
+      },
       {
         "name": "E. Adebayor",
         "image_url": "https://cdn.sofifa.net/players/053/050/19_120.png",
@@ -12811,6 +12866,11 @@
     "name": "Swansea City",
     "logo": "https://cdn.sofifa.net/teams/1960/60.png",
     "players": [
+      {
+        "name": "S. Sinclair",
+        "image_url": "https://cdn.sofifa.net/players/204/529/20_120.png",
+        "num_clubs": 6
+      },
       {
         "name": "Llorente",
         "image_url": "https://cdn.sofifa.net/players/162/131/17_120.png",
@@ -13598,6 +13658,11 @@
     "logo": "https://cdn.sofifa.net/teams/1913/60.png",
     "players": [
       {
+        "name": "M. Bradley",
+        "image_url": "https://cdn.sofifa.net/players/155/887/24_240.png",
+        "num_clubs": 6
+      },
+      {
         "name": "M. Uth",
         "image_url": "https://cdn.sofifa.net/players/200/318/19_120.png",
         "num_clubs": 3
@@ -14086,6 +14151,11 @@
     "logo": "https://cdn.sofifa.net/teams/112893/60.png",
     "players": [
       {
+        "name": "D. Yedlin",
+        "image_url": "https://cdn.sofifa.net/players/212/722/22_240.png",
+        "num_clubs": 2
+      },
+      {
         "name": "G. Higuain",
         "image_url": "https://cdn.sofifa.net/players/167/664/22_120.png",
         "num_clubs": 4
@@ -14198,6 +14268,11 @@
     "name": "Stoke City",
     "logo": "https://cdn.sofifa.net/teams/1806/60.png",
     "players": [
+      {
+        "name": "E. Gudjohnsen",
+        "image_url": "https://cdn.sofifa.net/players/005/744/16_240.png",
+        "num_clubs": 5
+      },
       {
         "name": "Joselu",
         "image_url": "https://cdn.sofifa.net/players/173/608/23_120.png",
@@ -14684,6 +14759,11 @@
     "name": "Olympiacos CFP",
     "logo": "https://cdn.sofifa.net/teams/280/60.png",
     "players": [
+      {
+        "name": "E. Abidal",
+        "image_url": "https://cdn.sofifa.net/players/141/645/15_240.png",
+        "num_clubs": 5
+      },
       {
         "name": "Rony Lopes",
         "image_url": "https://cdn.sofifa.net/players/212/692/20_120.png",
@@ -15309,6 +15389,11 @@
     "name": "Club Brugge KV",
     "logo": "https://cdn.sofifa.net/teams/231/60.png",
     "players": [
+      {
+        "name": "E. Gudjohnsen",
+        "image_url": "https://cdn.sofifa.net/players/005/744/16_240.png",
+        "num_clubs": 5
+      },
       {
         "name": "K. Vermeer",
         "image_url": "https://cdn.sofifa.net/players/169/181/17_120.png",
