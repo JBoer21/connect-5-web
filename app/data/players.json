@@ -481,6 +481,11 @@
     "logo": "https://cdn.sofifa.net/teams/21/60.png",
     "players": [
       {
+        "name": "D. Blind",
+        "image_url": "https://cdn.sofifa.net/players/190/815/22_120.png",
+        "num_clubs": 2
+      },
+      {
         "name": "M. Klose",
         "image_url": "https://cdn.sofifa.net/players/011/141/16_120.png",
         "num_clubs": 1
@@ -943,6 +948,11 @@
     "logo": "https://cdn.sofifa.net/teams/45/60.png",
     "players": [
       {
+        "name": "A. Di Maria",
+        "image_url": "https://cdn.sofifa.net/players/183/898/22_120.png",
+        "num_clubs": 4
+      },
+      {
         "name": "Ian Rush",
         "image_url": "https://cdn.futbin.com/content/fifa23/img/players/247704.png?v=23",
         "num_clubs": 4
@@ -1209,6 +1219,11 @@
     "logo": "https://cdn.sofifa.net/teams/243/60.png",
     "players": [
       {
+        "name": "E. Adebayor",
+        "image_url": "https://cdn.sofifa.net/players/053/050/19_120.png",
+        "num_clubs": 2
+      },
+      {
         "name": "Soldado",
         "image_url": "https://cdn.sofifa.net/players/146/758/17_120.png",
         "num_clubs": 5
@@ -1434,6 +1449,11 @@
     "name": "Manchester City",
     "logo": "https://cdn.sofifa.net/teams/10/60.png",
     "players": [
+      {
+        "name": "E. Adebayor",
+        "image_url": "https://cdn.sofifa.net/players/053/050/19_120.png",
+        "num_clubs": 2
+      },
       {
         "name": "M. Balotelli",
         "image_url": "https://cdn.sofifa.net/players/186/627/20_120.png",
@@ -2113,6 +2133,16 @@
     "logo": "https://cdn.sofifa.net/teams/69/60.png",
     "players": [
       {
+        "name": "E. Adebayor",
+        "image_url": "https://cdn.sofifa.net/players/053/050/19_120.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "S. Romero",
+        "image_url": "https://cdn.sofifa.net/players/173/373/21_120.png",
+        "num_clubs": 2
+      },
+      {
         "name": "David Trezeguet",
         "image_url": "https://cdn.futbin.com/content/fifa23/img/players/242860.png?v=23",
         "num_clubs": 5
@@ -2336,6 +2366,11 @@
         "name": "A. Raggi",
         "image_url": "https://cdn.sofifa.net/players/163/407/16_120.png",
         "num_clubs": 1
+      },
+      {
+        "name": "P. Evra",
+        "image_url": "https://cdn.sofifa.net/players/052/091/18_120.png",
+        "num_clubs": 2
       }
     ]
   },
@@ -3161,6 +3196,11 @@
         "name": "S. Kiessling",
         "image_url": "https://cdn.sofifa.net/players/137/262/16_120.png",
         "num_clubs": 1
+      },
+      {
+        "name": "D. Berbatov",
+        "image_url": "https://cdn.sofifa.net/players/030/110/15_120.png",
+        "num_clubs": 1
       }
     ]
   },
@@ -3565,6 +3605,11 @@
     "name": "Southampton",
     "logo": "https://cdn.sofifa.net/teams/17/60.png",
     "players": [
+      {
+        "name": "P. Crouch",
+        "image_url": "https://cdn.sofifa.net/players/051/257/17_240.png",
+        "num_clubs": 2
+      },
       {
         "name": "G. Bale",
         "image_url": "https://cdn.sofifa.net/players/173/731/23_120.png",
@@ -3999,11 +4044,6 @@
     "logo": "https://cdn.sofifa.net/teams/234/60.png",
     "players": [
       {
-        "name": "Eusebio",
-        "image_url": "https://cdn.futbin.com/content/fifa23/img/players/242520.png?v=23",
-        "num_clubs": 1
-      },
-      {
         "name": "Nolito",
         "image_url": "https://cdn.sofifa.net/players/199/561/19_120.png",
         "num_clubs": 4
@@ -4285,6 +4325,11 @@
     "name": "AC Milan",
     "logo": "https://cdn.sofifa.net/teams/47/60.png",
     "players": [
+      {
+        "name": "Y. Gourcuff",
+        "image_url": "https://cdn.sofifa.net/players/153/296/17_120.png",
+        "num_clubs": 3
+      },
       {
         "name": "A. Taarabt",
         "image_url": "https://cdn.sofifa.net/players/179/605/16_120.png",
@@ -5437,6 +5482,11 @@
     "logo": "https://cdn.sofifa.net/teams/22/60.png",
     "players": [
       {
+        "name": "M. Batshuayi",
+        "image_url": "https://cdn.sofifa.net/players/204/529/20_120.png",
+        "num_clubs": 5
+      },
+      {
         "name": "S. Pienaar",
         "image_url": "https://cdn.sofifa.net/players/050/327/15_120.png",
         "num_clubs": 2
@@ -5617,6 +5667,16 @@
     "name": "Arsenal",
     "logo": "https://cdn.sofifa.net/teams/1/60.png",
     "players": [
+      {
+        "name": "E. Adebayor",
+        "image_url": "https://cdn.sofifa.net/players/053/050/19_120.png",
+        "num_clubs": 2
+      },
+      {
+        "name": "T. Vermaelen",
+        "image_url": "https://cdn.sofifa.net/players/157/304/17_120.png",
+        "num_clubs": 3
+      },
       {
         "name": "A. Song",
         "image_url": "https://cdn.sofifa.net/players/157/503/16_120.png",
@@ -6707,6 +6767,11 @@
         "name": "J. Timber",
         "image_url": "https://cdn.sofifa.net/players/251/805/23_120.png",
         "num_clubs": 1
+      },
+      {
+        "name": "T. Vermaelen",
+        "image_url": "https://cdn.sofifa.net/players/157/304/17_120.png",
+        "num_clubs": 3
       }
     ]
   },
@@ -6745,6 +6810,11 @@
     "name": "Villarreal CF",
     "logo": "https://cdn.sofifa.net/teams/483/60.png",
     "players": [
+      {
+        "name": "A. Valencia",
+        "image_url": "https://cdn.sofifa.net/players/167/905/19_120.png",
+        "num_clubs": 1
+      },
       {
         "name": "Jozy Altidore",
         "image_url": "https://futhead.cursecdn.com/static/img/19/players/176237.png",
@@ -9555,6 +9625,11 @@
     "logo": "https://cdn.sofifa.net/teams/1796/60.png",
     "players": [
       {
+        "name": "P. Crouch",
+        "image_url": "https://cdn.sofifa.net/players/051/257/17_240.png",
+        "num_clubs": 2
+      },
+      {
         "name": "Wayne Hennessey",
         "image_url": "https://futhead.cursecdn.com/static/img/21/players/170084.png",
         "num_clubs": 5
@@ -9903,6 +9978,11 @@
     "name": "Aston Villa",
     "logo": "Aston Villa",
     "players": [
+      {
+        "name": "P. Crouch",
+        "image_url": "https://cdn.sofifa.net/players/051/257/17_240.png",
+        "num_clubs": 2
+      },
       {
         "name": "Stewart Downing",
         "image_url": "https://futhead.cursecdn.com/static/img/20/players/54013.png",
@@ -11096,6 +11176,11 @@
         "name": "Z. Celik",
         "image_url": "https://cdn.sofifa.net/players/224/490/22_120.png",
         "num_clubs": 1
+      },
+      {
+        "name": "Timothy Weah",
+        "image_url": "https://cdn.sofifa.net/players/241/496/22_120.png",
+        "num_clubs": 1
       }
     ]
   },
@@ -11798,6 +11883,11 @@
         "name": "B. Ruiz",
         "image_url": "https://cdn.sofifa.net/players/176/949/17_120.png",
         "num_clubs": 2
+      },
+      {
+        "name": "D. Berbatov",
+        "image_url": "https://cdn.sofifa.net/players/030/110/15_120.png",
+        "num_clubs": 1
       }
     ]
   },
@@ -12547,6 +12637,16 @@
     "logo": "https://cdn.sofifa.net/teams/1906/60.png",
     "players": [
       {
+        "name": "R. Klavan",
+        "image_url": "https://cdn.sofifa.net/players/140/620/17_120.png",
+        "num_clubs": 3
+      },
+      {
+        "name": "S. Romero",
+        "image_url": "https://cdn.sofifa.net/players/173/373/21_120.png",
+        "num_clubs": 2
+      },
+      {
         "name": "Jozy Altidore",
         "image_url": "https://futhead.cursecdn.com/static/img/19/players/176237.png",
         "num_clubs": 2
@@ -12602,6 +12702,11 @@
     "name": "Crystal Palace",
     "logo": "https://cdn.sofifa.net/teams/1799/60.png",
     "players": [
+      {
+        "name": "E. Adebayor",
+        "image_url": "https://cdn.sofifa.net/players/053/050/19_120.png",
+        "num_clubs": 2
+      },
       {
         "name": "Glenn Murray",
         "image_url": "https://cdn.sofifa.net/players/172/937/17_120.png",
@@ -13568,6 +13673,11 @@
     "logo": "AFC Bournemouth",
     "players": [
       {
+        "name": "A. Danjuma",
+        "image_url": "https://cdn.sofifa.net/players/236/276/23_120.png",
+        "num_clubs": 1
+      },
+      {
         "name": "Glenn Murray",
         "image_url": "https://cdn.sofifa.net/players/172/937/17_120.png",
         "num_clubs": 5
@@ -13735,6 +13845,11 @@
     "logo": "https://cdn.sofifa.net/teams/1819/60.png",
     "players": [
       {
+        "name": "K. Zouma",
+        "image_url": "https://cdn.sofifa.net/players/204/311/22_120.png",
+        "num_clubs": 4
+      },
+      {
         "name": "B. Matuidi",
         "image_url": "https://cdn.sofifa.net/players/170/890/22_120.png",
         "num_clubs": 3
@@ -13793,21 +13908,6 @@
         "name": "M. Debuchy",
         "image_url": "https://cdn.sofifa.net/players/158/626/20_120.png",
         "num_clubs": 3
-      },
-      {
-        "name": "R. Hamouma",
-        "image_url": "https://cdn.sofifa.net/players/192/722/16_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "L. Perrin",
-        "image_url": "https://cdn.sofifa.net/players/159/147/20_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "S. Ruffier",
-        "image_url": "https://cdn.sofifa.net/players/167/628/21_120.png",
-        "num_clubs": 1
       }
     ]
   },
