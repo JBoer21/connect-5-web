@@ -53,4 +53,35 @@ describe("Player data is correct", () => {
       expect(teams).toContain(club.name);
     });
   });
+
+  test("Each team has at least one player", () => {
+    Object.values(typedData).forEach((team) => {
+      expect(team.players.length).toBeGreaterThan(0);
+    });
+  });
+
+  test("Each team has at least five playes", () => {
+    Object.values(typedData).forEach((team) => {
+      expect(team.players.length).toBeGreaterThan(4);
+    });
+  });
+
+  test("Player names are non-empty strings", () => {
+    Object.values(typedData).forEach((team) => {
+      team.players.forEach((player) => {
+        expect(typeof player.name).toBe("string");
+        expect(player.name.trim()).not.toBe("");
+      });
+    });
+  });
+
+  test("No duplicate player names within a team", () => {
+    Object.values(typedData).forEach((team) => {
+      const playerNames = team.players.map(player => player.name);
+      const uniqueNames = new Set(playerNames);
+      expect(playerNames.length).toBe(uniqueNames.size);
+    });
+  });
+
+    
 });
