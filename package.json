@@ -11,7 +11,8 @@
     "format": "prettier --write .",
     "typecheck": "tsc",
     "test": "jest",
-    "alphabetize-teams": "node alphabetizeTeams.js"
+    "alphabetize-teams": "node alphabetizeTeams.js",
+    "gitpush": "git add . && read -p 'Enter commit message: ' message && git commit -m \"$message\" && git push"
   },
   "dependencies": {
     "@epic-web/client-hints": "^1.2.2",
