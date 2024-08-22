@@ -3829,8 +3829,8 @@
       }
     ]
   },
-  "SL Benfica": {
-    "name": "SL Benfica",
+  "Benfica": {
+    "name": "Benfica",
     "logo": "https://cdn.sofifa.net/teams/234/60.png",
     "players": [
       {
@@ -11263,11 +11263,6 @@
         "num_clubs": 1
       },
       {
-        "name": "G. Gonul",
-        "image_url": "https://cdn.sofifa.net/players/143/699/17_120.png",
-        "num_clubs": 1
-      },
-      {
         "name": "C. Kameni",
         "image_url": "https://cdn.sofifa.net/players/111/661/18_120.png",
         "num_clubs": 1
@@ -12646,18 +12641,8 @@
         "num_clubs": 4
       },
       {
-        "name": "Roberto",
-        "image_url": "https://cdn.sofifa.net/players/183/666/18_120.png",
-        "num_clubs": 4
-      },
-      {
         "name": "A. Ayew",
         "image_url": "https://cdn.sofifa.net/players/176/571/18_120.png",
-        "num_clubs": 4
-      },
-      {
-        "name": "K. Zouma",
-        "image_url": "https://cdn.sofifa.net/players/204/311/22_120.png",
         "num_clubs": 4
       },
       {
@@ -12751,11 +12736,6 @@
         "num_clubs": 2
       },
       {
-        "name": "J. Bowen",
-        "image_url": "https://cdn.sofifa.net/players/224/371/23_120.png",
-        "num_clubs": 2
-      },
-      {
         "name": "Arbeloa",
         "image_url": "https://cdn.sofifa.net/players/146/741/16_120.png",
         "num_clubs": 2
@@ -12763,21 +12743,6 @@
       {
         "name": "Adrian",
         "image_url": "https://cdn.sofifa.net/players/194/911/18_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "M. Antonio",
-        "image_url": "https://cdn.sofifa.net/players/190/717/22_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "L. Fabianski",
-        "image_url": "https://cdn.sofifa.net/players/164/835/22_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "A. Ogbonna",
-        "image_url": "https://cdn.sofifa.net/players/183/855/22_120.png",
         "num_clubs": 2
       },
       {
@@ -12791,43 +12756,8 @@
         "num_clubs": 1
       },
       {
-        "name": "V. Coufal",
-        "image_url": "https://cdn.sofifa.net/players/244/470/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "T. Soucek",
-        "image_url": "https://cdn.sofifa.net/players/236/792/22_120.png",
-        "num_clubs": 1
-      },
-      {
         "name": "Felipe Anderson",
         "image_url": "https://cdn.sofifa.net/players/201/995/21_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "W. Reid",
-        "image_url": "https://cdn.sofifa.net/players/176/285/18_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "F. Balbuena",
-        "image_url": "https://cdn.sofifa.net/players/228/229/20_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "M. Lanzini",
-        "image_url": "https://cdn.sofifa.net/players/188/988/20_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "D. Rice",
-        "image_url": "https://cdn.sofifa.net/players/234/378/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "A. Cresswell",
-        "image_url": "https://cdn.sofifa.net/players/189/615/22_120.png",
         "num_clubs": 1
       }
     ]
@@ -13633,8 +13563,8 @@
       }
     ]
   },
-  "SC Heerenveen": {
-    "name": "SC Heerenveen",
+  "Heerenveen": {
+    "name": "Heerenveen",
     "logo": "https://cdn.sofifa.net/teams/1913/60.png",
     "players": [
       {
