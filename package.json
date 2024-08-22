@@ -12,7 +12,7 @@
     "typecheck": "tsc",
     "test": "jest",
     "alphabetize-teams": "node alphabetizeTeams.js",
-    "gitpush": "git add . && read -p 'Enter commit message: ' message && git commit -m \"$message\" && git push"
+    "gitpush": "npm run format && git add . && read -p 'Enter commit message: ' message && git commit -m \"$message\" && git push"
   },
   "dependencies": {
     "@epic-web/client-hints": "^1.2.2",
