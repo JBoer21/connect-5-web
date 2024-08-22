@@ -2,21 +2,13 @@ import { useLoaderData } from "@remix-run/react";
 import { Waypoints } from "lucide-react";
 import { IndexLoaderData } from "~/types/playerTypes";
 import { PlayerBand } from "~/components/ui/players.tsx/player-band";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "~/components/ui/select";
-import { teams } from "~/data/teams";
 import { Button } from "~/components/ui/button";
 import { useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
 import { HoverHelp } from "~/components/ui/info/info";
 import { GuessesTable } from "~/components/ui/info/guesses";
+import { TeamSelect } from "~/components/ui/teams/teamSelect";
 
 export const loader = async () => {
   return setGame();
@@ -99,20 +91,7 @@ export default function Index() {
 
       {isAbleToGuess && (
         <div className="flex items-center justify-center p-6 space-x-4">
-          <Select onValueChange={setSelectedTeam}>
-            <SelectTrigger className="w-[250px]">
-              <SelectValue placeholder="Select a club" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                {teams.map((team, index) => (
-                  <SelectItem value={team} key={index}>
-                    {team}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          <TeamSelect onValueChange={setSelectedTeam} />
           <Button
             onClick={handleSubmit}
             className="text-white bg-green-500 hover:bg-green-600"
