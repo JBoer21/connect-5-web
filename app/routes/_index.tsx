@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
 import { HoverHelp } from "~/components/ui/info/info";
-import { GuessesTable } from "~/components/ui/info/guesses";
 import { TeamSelect } from "~/components/ui/teams/teamSelect";
 
 export const loader = async () => {
@@ -105,18 +104,6 @@ export default function Index() {
           </Button>
         </div>
       )}
-
-      {isAbleToGuess && attempts > 1 && (
-        <div className="flex justify-center">
-          <div
-            className="flex items-center p-4 border-2 border-black rounded-lg"
-            style={{ width: "400px" }}
-          >
-            <GuessesTable guesses={guesses} />
-          </div>
-        </div>
-      )}
-
       {!isAbleToGuess && <div className="flex justify-center">{teamName}</div>}
     </div>
   );
