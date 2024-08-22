@@ -58,7 +58,7 @@ export const teams = [
   "Inter Miami CF",
   "İstanbul Başakşehir FK",
   "Juventus",
-  "KRC Genk",
+  "Genk",
   "LA Galaxy",
   "Las Palmas",
   "Lazio",
