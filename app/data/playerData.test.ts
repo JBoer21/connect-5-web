@@ -77,11 +77,9 @@ describe("Player data is correct", () => {
 
   test("No duplicate player names within a team", () => {
     Object.values(typedData).forEach((team) => {
-      const playerNames = team.players.map(player => player.name);
+      const playerNames = team.players.map((player) => player.name);
       const uniqueNames = new Set(playerNames);
       expect(playerNames.length).toBe(uniqueNames.size);
     });
   });
-
-    
 });
