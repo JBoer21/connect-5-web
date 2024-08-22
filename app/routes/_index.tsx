@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
 import { HoverHelp } from "~/components/ui/info/info";
-import { TeamSelect } from "~/components/ui/teams/teamSelect";
+import { TeamSelect } from "~/components/ui/teamss/teamSelect";
 
 export const loader = async () => {
   return setGame();
