@@ -84,4 +84,14 @@ describe("Player data is correct", () => {
       });
     });
   });
+
+  test("Team name is not the same as its logo", () => {
+    const teamsWithSameNameAndLogo: string[] = [];
+    Object.entries(typedData).forEach(([teamName, team]) => {
+      if (teamName === team.logo) {
+        teamsWithSameNameAndLogo.push(teamName);
+      }
+      expect(teamName).not.toBe(team.logo);
+    });
+  });
 });

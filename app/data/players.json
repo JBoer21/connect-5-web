@@ -6532,7 +6532,7 @@
   },
   "Los Angeles FC": {
     "name": "Los Angeles FC",
-    "logo": "Los Angeles FC",
+    "logo": "https://cdn.sofifa.net/meta/team/147671/60.png",
     "players": [
       {
         "name": "C. Vela",
@@ -9510,7 +9510,7 @@
   },
   "Aston Villa": {
     "name": "Aston Villa",
-    "logo": "Aston Villa",
+    "logo": "https://cdn.sofifa.net/meta/team/15/60.png",
     "players": [
       {
         "name": "S. Sinclair",
