@@ -14,9 +14,6 @@ export const loader = async () => {
 };
 
 export default function Index() {
-  // const lastPlayedDate = localStorage.getItem('lastPlayedDate');
-  // const currentDate = new Date().toDateString();
-
   const [hasPlayedToday, setHasPlayedToday] = useState(false);
 
   useEffect(() => {
