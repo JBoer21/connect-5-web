@@ -8790,37 +8790,6 @@
       }
     ]
   },
-  "Racing Club": {
-    "name": "Racing Club",
-    "logo": "https://cdn.sofifa.net/teams/101085/60.png",
-    "players": [
-      {
-        "name": "M. Acuna",
-        "image_url": "https://cdn.sofifa.net/players/224/334/22_120.png",
-        "num_clubs": 3
-      },
-      {
-        "name": "I. Piatti",
-        "image_url": "https://cdn.sofifa.net/players/176/376/20_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "L. Martinez",
-        "image_url": "https://cdn.sofifa.net/players/231/478/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "G. Bou",
-        "image_url": "https://cdn.sofifa.net/players/188/955/18_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "D. Milito",
-        "image_url": "https://cdn.sofifa.net/players/142/708/16_120.png",
-        "num_clubs": 1
-      }
-    ]
-  },
   "LA Galaxy": {
     "name": "LA Galaxy",
     "logo": "https://cdn.sofifa.net/teams/697/60.png",
@@ -14689,52 +14658,6 @@
       }
     ]
   },
-  "Club Am\u00e9rica": {
-    "name": "Club Am\u00e9rica",
-    "logo": "https://cdn.sofifa.net/teams/1879/60.png",
-    "players": [
-      {
-        "name": "G. dos Santos",
-        "image_url": "https://cdn.sofifa.net/players/170/369/18_120.png",
-        "num_clubs": 5
-      },
-      {
-        "name": "G. Rodriguez",
-        "image_url": "https://cdn.sofifa.net/players/225/659/23_120.png",
-        "num_clubs": 3
-      },
-      {
-        "name": "D. Benedetto",
-        "image_url": "https://cdn.sofifa.net/players/215/061/21_120.png",
-        "num_clubs": 3
-      },
-      {
-        "name": "J. Menez",
-        "image_url": "https://cdn.sofifa.net/players/160/766/17_120.png",
-        "num_clubs": 3
-      },
-      {
-        "name": "M. Layun",
-        "image_url": "https://cdn.sofifa.net/players/178/322/17_120.png",
-        "num_clubs": 3
-      },
-      {
-        "name": "A. Marchesin",
-        "image_url": "https://cdn.sofifa.net/players/201/095/22_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "G. Ochoa",
-        "image_url": "https://cdn.sofifa.net/players/140/233/22_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "M. Uribe",
-        "image_url": "https://cdn.sofifa.net/players/214/047/22_120.png",
-        "num_clubs": 1
-      }
-    ]
-  },
   "Olympiacos CFP": {
     "name": "Olympiacos CFP",
     "logo": "https://cdn.sofifa.net/teams/280/60.png",
@@ -15498,87 +15421,6 @@
       {
         "name": "A. Rossi",
         "image_url": "https://cdn.sofifa.net/players/227/275/23_120.png",
-        "num_clubs": 1
-      }
-    ]
-  },
-  "River Plate": {
-    "name": "River Plate",
-    "logo": "https://cdn.sofifa.net/teams/1876/60.png",
-    "players": [
-      {
-        "name": "G. Rodriguez",
-        "image_url": "https://cdn.sofifa.net/players/225/659/23_120.png",
-        "num_clubs": 3
-      },
-      {
-        "name": "G. Pezzella",
-        "image_url": "https://cdn.sofifa.net/players/193/601/20_120.png",
-        "num_clubs": 3
-      },
-      {
-        "name": "E. Perez",
-        "image_url": "https://cdn.sofifa.net/players/196/432/22_120.png",
-        "num_clubs": 3
-      },
-      {
-        "name": "David Trezeguet",
-        "image_url": "https://cdn.futbin.com/content/fifa23/img/players/242860.png?v=23",
-        "num_clubs": 2
-      },
-      {
-        "name": "J. Quintero",
-        "image_url": "https://cdn.sofifa.net/players/210/513/22_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "T. Gutierrez",
-        "image_url": "https://cdn.sofifa.net/players/196/150/17_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "M. Suarez",
-        "image_url": "https://cdn.sofifa.net/players/188/042/22_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "G. Mercado",
-        "image_url": "https://cdn.sofifa.net/players/183/892/19_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "L. Alario",
-        "image_url": "https://cdn.sofifa.net/players/215/353/20_120.png",
-        "num_clubs": 2
-      },
-      {
-        "name": "M. Casco",
-        "image_url": "https://cdn.sofifa.net/players/215/071/21_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "F. Armani",
-        "image_url": "https://cdn.sofifa.net/players/214/584/22_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "I. Fernandez",
-        "image_url": "https://cdn.sofifa.net/players/215/998/21_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "L. Pratto",
-        "image_url": "https://cdn.sofifa.net/players/184/252/20_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "A. D'Alessandro",
-        "image_url": "https://cdn.sofifa.net/players/138/703/17_120.png",
-        "num_clubs": 1
-      },
-      {
-        "name": "C. Sanchez",
-        "image_url": "https://cdn.sofifa.net/players/205/510/17_120.png",
         "num_clubs": 1
       }
     ]

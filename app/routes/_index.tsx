@@ -3,7 +3,7 @@ import { Waypoints } from "lucide-react";
 import { IndexLoaderData } from "~/types/playerTypes";
 import { PlayerBand } from "~/components/ui/players.tsx/player-band";
 import { Button } from "~/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
 import { HoverHelp } from "~/components/ui/info/info";
@@ -16,6 +16,19 @@ export const loader = async () => {
 export default function Index() {
   // const lastPlayedDate = localStorage.getItem('lastPlayedDate');
   // const currentDate = new Date().toDateString();
+
+  const [hasPlayedToday, setHasPlayedToday] = useState(false);
+
+  useEffect(() => {
+    const lastPlayedDate = localStorage.getItem("lastPlayedDate");
+    const currentDate = new Date().toDateString();
+
+    if (lastPlayedDate === currentDate) {
+      setHasPlayedToday(true);
+    } else {
+      localStorage.setItem("lastPlayedDate", currentDate);
+    }
+  }, []);
 
   const { toast } = useToast();
   const { teamName, players } = useLoaderData<IndexLoaderData>();
