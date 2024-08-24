@@ -1,0 +1,23 @@
+Need to: 
+
+1. Determine what local storage variables are needed:
+   - lastPlayedDate: to track when the user last played
+   - currentGameState: to store the current game progress (visible cards, attempts, etc.)
+   - dailyScore: to save the user's score for the day
+   - streakCount: to keep track of consecutive days played
+
+2. Change frontend to display based on if game is played etc:
+   - Add a conditional render to show different content based on hasPlayedToday state
+   - If hasPlayedToday is true:
+     - Display a summary of the day's game (team guessed, number of attempts)
+     - Show a countdown or message for when the next game will be available
+     - Optionally, display statistics (streak, average attempts, etc.)
+   - If hasPlayedToday is false:
+     - Show the current game interface
+   - Implement a useEffect hook to check localStorage and set initial states
+   - Update localStorage values when the game ends (whether won or lost)
+
+3. Additional considerations:
+   - Implement data persistence for partially completed games
+   - Add a reset function for testing or debugging purposes
+   - Consider adding share functionality for users to share their daily results
