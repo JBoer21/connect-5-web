@@ -1,4 +1,6 @@
 import { getGameStateForDate } from "./index_utils";
+import { setGame2 } from "./index_utils";
+import gamestates from "~/data/game_states.json";
 
 jest.mock("@remix-run/node", () => ({
   json: jest.fn(),
