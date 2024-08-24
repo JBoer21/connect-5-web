@@ -53,7 +53,8 @@ export function setGame2() {
   const currentDate = new Date();
   const gameStateId = getGameStateForDate(currentDate);
 
-  const gameState = gameStates.find((state) => state.id === gameStateId);
+  // Subtract 1 from gameStateId to convert to zero-based index
+  const gameState = gameStates[gameStateId - 1];
 
   if (!gameState) {
     throw new Error(`No game state found for ID: ${gameStateId}`);
