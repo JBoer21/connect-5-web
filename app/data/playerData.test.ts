@@ -71,7 +71,6 @@ describe("Player data is correct", () => {
 
   test("No duplicate players within each team", () => {
     Object.entries(typedData).forEach(([teamName, team]) => {
-      console.log(teamName);
       const playerSet = new Set();
       team.players.forEach((player) => {
         const playerKey = `${player.name}|${player.image_url}`;
