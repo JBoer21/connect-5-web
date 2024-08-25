@@ -12,7 +12,7 @@ interface PlayerBandProps {
 
 export function PlayerBand({ players, visible }: PlayerBandProps) {
   return (
-    <div className="flex items-center justify-center gap-2 p-4 overflow-x-auto">
+    <div className="flex flex-col items-center justify-center gap-2 p-4 overflow-x-auto sm:flex-row">
       {players.slice(0, 5).map((player, index) => (
         <PlayerCard
           key={index}

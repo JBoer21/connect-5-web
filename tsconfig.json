@@ -7,7 +7,8 @@
     "app/**/*.ts",
     "app/**/*.tsx",
     "**/*.test.ts",
-    "**/*.test.tsx"
+    "**/*.test.tsx",
+    "app/components/ui/players"
   ],
   "compilerOptions": {
     "types": ["jest", "@testing-library/jest-dom"],

@@ -1,7 +1,7 @@
 import { useLoaderData } from "@remix-run/react";
 import { Waypoints } from "lucide-react";
 import { IndexLoaderData } from "~/types/playerTypes";
-import { PlayerBand } from "~/components/ui/players.tsx/player-band";
+import { PlayerBand } from "~/components/ui/players/player-band";
 import { Button } from "~/components/ui/button";
 import { useEffect, useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
