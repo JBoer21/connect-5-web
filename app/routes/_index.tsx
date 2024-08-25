@@ -8,6 +8,7 @@ import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
 import { HoverHelp } from "~/components/ui/info/info";
 import { TeamSelect } from "~/components/ui/teamss/teamSelect";
+import { Header } from "~/components/ui/info/header";
 
 export const loader = async () => {
   return setGame();
@@ -74,14 +75,7 @@ export default function Index() {
 
   return (
     <div>
-      <nav className="flex items-center justify-between w-full p-4">
-        <div className="flex items-center space-x-2">
-          <Waypoints />
-          <h1 className="text-xl font-semibold">Connect 5</h1>
-        </div>
-        {/* <ThemeToggle /> */}
-        <HoverHelp />
-      </nav>
+      <Header />
 
       <div className="px-4">
         <h2 className="mb-4 text-2xl font-bold text-center">

@@ -5,7 +5,7 @@ import { IndexLoaderData } from "~/types/playerTypes";
 import gameStates from "~/data/game_states.json";
 
 export function getGameStateForDate(date: Date): number {
-  const baseDate = new Date("2024-08-24"); // Choose a fixed start date
+  const baseDate = new Date("2024-08-25"); // Choose a fixed start date
   const timeDiff = date.getTime() - baseDate.getTime();
   const dayDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
   return dayDiff + 1; // Add 1 to start from game state 1
