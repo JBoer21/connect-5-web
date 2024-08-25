@@ -1,12 +1,10 @@
 import { useLoaderData } from "@remix-run/react";
-import { Waypoints } from "lucide-react";
 import { IndexLoaderData } from "~/types/playerTypes";
 import { PlayerBand } from "~/components/ui/players/player-band";
 import { Button } from "~/components/ui/button";
 import { useEffect, useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
-import { HoverHelp } from "~/components/ui/info/info";
 import { TeamSelect } from "~/components/ui/teamss/teamSelect";
 import { Header } from "~/components/ui/info/header";
 
