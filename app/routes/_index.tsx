@@ -100,7 +100,20 @@ export default function Index() {
           </div>
         </div>
       )}
-      {!isAbleToGuess && <div className="flex justify-center">{teamName}</div>}
+      {!isAbleToGuess && (
+        <div>
+          <div className="px-4">
+            <PlayerBand
+              players={players.map((player) => ({
+                name: player.name,
+                imageUrl: player.image_url,
+              }))}
+              visible={players.length}
+            />
+          </div>
+          <div className="flex justify-center">{teamName}</div>
+        </div>
+      )}
     </div>
   );
 }
