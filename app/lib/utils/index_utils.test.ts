@@ -1,21 +1,19 @@
 import { getGameStateForDate } from "./index_utils";
-import { setGame2 } from "./index_utils";
-import gamestates from "~/data/game_states.json";
 
 jest.mock("@remix-run/node", () => ({
   json: jest.fn(),
 }));
 
 describe("getGameStateForDate", () => {
-  test("returns correct game state for a given date", () => {
-    const testDate = new Date("2024-08-24");
-    expect(getGameStateForDate(testDate)).toBe(1);
+  test("returns correct game state for the base date", () => {
+    const baseDate = new Date("2024-08-25");
+    expect(getGameStateForDate(baseDate)).toBe(1);
   });
 
   test("returns incremented game state for each day after base date", () => {
-    const baseDate = new Date("2024-08-24");
-    const nextDay = new Date("2024-08-25");
-    const tenDaysLater = new Date("2024-09-03");
+    const baseDate = new Date("2024-08-25");
+    const nextDay = new Date("2024-08-26");
+    const tenDaysLater = new Date("2024-09-04");
 
     expect(getGameStateForDate(baseDate)).toBe(1);
     expect(getGameStateForDate(nextDay)).toBe(2);
@@ -23,12 +21,12 @@ describe("getGameStateForDate", () => {
   });
 
   test("handles dates before the base date", () => {
-    const earlierDate = new Date("2024-08-23");
+    const earlierDate = new Date("2024-08-24");
     expect(getGameStateForDate(earlierDate)).toBe(0);
   });
 
   test("handles leap years correctly", () => {
-    const leapYearDate = new Date("2024-09-24"); // 31 days after base date
+    const leapYearDate = new Date("2024-09-25"); // 31 days after base date
     expect(getGameStateForDate(leapYearDate)).toBe(32);
   });
 
