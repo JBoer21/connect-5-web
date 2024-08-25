@@ -75,31 +75,29 @@ export default function Index() {
     <div>
       <Header />
 
-      <div className="px-4">
-        <h2 className="mb-4 text-2xl font-bold text-center">
-          {/* Team: {teamName} */}
-        </h2>
-        <PlayerBand
-          players={players.map((player) => ({
-            name: player.name,
-            imageUrl: player.image_url,
-          }))}
-          visible={visibleCards}
-        />
-      </div>
-
       {isAbleToGuess && (
-        <div className="flex items-center justify-center p-6 space-x-4">
-          <TeamSelect
-            onValueChange={setSelectedTeam}
-            incorrectGuesses={incorrectGuesses}
-          />
-          <Button
-            onClick={handleSubmit}
-            className="text-white bg-green-500 hover:bg-green-600"
-          >
-            Submit
-          </Button>
+        <div>
+          <div className="px-4">
+            <PlayerBand
+              players={players.map((player) => ({
+                name: player.name,
+                imageUrl: player.image_url,
+              }))}
+              visible={visibleCards}
+            />
+          </div>
+          <div className="flex items-center justify-center p-6 space-x-4">
+            <TeamSelect
+              onValueChange={setSelectedTeam}
+              incorrectGuesses={incorrectGuesses}
+            />
+            <Button
+              onClick={handleSubmit}
+              className="text-white bg-green-500 hover:bg-green-600"
+            >
+              Submit
+            </Button>
+          </div>
         </div>
       )}
       {!isAbleToGuess && <div className="flex justify-center">{teamName}</div>}
