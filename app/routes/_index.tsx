@@ -266,6 +266,11 @@ export default function Index() {
         attempts={gameState.attempts}
         teamName={gameState.teamName}
         teamLogo={gameState.teamLogo}
+        daysInARow={daysInARow}
+        correctStreak={correctStreak}
+        incorrectDays={incorrectDays}
+        notPlayedDays={notPlayedDays}
+        attemptsDistribution={attemptsDistribution}
       />
       {/* Clear localStorage button for development testing */}
       {process.env.NODE_ENV === "development" && (
