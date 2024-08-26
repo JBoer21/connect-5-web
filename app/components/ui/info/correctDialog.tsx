@@ -33,6 +33,8 @@ interface CorrectDialogProps {
   teamLogo: string;
   daysInARow: number;
   correctStreak: number;
+  incorrectDays: number;
+  notPlayedDays: number;
 }
 
 const chartConfig = {
@@ -61,16 +63,16 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
   teamLogo,
   daysInARow,
   correctStreak,
+  incorrectDays,
+  notPlayedDays,
 }) => {
   const chartData = useMemo(() => {
-    const incorrect = daysInARow - correctStreak;
-    const notPlayed = 10 - daysInARow;
     return [
       { type: "correct", days: correctStreak, fill: "hsl(var(--chart-1))" },
-      { type: "incorrect", days: incorrect, fill: "hsl(var(--chart-2))" },
-      { type: "notPlayed", days: notPlayed, fill: "hsl(var(--chart-3))" },
+      { type: "incorrect", days: incorrectDays, fill: "hsl(var(--chart-2))" },
+      { type: "notPlayed", days: notPlayedDays, fill: "hsl(var(--chart-3))" },
     ];
-  }, [daysInARow, correctStreak]);
+  }, [correctStreak, incorrectDays, notPlayedDays]);
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -93,7 +95,9 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
           <Card className="w-full mt-4">
             <CardHeader className="items-center pb-0">
               <CardTitle>Your Streak</CardTitle>
-              <CardDescription>Last 10 Days</CardDescription>
+              <CardDescription>
+                Last {daysInARow} Day{daysInARow !== 1 ? "s" : ""}
+              </CardDescription>
             </CardHeader>
             <CardContent className="flex-1 pb-0">
               <ChartContainer
@@ -103,7 +107,7 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
                 <PieChart>
                   <ChartTooltip
                     cursor={false}
-                    content={<ChartTooltipContent hideLabel />}
+                    content={<ChartTooltipContent />}
                   />
                   <Pie
                     data={chartData}

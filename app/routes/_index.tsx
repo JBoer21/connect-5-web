@@ -17,6 +17,8 @@ export default function Index() {
   const [isIncorrectDialogOpen, setIsIncorrectDialogOpen] = useState(false);
   const [daysInARow, setDaysInARow] = useState(0);
   const [correctStreak, setCorrectStreak] = useState(0);
+  const [incorrectDays, setIncorrectDays] = useState(0);
+  const [notPlayedDays, setNotPlayedDays] = useState(0);
 
   // Use useEffect hook to initialize or load the game state
   useEffect(() => {
@@ -30,6 +32,14 @@ export default function Index() {
       localStorage.getItem("correctStreak") || "0",
       10,
     );
+    const storedIncorrectDays = parseInt(
+      localStorage.getItem("incorrectDays") || "0",
+      10,
+    );
+    const storedNotPlayedDays = parseInt(
+      localStorage.getItem("notPlayedDays") || "0",
+      10,
+    );
 
     if (lastPlayedDate === currentDate) {
       // If the game was played today, load the saved game state
@@ -39,6 +49,8 @@ export default function Index() {
       }
       setDaysInARow(storedDaysInARow);
       setCorrectStreak(storedCorrectStreak);
+      setIncorrectDays(storedIncorrectDays);
+      setNotPlayedDays(storedNotPlayedDays);
     } else {
       // If it's a new day, set up a new game
       const newGameState: GameState = {
@@ -52,11 +64,28 @@ export default function Index() {
       localStorage.setItem("lastPlayedDate", currentDate);
       localStorage.setItem("gameState", JSON.stringify(newGameState));
 
-      // Update days in a row
-      if (lastPlayedDate === new Date(Date.now() - 86400000).toDateString()) {
-        setDaysInARow(storedDaysInARow + 1);
-        localStorage.setItem("daysInARow", (storedDaysInARow + 1).toString());
+      // Update days in a row and not played days
+      if (lastPlayedDate) {
+        const lastPlayedDateTime = new Date(lastPlayedDate).getTime();
+        const currentDateTime = new Date(currentDate).getTime();
+        const daysDifference = Math.floor(
+          (currentDateTime - lastPlayedDateTime) / (1000 * 60 * 60 * 24),
+        );
+
+        if (daysDifference === 1) {
+          // Played yesterday, increment days in a row
+          setDaysInARow(storedDaysInARow + 1);
+          localStorage.setItem("daysInARow", (storedDaysInARow + 1).toString());
+        } else if (daysDifference > 1) {
+          // Missed some days, reset days in a row and update not played days
+          setDaysInARow(1);
+          localStorage.setItem("daysInARow", "1");
+          const newNotPlayedDays = storedNotPlayedDays + daysDifference - 1;
+          setNotPlayedDays(newNotPlayedDays);
+          localStorage.setItem("notPlayedDays", newNotPlayedDays.toString());
+        }
       } else {
+        // First time playing, set days in a row to 1
         setDaysInARow(1);
         localStorage.setItem("daysInARow", "1");
       }
@@ -95,6 +124,9 @@ export default function Index() {
         setIsIncorrectDialogOpen(true);
         setCorrectStreak(0);
         localStorage.setItem("correctStreak", "0");
+        const newIncorrectDays = incorrectDays + 1;
+        setIncorrectDays(newIncorrectDays);
+        localStorage.setItem("incorrectDays", newIncorrectDays.toString());
       } else {
         // Show toast only if it's not the last guess
         toast({
@@ -123,6 +155,8 @@ export default function Index() {
     setGameState(null);
     setDaysInARow(0);
     setCorrectStreak(0);
+    setIncorrectDays(0);
+    setNotPlayedDays(0);
   };
 
   // Show loading spinner if game state is not yet initialized
@@ -204,6 +238,8 @@ export default function Index() {
         teamLogo={gameState.teamLogo}
         daysInARow={daysInARow}
         correctStreak={correctStreak}
+        incorrectDays={incorrectDays}
+        notPlayedDays={notPlayedDays}
       />
       <IncorrectDialog
         isOpen={isIncorrectDialogOpen}
