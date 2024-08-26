@@ -44,19 +44,19 @@ describe("Player data is correct", () => {
 
   test("Every key in typedData exists in the teams array", () => {
     Object.keys(typedData).forEach((key) => {
-      expect(teams).toContain(key);
+      expect(teams.some((team) => team.name === key)).toBeTruthy();
     });
   });
 
   test("Every club name in typedData exists in the teams array", () => {
     Object.values(typedData).forEach((club) => {
-      expect(teams).toContain(club.name);
+      expect(teams.some((team) => team.name === club.name)).toBeTruthy();
     });
   });
 
-  test("Each team has at least five playes", () => {
+  test("Each team has at least five players", () => {
     Object.values(typedData).forEach((team) => {
-      expect(team.players.length).toBeGreaterThan(4);
+      expect(team.players.length).toBeGreaterThanOrEqual(5);
     });
   });
 
@@ -76,7 +76,7 @@ describe("Player data is correct", () => {
         const playerKey = `${player.name}|${player.image_url}`;
         if (playerSet.has(playerKey)) {
           console.log(`Duplicate player found in team ${teamName}`);
-          console.log(`Duplicate player found in team ${playerKey}`);
+          console.log(`Duplicate player: ${playerKey}`);
         }
         expect(playerSet.has(playerKey)).toBe(false);
         playerSet.add(playerKey);
@@ -85,12 +85,18 @@ describe("Player data is correct", () => {
   });
 
   test("Team name is not the same as its logo", () => {
-    const teamsWithSameNameAndLogo: string[] = [];
     Object.entries(typedData).forEach(([teamName, team]) => {
-      if (teamName === team.logo) {
-        teamsWithSameNameAndLogo.push(teamName);
-      }
       expect(teamName).not.toBe(team.logo);
+    });
+  });
+
+  test("Team logos in typedData match those in teams array", () => {
+    Object.entries(typedData).forEach(([teamName, team]) => {
+      const matchingTeam = teams.find((t) => t.name === teamName);
+      expect(matchingTeam).toBeDefined();
+      if (matchingTeam) {
+        expect(team.logo).toBe(matchingTeam.logo);
+      }
     });
   });
 });

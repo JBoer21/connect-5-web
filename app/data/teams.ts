@@ -15,7 +15,7 @@ export const teams: Team[] = [
     name: "AS Saint-Étienne",
     logo: "https://cdn.sofifa.net/teams/1819/60.png",
   },
-  { name: "Aston Villa", logo: "https://cdn.sofifa.net/teams/2/60.png" },
+  { name: "Aston Villa", logo: "https://cdn.sofifa.net/meta/team/15/60.png" },
   { name: "Atalanta", logo: "https://cdn.sofifa.net/teams/39/60.png" },
   {
     name: "Athletic Club de Bilbao",

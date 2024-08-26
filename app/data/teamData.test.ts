@@ -5,15 +5,16 @@ describe("Teams data is correct", () => {
     expect(teams.length).toBeGreaterThan(0);
   });
 
-  test("Teams array contains only strings", () => {
+  test("Teams array contains only Team objects", () => {
     teams.forEach((team) => {
-      expect(typeof team).toBe("string");
+      expect(team).toHaveProperty("name");
+      expect(team).toHaveProperty("logo");
     });
   });
 
   test("Teams array has no duplicate entries", () => {
-    const uniqueTeams = new Set(teams);
-    expect(uniqueTeams.size).toBe(teams.length);
+    const uniqueTeamNames = new Set(teams.map((team) => team.name));
+    expect(uniqueTeamNames.size).toBe(teams.length);
   });
 
   test("Teams array contains expected teams", () => {
@@ -23,19 +24,31 @@ describe("Teams data is correct", () => {
       "Manchester United",
       "Liverpool",
     ];
-    expectedTeams.forEach((team) => {
-      expect(teams).toContain(team);
+    expectedTeams.forEach((teamName) => {
+      expect(teams.some((team) => team.name === teamName)).toBeTruthy();
     });
   });
 
-  test("Teams array has no empty strings", () => {
+  test("Teams array has no empty team names", () => {
     teams.forEach((team) => {
-      expect(team.trim()).not.toBe("");
+      expect(team.name.trim()).not.toBe("");
     });
   });
 
-  test("Teams array is sorted alphabetically", () => {
-    const sortedTeams = [...teams].sort((a, b) => a.localeCompare(b));
+  test("Teams array is sorted alphabetically by team name", () => {
+    const sortedTeams = [...teams].sort((a, b) => a.name.localeCompare(b.name));
     expect(teams).toEqual(sortedTeams);
+  });
+
+  test("All team logos are valid URLs", () => {
+    teams.forEach((team) => {
+      expect(team.logo).toMatch(/^https?:\/\/.+/);
+    });
+  });
+
+  test("Team names are unique", () => {
+    const teamNames = teams.map((team) => team.name);
+    const uniqueTeamNames = new Set(teamNames);
+    expect(uniqueTeamNames.size).toBe(teamNames.length);
   });
 });
