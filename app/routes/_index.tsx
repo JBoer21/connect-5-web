@@ -39,7 +39,15 @@ export default function Index() {
 
   // Only proceed with the game logic if we have a game state
   if (!gameState) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="flex space-x-2">
+          <div className="w-4 h-4 bg-gray-900 rounded-full animate-pulse"></div>
+          <div className="w-4 h-4 delay-75 bg-gray-900 rounded-full animate-pulse"></div>
+          <div className="w-4 h-4 delay-150 bg-gray-900 rounded-full animate-pulse"></div>
+        </div>
+      </div>
+    );
   }
 
   const { teamName, players } = gameState;
