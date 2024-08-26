@@ -29,7 +29,7 @@ export default function Index() {
       // If it's a new day, set up a new game
       const newGameState: GameState = {
         ...setGame(),
-        attempts: 1,
+        attempts: 0,
         visibleCards: 1,
         incorrectGuesses: [],
         isAbleToGuess: true,
@@ -73,6 +73,18 @@ export default function Index() {
     // Update game state and save to localStorage
     setGameState(newState);
     localStorage.setItem("gameState", JSON.stringify(newState));
+  };
+
+  // Function to clear localStorage
+  const clearLocalStorage = () => {
+    localStorage.clear();
+    toast({
+      title: "localStorage cleared",
+      description: "All local storage data has been removed.",
+      variant: "default",
+    });
+    // Reset the game state
+    setGameState(null);
   };
 
   // Show loading spinner if game state is not yet initialized
@@ -149,6 +161,17 @@ export default function Index() {
         teamName={gameState.teamName}
         teamLogo={gameState.teamLogo}
       />
+      {/* Clear localStorage button for development testing */}
+      {process.env.NODE_ENV === "development" && (
+        <div className="fixed bottom-4 right-4">
+          <Button
+            onClick={clearLocalStorage}
+            className="text-white bg-red-500 hover:bg-red-600"
+          >
+            Clear localStorage
+          </Button>
+        </div>
+      )}
     </div>
   );
 }
