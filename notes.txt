@@ -28,3 +28,6 @@ Need to:
      Implemented through localStorage in app/routes/_index.tsx
    - Add a reset function for testing or debugging purposes (NOT IMPLEMENTED YET)
    - Consider adding share functionality for users to share their daily results (NOT IMPLEMENTED YET)
+
+
+   I think there is an issue with the gameState not being set correctly. Will fix later.
