@@ -15,11 +15,21 @@ export default function Index() {
   const [gameState, setGameState] = useState<GameState | null>(null);
   const [isCorrectDialogOpen, setIsCorrectDialogOpen] = useState(false);
   const [isIncorrectDialogOpen, setIsIncorrectDialogOpen] = useState(false);
+  const [daysInARow, setDaysInARow] = useState(0);
+  const [correctStreak, setCorrectStreak] = useState(0);
 
   // Use useEffect hook to initialize or load the game state
   useEffect(() => {
     const lastPlayedDate = localStorage.getItem("lastPlayedDate");
     const currentDate = new Date().toDateString();
+    const storedDaysInARow = parseInt(
+      localStorage.getItem("daysInARow") || "0",
+      10,
+    );
+    const storedCorrectStreak = parseInt(
+      localStorage.getItem("correctStreak") || "0",
+      10,
+    );
 
     if (lastPlayedDate === currentDate) {
       // If the game was played today, load the saved game state
@@ -27,6 +37,8 @@ export default function Index() {
       if (savedState) {
         setGameState(JSON.parse(savedState));
       }
+      setDaysInARow(storedDaysInARow);
+      setCorrectStreak(storedCorrectStreak);
     } else {
       // If it's a new day, set up a new game
       const newGameState: GameState = {
@@ -39,6 +51,19 @@ export default function Index() {
       setGameState(newGameState);
       localStorage.setItem("lastPlayedDate", currentDate);
       localStorage.setItem("gameState", JSON.stringify(newGameState));
+
+      // Update days in a row
+      if (lastPlayedDate === new Date(Date.now() - 86400000).toDateString()) {
+        setDaysInARow(storedDaysInARow + 1);
+        localStorage.setItem("daysInARow", (storedDaysInARow + 1).toString());
+      } else {
+        setDaysInARow(1);
+        localStorage.setItem("daysInARow", "1");
+      }
+
+      // Reset correct streak for a new day
+      setCorrectStreak(0);
+      localStorage.setItem("correctStreak", "0");
     }
   }, []); // Empty dependency array means this effect runs once on mount
 
@@ -58,6 +83,9 @@ export default function Index() {
       newState.isAbleToGuess = false;
       newState.visibleCards = 5;
       setIsCorrectDialogOpen(true);
+      const newCorrectStreak = correctStreak + 1;
+      setCorrectStreak(newCorrectStreak);
+      localStorage.setItem("correctStreak", newCorrectStreak.toString());
     } else {
       // If the guess is incorrect
       newState.visibleCards = Math.min(newState.visibleCards + 1, 5);
@@ -65,6 +93,8 @@ export default function Index() {
       if (newState.visibleCards === 5 && newState.attempts === 5) {
         newState.isAbleToGuess = false;
         setIsIncorrectDialogOpen(true);
+        setCorrectStreak(0);
+        localStorage.setItem("correctStreak", "0");
       } else {
         // Show toast only if it's not the last guess
         toast({
@@ -91,6 +121,8 @@ export default function Index() {
     });
     // Reset the game state
     setGameState(null);
+    setDaysInARow(0);
+    setCorrectStreak(0);
   };
 
   // Show loading spinner if game state is not yet initialized
@@ -170,6 +202,8 @@ export default function Index() {
         attempts={gameState.attempts}
         teamName={gameState.teamName}
         teamLogo={gameState.teamLogo}
+        daysInARow={daysInARow}
+        correctStreak={correctStreak}
       />
       <IncorrectDialog
         isOpen={isIncorrectDialogOpen}

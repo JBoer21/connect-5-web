@@ -13,6 +13,8 @@ interface CorrectDialogProps {
   attempts: number;
   teamName: string;
   teamLogo: string;
+  daysInARow: number;
+  correctStreak: number;
 }
 
 export const CorrectDialog: React.FC<CorrectDialogProps> = ({
@@ -21,6 +23,8 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
   attempts,
   teamName,
   teamLogo,
+  daysInARow,
+  correctStreak,
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -40,6 +44,10 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
             height={100}
           />
           <p className="mt-2 text-lg font-semibold">{teamName}</p>
+          <div className="mt-4 text-center">
+            <p>Days in a row played: {daysInARow}</p>
+            <p>Correct answer streak: {correctStreak}</p>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
