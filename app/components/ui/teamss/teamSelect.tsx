@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import { teams } from "~/data/teams";
+import { teams, Team } from "~/data/teams";
 
 interface TeamSelectProps {
   onValueChange: (value: string) => void;
@@ -26,20 +26,28 @@ export const TeamSelect: React.FC<TeamSelectProps> = ({
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {teams.map((team, index) => (
-            <SelectItem
-              value={team}
-              key={index}
-              className={`
-                ${
-                  incorrectGuesses.includes(team)
-                    ? "text-red-500 font-bold hover:text-red-600 hover:font-extrabold"
-                    : ""
-                }
-              `}
-            >
-              {team}
-            </SelectItem>
+          {teams.map((team: Team, index: number) => (
+            <div key={index} className="flex items-center space-x-2">
+              <img
+                src={team.logo}
+                alt={`${team.name} logo`}
+                width={20}
+                height={20}
+              />
+              <SelectItem
+                value={team.name}
+                className={`
+                  flex-grow
+                  ${
+                    incorrectGuesses.includes(team.name)
+                      ? "text-red-500 font-bold hover:text-red-600 hover:font-extrabold"
+                      : ""
+                  }
+                `}
+              >
+                {team.name}
+              </SelectItem>
+            </div>
           ))}
         </SelectGroup>
       </SelectContent>
