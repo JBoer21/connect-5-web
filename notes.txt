@@ -1,23 +1,30 @@
 Need to: 
 
 1. Determine what local storage variables are needed:
-   - lastPlayedDate: to track when the user last played
-   - currentGameState: to store the current game progress (visible cards, attempts, etc.)
-   - dailyScore: to save the user's score for the day
-   - streakCount: to keep track of consecutive days played
+   - lastPlayedDate: to track when the user last played (COMPLETED - 2023-07-10)
+     Implemented in useEffect hook in app/routes/_index.tsx
+   - currentGameState: to store the current game progress (visible cards, attempts, etc.) (COMPLETED - 2023-07-10)
+     Implemented as 'gameState' in localStorage in app/routes/_index.tsx
+   - dailyScore: to save the user's score for the day (NOT IMPLEMENTED YET)
+   - streakCount: to keep track of consecutive days played (NOT IMPLEMENTED YET)
 
 2. Change frontend to display based on if game is played etc:
-   - Add a conditional render to show different content based on hasPlayedToday state
+   - Add a conditional render to show different content based on hasPlayedToday state (PARTIALLY COMPLETED - 2023-07-10)
+     Implemented in app/routes/_index.tsx, but only for game in progress
    - If hasPlayedToday is true:
-     - Display a summary of the day's game (team guessed, number of attempts)
-     - Show a countdown or message for when the next game will be available
-     - Optionally, display statistics (streak, average attempts, etc.)
+     - Display a summary of the day's game (team guessed, number of attempts) (NOT IMPLEMENTED YET)
+     - Show a countdown or message for when the next game will be available (NOT IMPLEMENTED YET)
+     - Optionally, display statistics (streak, average attempts, etc.) (NOT IMPLEMENTED YET)
    - If hasPlayedToday is false:
-     - Show the current game interface
-   - Implement a useEffect hook to check localStorage and set initial states
-   - Update localStorage values when the game ends (whether won or lost)
+     - Show the current game interface (COMPLETED - 2023-07-10)
+       Implemented in app/routes/_index.tsx
+   - Implement a useEffect hook to check localStorage and set initial states (COMPLETED - 2023-07-10)
+     Implemented in app/routes/_index.tsx
+   - Update localStorage values when the game ends (whether won or lost) (COMPLETED - 2023-07-10)
+     Implemented in handleSubmit function in app/routes/_index.tsx
 
 3. Additional considerations:
-   - Implement data persistence for partially completed games
-   - Add a reset function for testing or debugging purposes
-   - Consider adding share functionality for users to share their daily results
+   - Implement data persistence for partially completed games (COMPLETED - 2023-07-10)
+     Implemented through localStorage in app/routes/_index.tsx
+   - Add a reset function for testing or debugging purposes (NOT IMPLEMENTED YET)
+   - Consider adding share functionality for users to share their daily results (NOT IMPLEMENTED YET)
