@@ -185,7 +185,7 @@ export default function Index() {
             onClick={clearLocalStorage}
             className="text-white bg-red-500 hover:bg-red-600"
           >
-            Clear localStorage
+            Clear localStorage (Dev Only)
           </Button>
         </div>
       )}
