@@ -4,38 +4,69 @@ import { Button } from "~/components/ui/button";
 import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
 import { TeamSelect } from "~/components/ui/teamss/teamSelect";
-import { IndexLoaderData } from "~/types/playerTypes";
-
-// Remove the loader function as we'll set the game state in the component
+import { GameState } from "~/types/gameStateTypes";
 
 export default function Index() {
-  const [hasPlayedToday, setHasPlayedToday] = useState(false);
-  const [gameState, setGameState] = useState<IndexLoaderData | null>(null);
+  const [gameState, setGameState] = useState<GameState | null>(null);
 
   useEffect(() => {
     const lastPlayedDate = localStorage.getItem("lastPlayedDate");
     const currentDate = new Date().toDateString();
 
     if (lastPlayedDate === currentDate) {
-      setHasPlayedToday(true);
-      // If the user has played today, we'll load their saved game state here in the future
+      // Load saved game state
+      const savedState = localStorage.getItem("gameState");
+      if (savedState) {
+        setGameState(JSON.parse(savedState));
+      }
     } else {
-      // If the user hasn't played today, set a new game
-      const newGameState = setGame();
-      setGameState(newGameState as IndexLoaderData);
+      // Set a new game
+      const newGameState: GameState = {
+        ...setGame(),
+        attempts: 1,
+        visibleCards: 1,
+        incorrectGuesses: [],
+        isAbleToGuess: true,
+      };
+      setGameState(newGameState);
       localStorage.setItem("lastPlayedDate", currentDate);
+      localStorage.setItem("gameState", JSON.stringify(newGameState));
     }
   }, []);
 
   const { toast } = useToast();
   const [selectedTeam, setSelectedTeam] = useState<string>("");
-  const [isAbleToGuess, setAbleToGuess] = useState(true);
 
-  const [incorrectGuesses, setIncorrectGuesses] = useState<string[]>([]);
+  const handleSubmit = () => {
+    if (!gameState || !selectedTeam) return;
 
-  const [attempts, setAttempts] = useState(1);
+    const newState = { ...gameState };
+    newState.attempts += 1;
 
-  const [visibleCards, setVisibleCards] = useState(1);
+    if (selectedTeam === gameState.teamName) {
+      toast({
+        title: "Correct",
+        description: `You answered correctly in ${newState.attempts} tries!`,
+        variant: "default",
+      });
+      newState.isAbleToGuess = false;
+      newState.visibleCards = 5;
+    } else {
+      toast({
+        title: "Incorrect guess",
+        description: "Try again!",
+        variant: "destructive",
+      });
+      newState.visibleCards = Math.min(newState.visibleCards + 1, 5);
+      if (newState.visibleCards === 5) {
+        newState.isAbleToGuess = false;
+      }
+      newState.incorrectGuesses = [...newState.incorrectGuesses, selectedTeam];
+    }
+
+    setGameState(newState);
+    localStorage.setItem("gameState", JSON.stringify(newState));
+  };
 
   // Only proceed with the game logic if we have a game state
   if (!gameState) {
@@ -50,59 +81,23 @@ export default function Index() {
     );
   }
 
-  const { teamName, players } = gameState;
-
-  const handleSubmit = () => {
-    if (!selectedTeam || selectedTeam === "") {
-      toast({
-        title: "Uh oh",
-        description: "Please make sure to choose a team!",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setAttempts(attempts + 1);
-
-    if (selectedTeam === teamName) {
-      toast({
-        title: "Correct",
-        description: `You answered correctly in ${attempts} tries!`,
-        variant: "default",
-      });
-      setAbleToGuess(false);
-      setVisibleCards(5);
-    } else {
-      toast({
-        title: "Incorrect guess",
-        description: "Try again!",
-        variant: "destructive",
-      });
-      setVisibleCards(Math.min(visibleCards + 1, 5));
-      if (visibleCards === 5) {
-        setAbleToGuess(false);
-      }
-      setIncorrectGuesses([...incorrectGuesses, selectedTeam]);
-    }
-  };
-
   return (
     <div>
-      {isAbleToGuess && (
+      {gameState.isAbleToGuess && (
         <div>
           <div className="px-4">
             <PlayerBand
-              players={players.map((player) => ({
+              players={gameState.players.map((player) => ({
                 name: player.name,
                 imageUrl: player.image_url,
               }))}
-              visible={visibleCards}
+              visible={gameState.visibleCards}
             />
           </div>
           <div className="flex items-center justify-center p-6 space-x-4">
             <TeamSelect
               onValueChange={setSelectedTeam}
-              incorrectGuesses={incorrectGuesses}
+              incorrectGuesses={gameState.incorrectGuesses}
             />
             <Button
               onClick={handleSubmit}
@@ -113,18 +108,18 @@ export default function Index() {
           </div>
         </div>
       )}
-      {!isAbleToGuess && (
+      {!gameState.isAbleToGuess && (
         <div>
           <div className="px-4">
             <PlayerBand
-              players={players.map((player) => ({
+              players={gameState.players.map((player) => ({
                 name: player.name,
                 imageUrl: player.image_url,
               }))}
-              visible={players.length}
+              visible={gameState.players.length}
             />
           </div>
-          <div className="flex justify-center">{teamName}</div>
+          <div className="flex justify-center">{gameState.teamName}</div>
         </div>
       )}
     </div>
