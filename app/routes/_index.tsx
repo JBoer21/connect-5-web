@@ -6,11 +6,13 @@ import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
 import { TeamSelect } from "~/components/ui/teamss/teamSelect";
 import { GameState } from "~/types/gameStateTypes";
+import { CorrectDialog } from "~/components/ui/info/correctDialog";
 
 // Define the main Index component
 export default function Index() {
   // Initialize game state using useState hook
   const [gameState, setGameState] = useState<GameState | null>(null);
+  const [isCorrectDialogOpen, setIsCorrectDialogOpen] = useState(false);
 
   // Use useEffect hook to initialize or load the game state
   useEffect(() => {
@@ -51,13 +53,9 @@ export default function Index() {
 
     if (selectedTeam === gameState.teamName) {
       // If the guess is correct
-      toast({
-        title: "Correct",
-        description: `You answered correctly in ${newState.attempts} tries!`,
-        variant: "default",
-      });
       newState.isAbleToGuess = false;
       newState.visibleCards = 5;
+      setIsCorrectDialogOpen(true);
     } else {
       // If the guess is incorrect
       toast({
@@ -131,9 +129,26 @@ export default function Index() {
               visible={gameState.players.length}
             />
           </div>
-          <div className="flex justify-center">{gameState.teamName}</div>
+          <div className="flex flex-col items-center justify-center p-4">
+            <h2 className="mb-4 text-2xl font-bold text-gray-800">
+              {gameState.teamName}
+            </h2>
+            <Button
+              onClick={() => setIsCorrectDialogOpen(true)}
+              className="text-white bg-blue-500 hover:bg-blue-600"
+            >
+              View Results
+            </Button>
+          </div>
         </div>
       )}
+      <CorrectDialog
+        isOpen={isCorrectDialogOpen}
+        onClose={() => setIsCorrectDialogOpen(false)}
+        attempts={gameState.attempts}
+        teamName={gameState.teamName}
+        teamLogo={gameState.teamLogo}
+      />
     </div>
   );
 }
