@@ -19,6 +19,9 @@ export default function Index() {
   const [correctStreak, setCorrectStreak] = useState(0);
   const [incorrectDays, setIncorrectDays] = useState(0);
   const [notPlayedDays, setNotPlayedDays] = useState(0);
+  const [attemptsDistribution, setAttemptsDistribution] = useState<{
+    [key: number]: number;
+  }>({});
 
   // Use useEffect hook to initialize or load the game state
   useEffect(() => {
@@ -40,6 +43,9 @@ export default function Index() {
       localStorage.getItem("notPlayedDays") || "0",
       10,
     );
+    const storedAttemptsDistribution = JSON.parse(
+      localStorage.getItem("attemptsDistribution") || "{}",
+    );
 
     if (lastPlayedDate === currentDate) {
       // If the game was played today, load the saved game state
@@ -51,6 +57,7 @@ export default function Index() {
       setCorrectStreak(storedCorrectStreak);
       setIncorrectDays(storedIncorrectDays);
       setNotPlayedDays(storedNotPlayedDays);
+      setAttemptsDistribution(storedAttemptsDistribution);
     } else {
       // If it's a new day, set up a new game
       const newGameState: GameState = {
@@ -115,6 +122,16 @@ export default function Index() {
       const newCorrectStreak = correctStreak + 1;
       setCorrectStreak(newCorrectStreak);
       localStorage.setItem("correctStreak", newCorrectStreak.toString());
+
+      // Update attempts distribution
+      const newAttemptsDistribution = { ...attemptsDistribution };
+      newAttemptsDistribution[newState.attempts] =
+        (newAttemptsDistribution[newState.attempts] || 0) + 1;
+      setAttemptsDistribution(newAttemptsDistribution);
+      localStorage.setItem(
+        "attemptsDistribution",
+        JSON.stringify(newAttemptsDistribution),
+      );
     } else {
       // If the guess is incorrect
       newState.visibleCards = Math.min(newState.visibleCards + 1, 5);
@@ -157,6 +174,7 @@ export default function Index() {
     setCorrectStreak(0);
     setIncorrectDays(0);
     setNotPlayedDays(0);
+    setAttemptsDistribution({});
   };
 
   // Show loading spinner if game state is not yet initialized
@@ -240,6 +258,7 @@ export default function Index() {
         correctStreak={correctStreak}
         incorrectDays={incorrectDays}
         notPlayedDays={notPlayedDays}
+        attemptsDistribution={attemptsDistribution}
       />
       <IncorrectDialog
         isOpen={isIncorrectDialogOpen}

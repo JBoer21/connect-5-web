@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useMemo } from "react";
 import {
   Dialog,
@@ -9,7 +7,7 @@ import {
   DialogDescription,
 } from "~/components/ui/dialog";
 import { TrendingUp } from "lucide-react";
-import { Label, Pie, PieChart } from "recharts";
+import { Label, Pie, PieChart, Bar, BarChart, XAxis, YAxis } from "recharts";
 import {
   Card,
   CardContent,
@@ -35,6 +33,7 @@ interface CorrectDialogProps {
   correctStreak: number;
   incorrectDays: number;
   notPlayedDays: number;
+  attemptsDistribution: { [key: number]: number };
 }
 
 const chartConfig = {
@@ -43,7 +42,7 @@ const chartConfig = {
   },
   correct: {
     label: "Correct",
-    color: "hsl(var(--chart-1))",
+    color: "hsl(142, 76%, 36%)", // Green color
   },
   incorrect: {
     label: "Incorrect",
@@ -52,6 +51,10 @@ const chartConfig = {
   notPlayed: {
     label: "Not Played",
     color: "hsl(var(--chart-3))",
+  },
+  attempts: {
+    label: "Attempts",
+    color: "hsl(142, 76%, 36%)",
   },
 } satisfies ChartConfig;
 
@@ -65,18 +68,26 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
   correctStreak,
   incorrectDays,
   notPlayedDays,
+  attemptsDistribution,
 }) => {
-  const chartData = useMemo(() => {
+  const pieChartData = useMemo(() => {
     return [
-      { type: "correct", days: correctStreak, fill: "hsl(var(--chart-1))" },
+      { type: "correct", days: correctStreak, fill: "hsl(142, 76%, 36%)" }, // Green color
       { type: "incorrect", days: incorrectDays, fill: "hsl(var(--chart-2))" },
       { type: "notPlayed", days: notPlayedDays, fill: "hsl(var(--chart-3))" },
     ];
   }, [correctStreak, incorrectDays, notPlayedDays]);
 
+  const barChartData = useMemo(() => {
+    return [1, 2, 3, 4, 5].map((attempt) => ({
+      attempt,
+      count: attemptsDistribution[attempt] || 0,
+    }));
+  }, [attemptsDistribution]);
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent>
+      <DialogContent className="max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Congratulations!</DialogTitle>
           <DialogDescription>
@@ -110,7 +121,7 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
                     content={<ChartTooltipContent />}
                   />
                   <Pie
-                    data={chartData}
+                    data={pieChartData}
                     dataKey="days"
                     nameKey="type"
                     innerRadius={60}
@@ -158,6 +169,35 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
                 Keep playing daily to improve your streak!
               </div>
             </CardFooter>
+          </Card>
+          <Card className="w-full mt-4">
+            <CardHeader>
+              <CardTitle>Correct Guess Distribution</CardTitle>
+              <CardDescription>
+                Number of attempts for correct guesses
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ChartContainer config={chartConfig}>
+                <BarChart
+                  data={barChartData}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}
+                >
+                  <XAxis dataKey="attempt" />
+                  <YAxis />
+                  <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent />}
+                  />
+                  <Bar dataKey="count" fill="var(--color-attempts)" />
+                </BarChart>
+              </ChartContainer>
+            </CardContent>
           </Card>
         </div>
       </DialogContent>
