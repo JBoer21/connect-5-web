@@ -1,6 +1,5 @@
 // app/lib/utils/index_utils.ts
 
-import { json } from "@remix-run/node";
 import { IndexLoaderData } from "~/types/playerTypes";
 import gameStates from "~/data/game_states.json";
 
@@ -11,7 +10,7 @@ export function getGameStateForDate(date: Date): number {
   return dayDiff + 1; // Add 1 to start from game state 1
 }
 
-export function setGame() {
+export function setGame(): IndexLoaderData {
   const currentDate = new Date();
   const gameStateId = getGameStateForDate(currentDate);
 
@@ -22,9 +21,9 @@ export function setGame() {
     throw new Error(`No game state found for ID: ${gameStateId}`);
   }
 
-  return json<IndexLoaderData>({
+  return {
     teamName: gameState.state.teamName,
     teamLogo: gameState.state.teamLogo,
     players: gameState.state.players,
-  });
+  };
 }

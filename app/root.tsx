@@ -18,6 +18,7 @@ import {
   useNonce,
   useTheme,
 } from "./lib/client-hints";
+import { Header } from "./components/ui/info/header";
 import clsx from "clsx";
 
 export const links: LinksFunction = () => [
@@ -52,6 +53,7 @@ export default function App() {
       </head>
       <body>
         <Toaster />
+        <Header />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

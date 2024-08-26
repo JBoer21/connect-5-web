@@ -1,19 +1,16 @@
-import { useLoaderData } from "@remix-run/react";
-import { IndexLoaderData } from "~/types/playerTypes";
+import { useState, useEffect } from "react";
 import { PlayerBand } from "~/components/ui/players/player-band";
 import { Button } from "~/components/ui/button";
-import { useEffect, useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
 import { TeamSelect } from "~/components/ui/teamss/teamSelect";
-import { Header } from "~/components/ui/info/header";
+import { IndexLoaderData } from "~/types/playerTypes";
 
-export const loader = async () => {
-  return setGame();
-};
+// Remove the loader function as we'll set the game state in the component
 
 export default function Index() {
   const [hasPlayedToday, setHasPlayedToday] = useState(false);
+  const [gameState, setGameState] = useState<IndexLoaderData | null>(null);
 
   useEffect(() => {
     const lastPlayedDate = localStorage.getItem("lastPlayedDate");
@@ -21,13 +18,16 @@ export default function Index() {
 
     if (lastPlayedDate === currentDate) {
       setHasPlayedToday(true);
+      // If the user has played today, we'll load their saved game state here in the future
     } else {
+      // If the user hasn't played today, set a new game
+      const newGameState = setGame();
+      setGameState(newGameState as IndexLoaderData);
       localStorage.setItem("lastPlayedDate", currentDate);
     }
   }, []);
 
   const { toast } = useToast();
-  const { teamName, players } = useLoaderData<IndexLoaderData>();
   const [selectedTeam, setSelectedTeam] = useState<string>("");
   const [isAbleToGuess, setAbleToGuess] = useState(true);
 
@@ -36,6 +36,13 @@ export default function Index() {
   const [attempts, setAttempts] = useState(1);
 
   const [visibleCards, setVisibleCards] = useState(1);
+
+  // Only proceed with the game logic if we have a game state
+  if (!gameState) {
+    return <div>Loading...</div>;
+  }
+
+  const { teamName, players } = gameState;
 
   const handleSubmit = () => {
     if (!selectedTeam || selectedTeam === "") {
@@ -73,8 +80,6 @@ export default function Index() {
 
   return (
     <div>
-      <Header />
-
       {isAbleToGuess && (
         <div>
           <div className="px-4">
