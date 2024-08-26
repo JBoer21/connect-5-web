@@ -111,6 +111,12 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
               </CardDescription>
             </CardHeader>
             <CardContent className="flex-1 pb-0">
+              <div className="mt-4 mb-4 text-center">
+                <p className="font-semibold">Days in a Row: {daysInARow}</p>
+                <p className="font-semibold">
+                  Current Correct Streak: {correctStreak}
+                </p>
+              </div>
               <ChartContainer
                 config={chartConfig}
                 className="mx-auto aspect-square max-h-[250px]"
