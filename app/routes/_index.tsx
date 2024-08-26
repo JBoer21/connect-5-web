@@ -7,12 +7,14 @@ import { setGame } from "~/lib/utils/index_utils";
 import { TeamSelect } from "~/components/ui/teamss/teamSelect";
 import { GameState } from "~/types/gameStateTypes";
 import { CorrectDialog } from "~/components/ui/info/correctDialog";
+import { IncorrectDialog } from "~/components/ui/info/incorrectDialog";
 
 // Define the main Index component
 export default function Index() {
   // Initialize game state using useState hook
   const [gameState, setGameState] = useState<GameState | null>(null);
   const [isCorrectDialogOpen, setIsCorrectDialogOpen] = useState(false);
+  const [isIncorrectDialogOpen, setIsIncorrectDialogOpen] = useState(false);
 
   // Use useEffect hook to initialize or load the game state
   useEffect(() => {
@@ -64,8 +66,10 @@ export default function Index() {
         variant: "destructive",
       });
       newState.visibleCards = Math.min(newState.visibleCards + 1, 5);
-      if (newState.visibleCards === 5) {
+      // Only set isAbleToGuess to false if this was the last possible guess
+      if (newState.visibleCards === 5 && newState.attempts === 5) {
         newState.isAbleToGuess = false;
+        setIsIncorrectDialogOpen(true);
       }
       newState.incorrectGuesses = [...newState.incorrectGuesses, selectedTeam];
     }
@@ -146,7 +150,11 @@ export default function Index() {
               {gameState.teamName}
             </h2>
             <Button
-              onClick={() => setIsCorrectDialogOpen(true)}
+              onClick={() =>
+                gameState.attempts === 5
+                  ? setIsIncorrectDialogOpen(true)
+                  : setIsCorrectDialogOpen(true)
+              }
               className="text-white bg-blue-500 hover:bg-blue-600"
             >
               View Results
@@ -157,6 +165,13 @@ export default function Index() {
       <CorrectDialog
         isOpen={isCorrectDialogOpen}
         onClose={() => setIsCorrectDialogOpen(false)}
+        attempts={gameState.attempts}
+        teamName={gameState.teamName}
+        teamLogo={gameState.teamLogo}
+      />
+      <IncorrectDialog
+        isOpen={isIncorrectDialogOpen}
+        onClose={() => setIsIncorrectDialogOpen(false)}
         attempts={gameState.attempts}
         teamName={gameState.teamName}
         teamLogo={gameState.teamLogo}
