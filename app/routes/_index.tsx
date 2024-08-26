@@ -60,16 +60,18 @@ export default function Index() {
       setIsCorrectDialogOpen(true);
     } else {
       // If the guess is incorrect
-      toast({
-        title: "Incorrect guess",
-        description: "Try again!",
-        variant: "destructive",
-      });
       newState.visibleCards = Math.min(newState.visibleCards + 1, 5);
       // Only set isAbleToGuess to false if this was the last possible guess
       if (newState.visibleCards === 5 && newState.attempts === 5) {
         newState.isAbleToGuess = false;
         setIsIncorrectDialogOpen(true);
+      } else {
+        // Show toast only if it's not the last guess
+        toast({
+          title: "Incorrect guess",
+          description: "Try again!",
+          variant: "destructive",
+        });
       }
       newState.incorrectGuesses = [...newState.incorrectGuesses, selectedTeam];
     }
