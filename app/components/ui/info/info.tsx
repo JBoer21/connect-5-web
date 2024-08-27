@@ -1,21 +1,18 @@
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "../hover-card";
+import { Button } from "../button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../dialog";
 
-export function HoverHelp() {
+export function InfoHelp() {
   return (
-    <HoverCard>
-      <HoverCardTrigger>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "24px",
-            height: "24px",
-            borderRadius: "50%",
-            backgroundColor: "#e0e0e0",
-            cursor: "pointer",
-          }}
-        >
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="ghost" size="icon">
           <svg
             width="15"
             height="15"
@@ -29,18 +26,36 @@ export function HoverHelp() {
             }}
           >
             <path
-              d="M5.07505 4.10001C5.07505 2.91103 6.25727 1.92502 7.50005 1.92502C8.74283 1.92502 9.92505 2.91103 9.92505 4.10001C9.92505 5.19861 9.36782 5.71436 8.61854 6.37884L8.58757 6.4063C7.84481 7.06467 6.92505 7.87995 6.92505 9.5C6.92505 9.81757 7.18248 10.075 7.50005 10.075C7.81761 10.075 8.07505 9.81757 8.07505 9.5C8.07505 8.41517 8.62945 7.90623 9.38156 7.23925L9.40238 7.22079C10.1496 6.55829 11.075 5.73775 11.075 4.10001C11.075 2.12757 9.21869 0.775024 7.50005 0.775024C5.7814 0.775024 3.92505 2.12757 3.92505 4.10001C3.92505 4.41758 4.18249 4.67501 4.50005 4.67501C4.81761 4.67501 5.07505 4.41758 5.07505 4.10001ZM7.50005 13.3575C7.9833 13.3575 8.37505 12.9657 8.37505 12.4825C8.37505 11.9992 7.9833 11.6075 7.50005 11.6075C7.0168 11.6075 6.62505 11.9992 6.62505 12.4825C6.62505 12.9657 7.0168 13.3575 7.50005 13.3575Z"
+              d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82707 7.49972C1.82707 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82707 10.6327 1.82707 7.49972ZM8.24992 4.49999C8.24992 4.9142 7.91413 5.24999 7.49992 5.24999C7.08571 5.24999 6.74992 4.9142 6.74992 4.49999C6.74992 4.08577 7.08571 3.74999 7.49992 3.74999C7.91413 3.74999 8.24992 4.08577 8.24992 4.49999ZM6.00003 5.99999H6.50003H7.50003C7.77618 5.99999 8.00003 6.22384 8.00003 6.49999V9.99999H8.50003H9.00003V11H8.50003H7.50003H6.50003H6.00003V9.99999H6.50003H7.00003V6.99999H6.50003H6.00003V5.99999Z"
               fill="currentColor"
               fillRule="evenodd"
               clipRule="evenodd"
             ></path>
           </svg>
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Game Dev Information</DialogTitle>
+          <DialogDescription>
+            This game uses local storage to save your progress and game state.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="mt-4">
+          <p>To ensure the best experience and to save your progress:</p>
+          <ul className="pl-5 mt-2 list-disc">
+            <li>Use a modern web browser that supports local storage</li>
+            <li>Enable cookies and local storage in your browser settings</li>
+            <li>
+              Avoid using private/incognito mode, which may limit local storage
+            </li>
+          </ul>
+          <p className="mt-2">
+            Your game data is stored locally on your device and is not sent to
+            any server.
+          </p>
         </div>
-      </HoverCardTrigger>
-      <HoverCardContent>
-        All 5 of these players have played for the same club - the more guesses
-        you get wrong, the easier it gets.
-      </HoverCardContent>
-    </HoverCard>
+      </DialogContent>
+    </Dialog>
   );
 }

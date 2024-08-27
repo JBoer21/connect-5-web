@@ -1,6 +1,6 @@
 import React from "react";
 import { Waypoints } from "lucide-react";
-import { HoverHelp } from "./info";
+import { HoverHelp } from "./instructions";
 
 export const Header: React.FC = () => {
   return (

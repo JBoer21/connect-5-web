@@ -13,6 +13,7 @@ import {
   setItem,
   clearStorage,
 } from "~/lib/utils/local_storage_utils";
+import { InfoHelp } from "~/components/ui/info/info";
 
 // Define the main Index component
 export default function Index() {
@@ -177,7 +178,7 @@ export default function Index() {
 
   // Render the main game interface
   return (
-    <div>
+    <div className="relative min-h-screen">
       {gameState.isAbleToGuess && (
         // Render game interface when player can still guess
         <div>
@@ -268,6 +269,10 @@ export default function Index() {
           </Button>
         </div>
       )}
+      {/* InfoHelp component added to the bottom left corner */}
+      <div className="fixed bottom-4 left-4">
+        <InfoHelp />
+      </div>
     </div>
   );
 }
