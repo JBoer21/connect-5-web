@@ -46,7 +46,7 @@ const chartConfig = {
   },
   incorrect: {
     label: "Incorrect",
-    color: "hsl(0, 84%, 60%)", // Red color for incorrect
+    color: "hsl(25, 95%, 53%)", // Bright orange color
   },
   notPlayed: {
     label: "Not Played",
