@@ -12,8 +12,8 @@ import { MockPlayerBand } from "../players/mock-player-band";
 export function InstructionsDialog() {
   const examplePlayers = [
     {
-      name: "E. Mangala",
-      imageUrl: "https://cdn.sofifa.net/players/190/531/17_120.png",
+      name: "K. Walker",
+      imageUrl: "https://cdn.sofifa.net/players/188/377/22_120.png",
     },
     {
       name: "P. Foden",
