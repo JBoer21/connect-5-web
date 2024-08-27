@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -6,7 +6,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "~/components/ui/dialog";
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, Clock } from "lucide-react";
 import { Label, Pie, PieChart, Bar, BarChart, XAxis, YAxis } from "recharts";
 import {
   Card,
@@ -70,6 +70,31 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
   notPlayedDays,
   attemptsDistribution,
 }) => {
+  const [timeUntilNextGame, setTimeUntilNextGame] = useState<string>("");
+
+  useEffect(() => {
+    const updateTimer = () => {
+      const now = new Date();
+      const tomorrow = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 1,
+      );
+      const diff = tomorrow.getTime() - now.getTime();
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      setTimeUntilNextGame(`${hours}h ${minutes}m ${seconds}s`);
+    };
+
+    updateTimer();
+    const timerId = setInterval(updateTimer, 1000);
+
+    return () => clearInterval(timerId);
+  }, []);
+
   const pieChartData = useMemo(() => {
     return [
       { type: "correct", days: correctStreak, fill: "hsl(142, 76%, 36%)" }, // Green color
@@ -203,6 +228,19 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
                   <Bar dataKey="count" fill="var(--color-attempts)" />
                 </BarChart>
               </ChartContainer>
+            </CardContent>
+          </Card>
+          <Card className="w-full mt-4">
+            <CardHeader>
+              <CardTitle>Next Game</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-center gap-2">
+                <Clock className="w-6 h-6" />
+                <span className="text-lg font-semibold">
+                  {timeUntilNextGame}
+                </span>
+              </div>
             </CardContent>
           </Card>
         </div>
