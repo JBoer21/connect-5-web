@@ -9,9 +9,8 @@ import { GameState } from "~/types/gameStateTypes";
 import { CorrectDialog } from "~/components/ui/info/correctDialog";
 import { IncorrectDialog } from "~/components/ui/info/incorrectDialog";
 import {
-  safeLocalStorage,
-  getStoredItem,
-  setStoredItem,
+  getItem,
+  setItem,
   clearStorage,
 } from "~/lib/utils/local_storage_utils";
 
@@ -31,28 +30,25 @@ export default function Index() {
 
   // Use useEffect hook to initialize or load the game state
   useEffect(() => {
-    const lastPlayedDate = safeLocalStorage.getItem("lastPlayedDate");
+    const lastPlayedDate = getItem("lastPlayedDate", null);
     const currentDate = new Date().toDateString();
-    const storedDaysInARow = getStoredItem("daysInARow", 0);
-    const storedCorrectStreak = getStoredItem("correctStreak", 0);
-    const storedIncorrectDays = getStoredItem("incorrectDays", 0);
-    const storedNotPlayedDays = getStoredItem("notPlayedDays", 0);
-    const storedAttemptsDistribution = getStoredItem(
-      "attemptsDistribution",
-      {},
-    );
+    const storedDaysInARow = getItem("daysInARow", 0);
+    const storedCorrectStreak = getItem("correctStreak", 0);
+    const storedIncorrectDays = getItem("incorrectDays", 0);
+    const storedNotPlayedDays = getItem("notPlayedDays", 0);
+    const storedAttemptsDistribution = getItem("attemptsDistribution", {});
 
     if (lastPlayedDate === currentDate) {
       // If the game was played today, load the saved game state
-      const savedState = getStoredItem("gameState", null);
+      const savedState = getItem("gameState", null);
       if (savedState) {
         setGameState(savedState);
       }
-      setDaysInARow(storedDaysInARow);
-      setCorrectStreak(storedCorrectStreak);
-      setIncorrectDays(storedIncorrectDays);
-      setNotPlayedDays(storedNotPlayedDays);
-      setAttemptsDistribution(storedAttemptsDistribution);
+      setDaysInARow(storedDaysInARow || 0);
+      setCorrectStreak(storedCorrectStreak || 0);
+      setIncorrectDays(storedIncorrectDays || 0);
+      setNotPlayedDays(storedNotPlayedDays || 0);
+      setAttemptsDistribution(storedAttemptsDistribution || {});
     } else {
       // If it's a new day, set up a new game
       const newGameState: GameState = {
@@ -63,8 +59,8 @@ export default function Index() {
         isAbleToGuess: true,
       };
       setGameState(newGameState);
-      setStoredItem("lastPlayedDate", currentDate);
-      setStoredItem("gameState", newGameState);
+      setItem("lastPlayedDate", currentDate);
+      setItem("gameState", newGameState);
 
       // Update days in a row and not played days
       if (lastPlayedDate) {
@@ -76,26 +72,27 @@ export default function Index() {
 
         if (daysDifference === 1) {
           // Played yesterday, increment days in a row
-          const newDaysInARow = storedDaysInARow + 1;
+          const newDaysInARow = (storedDaysInARow || 0) + 1;
           setDaysInARow(newDaysInARow);
-          setStoredItem("daysInARow", newDaysInARow);
+          setItem("daysInARow", newDaysInARow);
         } else if (daysDifference > 1) {
           // Missed some days, reset days in a row and update not played days
           setDaysInARow(1);
-          setStoredItem("daysInARow", 1);
-          const newNotPlayedDays = storedNotPlayedDays + daysDifference - 1;
+          setItem("daysInARow", 1);
+          const newNotPlayedDays =
+            (storedNotPlayedDays || 0) + daysDifference - 1;
           setNotPlayedDays(newNotPlayedDays);
-          setStoredItem("notPlayedDays", newNotPlayedDays);
+          setItem("notPlayedDays", newNotPlayedDays);
         }
       } else {
         // First time playing, set days in a row to 1
         setDaysInARow(1);
-        setStoredItem("daysInARow", 1);
+        setItem("daysInARow", 1);
       }
 
       // Reset correct streak for a new day
       setCorrectStreak(0);
-      setStoredItem("correctStreak", 0);
+      setItem("correctStreak", 0);
     }
   }, []); // Empty dependency array means this effect runs once on mount
 
@@ -117,14 +114,14 @@ export default function Index() {
       setIsCorrectDialogOpen(true);
       const newCorrectStreak = correctStreak + 1;
       setCorrectStreak(newCorrectStreak);
-      setStoredItem("correctStreak", newCorrectStreak);
+      setItem("correctStreak", newCorrectStreak);
 
       // Update attempts distribution
       const newAttemptsDistribution = { ...attemptsDistribution };
       newAttemptsDistribution[newState.attempts] =
         (newAttemptsDistribution[newState.attempts] || 0) + 1;
       setAttemptsDistribution(newAttemptsDistribution);
-      setStoredItem("attemptsDistribution", newAttemptsDistribution);
+      setItem("attemptsDistribution", newAttemptsDistribution);
     } else {
       // If the guess is incorrect
       newState.visibleCards = Math.min(newState.visibleCards + 1, 5);
@@ -133,10 +130,10 @@ export default function Index() {
         newState.isAbleToGuess = false;
         setIsIncorrectDialogOpen(true);
         setCorrectStreak(0);
-        setStoredItem("correctStreak", 0);
+        setItem("correctStreak", 0);
         const newIncorrectDays = incorrectDays + 1;
         setIncorrectDays(newIncorrectDays);
-        setStoredItem("incorrectDays", newIncorrectDays);
+        setItem("incorrectDays", newIncorrectDays);
       } else {
         // Show toast only if it's not the last guess
         toast({
@@ -150,7 +147,7 @@ export default function Index() {
 
     // Update game state and save to localStorage
     setGameState(newState);
-    setStoredItem("gameState", newState);
+    setItem("gameState", newState);
   };
 
   // Function to clear localStorage
