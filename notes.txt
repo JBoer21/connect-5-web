@@ -5,16 +5,20 @@ Need to:
      Implemented in useEffect hook in app/routes/_index.tsx
    - currentGameState: to store the current game progress (visible cards, attempts, etc.) (COMPLETED - 2023-07-10)
      Implemented as 'gameState' in localStorage in app/routes/_index.tsx
-   - dailyScore: to save the user's score for the day (NOT IMPLEMENTED YET)
-   - streakCount: to keep track of consecutive days played (NOT IMPLEMENTED YET)
+   - dailyScore: to save the user's score for the day (COMPLETED - 2023-07-11)
+     Implemented as part of the gameState in localStorage
+   - streakCount: to keep track of consecutive days played (COMPLETED - 2023-07-11)
+     Implemented as 'daysInARow' and 'correctStreak' in localStorage
 
 2. Change frontend to display based on if game is played etc:
-   - Add a conditional render to show different content based on hasPlayedToday state (PARTIALLY COMPLETED - 2023-07-10)
-     Implemented in app/routes/_index.tsx, but only for game in progress
+   - Add a conditional render to show different content based on hasPlayedToday state (COMPLETED - 2023-07-11)
+     Implemented in app/routes/_index.tsx for both game in progress and completed game
    - If hasPlayedToday is true:
-     - Display a summary of the day's game (team guessed, number of attempts) (NOT IMPLEMENTED YET)
+     - Display a summary of the day's game (team guessed, number of attempts) (COMPLETED - 2023-07-11)
+       Implemented in CorrectDialog and IncorrectDialog components
      - Show a countdown or message for when the next game will be available (NOT IMPLEMENTED YET)
-     - Optionally, display statistics (streak, average attempts, etc.) (NOT IMPLEMENTED YET)
+     - Optionally, display statistics (streak, average attempts, etc.) (COMPLETED - 2023-07-11)
+       Implemented in CorrectDialog and IncorrectDialog components
    - If hasPlayedToday is false:
      - Show the current game interface (COMPLETED - 2023-07-10)
        Implemented in app/routes/_index.tsx
@@ -26,8 +30,8 @@ Need to:
 3. Additional considerations:
    - Implement data persistence for partially completed games (COMPLETED - 2023-07-10)
      Implemented through localStorage in app/routes/_index.tsx
-   - Add a reset function for testing or debugging purposes (NOT IMPLEMENTED YET)
+   - Add a reset function for testing or debugging purposes (COMPLETED - 2023-07-11)
+     Implemented as clearLocalStorage function in app/routes/_index.tsx
    - Consider adding share functionality for users to share their daily results (NOT IMPLEMENTED YET)
 
-
-   I think there is an issue with the gameState not being set correctly. Will fix later.
+The issue with the gameState not being set correctly has been resolved.
