@@ -9,6 +9,12 @@ Need to:
      Implemented as part of the gameState in localStorage
    - streakCount: to keep track of consecutive days played (COMPLETED - 2023-07-11)
      Implemented as 'daysInARow' and 'correctStreak' in localStorage
+   - incorrectDays: to track the number of days with incorrect guesses (COMPLETED - 2023-07-12)
+     Implemented in localStorage and updated in app/routes/_index.tsx
+   - notPlayedDays: to track the number of days not played (COMPLETED - 2023-07-12)
+     Implemented in localStorage and updated in app/routes/_index.tsx
+   - attemptsDistribution: to store the distribution of attempts for correct guesses (COMPLETED - 2023-07-12)
+     Implemented in localStorage and updated in app/routes/_index.tsx
 
 2. Change frontend to display based on if game is played etc:
    - Add a conditional render to show different content based on hasPlayedToday state (COMPLETED - 2023-07-11)
@@ -16,7 +22,8 @@ Need to:
    - If hasPlayedToday is true:
      - Display a summary of the day's game (team guessed, number of attempts) (COMPLETED - 2023-07-11)
        Implemented in CorrectDialog and IncorrectDialog components
-     - Show a countdown or message for when the next game will be available (NOT IMPLEMENTED YET)
+     - Show a countdown or message for when the next game will be available (COMPLETED - 2023-07-12)
+       Implemented in CorrectDialog and IncorrectDialog components
      - Optionally, display statistics (streak, average attempts, etc.) (COMPLETED - 2023-07-11)
        Implemented in CorrectDialog and IncorrectDialog components
    - If hasPlayedToday is false:
@@ -33,5 +40,7 @@ Need to:
    - Add a reset function for testing or debugging purposes (COMPLETED - 2023-07-11)
      Implemented as clearLocalStorage function in app/routes/_index.tsx
    - Consider adding share functionality for users to share their daily results (NOT IMPLEMENTED YET)
+   - Implement separate dialogs for correct and incorrect guesses (COMPLETED - 2023-07-12)
+     Created CorrectDialog and IncorrectDialog components
 
 The issue with the gameState not being set correctly has been resolved.
