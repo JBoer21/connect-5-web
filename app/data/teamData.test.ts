@@ -51,4 +51,10 @@ describe("Teams data is correct", () => {
     const uniqueTeamNames = new Set(teamNames);
     expect(uniqueTeamNames.size).toBe(teamNames.length);
   });
+
+  test("All team logos end with '60.png'", () => {
+    teams.forEach((team) => {
+      expect(team.logo).toMatch(/60\.png$/);
+    });
+  });
 });

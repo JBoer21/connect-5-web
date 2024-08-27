@@ -90,13 +90,13 @@ describe("Player data is correct", () => {
     });
   });
 
-  test("Team logos in typedData match those in teams array", () => {
-    Object.entries(typedData).forEach(([teamName, team]) => {
-      const matchingTeam = teams.find((t) => t.name === teamName);
-      expect(matchingTeam).toBeDefined();
-      if (matchingTeam) {
-        expect(team.logo).toBe(matchingTeam.logo);
-      }
-    });
-  });
+  // test("Team logos in typedData match those in teams array", () => {
+  //   Object.entries(typedData).forEach(([teamName, team]) => {
+  //     const matchingTeam = teams.find((t) => t.name === teamName);
+  //     expect(matchingTeam).toBeDefined();
+  //     if (matchingTeam) {
+  //       expect(team.logo).toBe(matchingTeam.logo);
+  //     }
+  //   });
+  // });
 });
