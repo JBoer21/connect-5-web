@@ -1,6 +1,6 @@
 import React from "react";
 import { Waypoints } from "lucide-react";
-import { HoverHelp } from "./instructions";
+import { InstructionsDialog } from "./instructions";
 
 export const Header: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
         <Waypoints />
         <h1 className="text-xl font-semibold">Connect 5</h1>
       </div>
-      <HoverHelp />
+      <InstructionsDialog />
     </nav>
   );
 };

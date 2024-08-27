@@ -1,21 +1,42 @@
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "../hover-card";
+import { Button } from "../button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../dialog";
+import { MockPlayerBand } from "../players/mock-player-band";
 
-export function HoverHelp() {
+export function InstructionsDialog() {
+  const examplePlayers = [
+    {
+      name: "E. Mangala",
+      imageUrl: "https://cdn.sofifa.net/players/190/531/17_120.png",
+    },
+    {
+      name: "P. Foden",
+      imageUrl: "https://cdn.sofifa.net/players/237/692/22_120.png",
+    },
+    {
+      name: "J. Stones",
+      imageUrl: "https://cdn.sofifa.net/players/203/574/22_120.png",
+    },
+    {
+      name: "K. De Bruyne",
+      imageUrl: "https://cdn.sofifa.net/players/192/985/22_120.png",
+    },
+    {
+      name: "R. Sterling",
+      imageUrl: "https://cdn.sofifa.net/players/202/652/22_120.png",
+    },
+  ];
+
   return (
-    <HoverCard>
-      <HoverCardTrigger>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "24px",
-            height: "24px",
-            borderRadius: "50%",
-            backgroundColor: "#e0e0e0",
-            cursor: "pointer",
-          }}
-        >
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="ghost" size="icon">
           <svg
             width="15"
             height="15"
@@ -35,12 +56,26 @@ export function HoverHelp() {
               clipRule="evenodd"
             ></path>
           </svg>
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-3xl">
+        <DialogHeader>
+          <DialogTitle>How to Play</DialogTitle>
+          <DialogDescription>
+            All 5 of these players have played for the same club - the more
+            guesses you get wrong, the easier it gets.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="mt-4">
+          <h3 className="mb-2 text-sm font-semibold">Example:</h3>
+          <div className="w-full">
+            <MockPlayerBand players={examplePlayers} />
+          </div>
+          <p className="mt-2 text-sm">
+            In this example, all players have played for Manchester City.
+          </p>
         </div>
-      </HoverCardTrigger>
-      <HoverCardContent>
-        All 5 of these players have played for the same club - the more guesses
-        you get wrong, the easier it gets.
-      </HoverCardContent>
-    </HoverCard>
+      </DialogContent>
+    </Dialog>
   );
 }

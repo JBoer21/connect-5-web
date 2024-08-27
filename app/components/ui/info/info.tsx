@@ -54,6 +54,24 @@ export function InfoHelp() {
             Your game data is stored locally on your device and is not sent to
             any server.
           </p>
+          <div className="mt-4">
+            <h3 className="font-semibold">
+              Why might my progress not be saving?
+            </h3>
+            <p>There could be several reasons:</p>
+            <ul className="pl-5 mt-2 list-disc">
+              <li>Your browser&apos;s local storage is full</li>
+              <li>You&apos;ve cleared your browser data recently</li>
+              <li>You&apos;re using a different browser or device</li>
+              <li>Your browser settings are blocking local storage</li>
+              <li>You&apos;re using an outdated browser version</li>
+            </ul>
+            <p className="mt-2">
+              If you&apos;re experiencing issues, try clearing your browser
+              cache and refreshing the page. If problems persist, please check
+              your browser settings or try a different browser.
+            </p>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
