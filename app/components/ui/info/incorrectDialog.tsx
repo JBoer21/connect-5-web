@@ -22,6 +22,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "~/components/ui/chart";
+import { getHighResLogo } from "~/lib/utils/dialog_utils";
 
 interface IncorrectDialogProps {
   isOpen: boolean;
@@ -122,7 +123,7 @@ export const IncorrectDialog: React.FC<IncorrectDialogProps> = ({
         </DialogHeader>
         <div className="flex flex-col items-center mt-4">
           <img
-            src={teamLogo}
+            src={getHighResLogo(teamLogo)}
             alt={`${teamName} logo`}
             width={100}
             height={100}
