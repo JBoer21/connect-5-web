@@ -1,87 +1,91 @@
 import { toast } from "~/components/ui/use-toast";
+import Cookies from "js-cookie";
 
-/**
- * Helper object for safe localStorage operations
- */
-export const safeLocalStorage = {
-  /**
-   * Safely retrieves an item from localStorage
-   * @param {string} key - The key of the item to retrieve
-   * @returns {string | null} The value of the item, or null if not found or on error
-   */
-  getItem: (key: string): string | null => {
-    try {
-      return localStorage.getItem(key);
-    } catch (error) {
-      console.error(`Error reading from localStorage: ${error}`);
-      return null;
-    }
-  },
-
-  /**
-   * Safely sets an item in localStorage
-   * @param {string} key - The key of the item to set
-   * @param {string} value - The value to set
-   */
-  setItem: (key: string, value: string): void => {
-    try {
-      localStorage.setItem(key, value);
-    } catch (error) {
-      console.error(`Error writing to localStorage: ${error}`);
-      // Remove the toast notification for localStorage errors
-    }
-  },
-
-  /**
-   * Safely clears all items from localStorage
-   */
-  clear: (): void => {
-    try {
-      localStorage.clear();
-    } catch (error) {
-      console.error(`Error clearing localStorage: ${error}`);
-    }
-  },
+const storageType = {
+  localStorage: "localStorage",
+  cookies: "cookies",
 };
 
-/**
- * Retrieves a stored item from localStorage and parses it
- * @param {string} key - The key of the item to retrieve
- * @param {T} defaultValue - The default value to return if the item is not found
- * @returns {T} The parsed value of the item, or the default value if not found or on error
- */
-export const getStoredItem = <T>(key: string, defaultValue: T): T => {
-  const storedValue = safeLocalStorage.getItem(key);
-  if (storedValue === null) {
-    return defaultValue;
-  }
+function isLocalStorageAvailable() {
   try {
-    return JSON.parse(storedValue) as T;
+    localStorage.setItem("test", "test");
+    localStorage.removeItem("test");
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+const preferredStorage = isLocalStorageAvailable()
+  ? storageType.localStorage
+  : storageType.cookies;
+
+export function getItem<T>(
+  key: string,
+  defaultValue: T | null = null,
+): T | null {
+  try {
+    if (preferredStorage === storageType.localStorage) {
+      const item = localStorage.getItem(key);
+      return item ? (JSON.parse(item) as T) : defaultValue;
+    } else {
+      const item = Cookies.get(key);
+      return item ? JSON.parse(item) : defaultValue;
+    }
   } catch (error) {
-    console.error(`Error parsing stored value for ${key}: ${error}`);
+    console.error(`Error reading from storage: ${error}`);
     return defaultValue;
   }
+}
+
+export function setItem(key: string, value: unknown) {
+  try {
+    const stringValue = JSON.stringify(value);
+    if (preferredStorage === storageType.localStorage) {
+      localStorage.setItem(key, stringValue);
+    } else {
+      Cookies.set(key, stringValue, { expires: 365 }); // Set cookie to expire in 1 year
+    }
+  } catch (error) {
+    console.error(`Error writing to storage: ${error}`);
+  }
+}
+
+export function removeItem(key: string) {
+  try {
+    if (preferredStorage === storageType.localStorage) {
+      localStorage.removeItem(key);
+    } else {
+      Cookies.remove(key);
+    }
+  } catch (error) {
+    console.error(`Error removing item from storage: ${error}`);
+  }
+}
+
+export function clearStorage() {
+  try {
+    if (preferredStorage === storageType.localStorage) {
+      localStorage.clear();
+    } else {
+      Object.keys(Cookies.get()).forEach((key) => Cookies.remove(key));
+    }
+    toast({
+      title: "Data Cleared",
+      description: "All saved data has been removed.",
+      variant: "default",
+    });
+  } catch (error) {
+    console.error(`Error clearing storage: ${error}`);
+  }
+}
+
+// Keeping these for backwards compatibility
+export const safeLocalStorage = {
+  getItem: (key: string) => getItem(key),
+  setItem: (key: string, value: string) => setItem(key, value),
+  clear: clearStorage,
 };
 
-/**
- * Stores an item in localStorage after stringifying it
- * @param {string} key - The key of the item to store
- * @param {T} value - The value to store
- */
-export const setStoredItem = <T>(key: string, value: T): void => {
-  safeLocalStorage.setItem(key, JSON.stringify(value));
-};
-
-/**
- * Clears all items from localStorage and shows a toast notification
- */
-export const clearStorage = (): void => {
-  safeLocalStorage.clear();
-  // Consider if this toast is necessary for users
-  // If you decide to keep it, use more user-friendly language
-  toast({
-    title: "Data Cleared",
-    description: "All locally saved data has been removed.",
-    variant: "default",
-  });
-};
+export const getStoredItem = getItem;
+export const setStoredItem = setItem;
