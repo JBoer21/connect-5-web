@@ -54,3 +54,5 @@ Loading State: Improve the loading state to provide more context to users.
 Game Rules/Instructions: Add a section explaining how to play the game. (COMPLETED - 2023-07-17)
 Share Functionality: Allow users to share their results on social media. (NOT IMPLEMENTED YET)
 Analytics: Implement analytics to track user engagement and game statistics. (COMPLETED - 2023-07-18)
+
+Game streak pie chart does not show correctly. 
