@@ -4,7 +4,7 @@ import { PlayerBand } from "~/components/ui/players/player-band";
 import { Button } from "~/components/ui/button";
 import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
-import { TeamSelect } from "~/components/ui/teamss/teamSelect";
+import { TeamSelect } from "~/components/ui/teams/teamSelect";
 import { GameState } from "~/types/gameStateTypes";
 import { CorrectDialog } from "~/components/ui/info/correctDialog";
 import { IncorrectDialog } from "~/components/ui/info/incorrectDialog";
