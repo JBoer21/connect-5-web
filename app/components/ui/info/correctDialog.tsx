@@ -130,6 +130,7 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
             height={100}
           />
           <p className="mt-2 text-lg font-semibold">{teamName}</p>
+          <ShareButton attempts={attempts} correctGuess={true} />
           <Card className="w-full mt-4">
             <CardHeader className="items-center pb-0">
               <CardTitle>Your Streak</CardTitle>
@@ -245,7 +246,6 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
               </div>
             </CardContent>
           </Card>
-          <ShareButton attempts={attempts} correctGuess={true} />
         </div>
       </DialogContent>
     </Dialog>
