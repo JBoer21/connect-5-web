@@ -23,6 +23,7 @@ import {
   ChartTooltipContent,
 } from "~/components/ui/chart";
 import { getHighResLogo } from "~/lib/utils/dialog_utils";
+import { ShareButton } from "./shareButton";
 
 interface CorrectDialogProps {
   isOpen: boolean;
@@ -244,6 +245,7 @@ export const CorrectDialog: React.FC<CorrectDialogProps> = ({
               </div>
             </CardContent>
           </Card>
+          <ShareButton attempts={attempts} correctGuess={true} />
         </div>
       </DialogContent>
     </Dialog>
