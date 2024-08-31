@@ -65,6 +65,10 @@ export function InstructionsDialog() {
             All 5 of these players have played for the same club - the more
             guesses you get wrong, the easier it gets.
           </DialogDescription>
+          <DialogDescription className="text-sm sm:text-base">
+            A new game is released every day at midnight EST. Some games are
+            easier than others!
+          </DialogDescription>
         </DialogHeader>
         <div className="mt-4">
           <h3 className="mb-2 text-sm font-semibold sm:text-base">Example:</h3>

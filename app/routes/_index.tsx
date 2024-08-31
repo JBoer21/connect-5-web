@@ -152,63 +152,69 @@ export default function Index() {
 
   // Render the main game interface
   return (
-    <div className="relative min-h-screen">
+    <div className="relative flex flex-col min-h-screen">
       {showConfetti && <Confetti />}
-      {gameState.isAbleToGuess && (
-        // Render game interface when player can still guess
-        <div>
-          <div className="px-4">
-            <PlayerBand
-              players={gameState.players.map((player) => ({
-                name: player.name,
-                imageUrl: player.image_url,
-              }))}
-              visible={gameState.visibleCards}
-            />
+      <div className="flex-grow">
+        {gameState.isAbleToGuess && (
+          // Render game interface when player can still guess
+          <div>
+            <div className="px-4">
+              <PlayerBand
+                players={gameState.players.map((player) => ({
+                  name: player.name,
+                  imageUrl: player.image_url,
+                }))}
+                visible={gameState.visibleCards}
+              />
+            </div>
+            <div className="flex items-center justify-center p-6 space-x-4">
+              <TeamSelect
+                onValueChange={setSelectedTeam}
+                incorrectGuesses={gameState.incorrectGuesses}
+              />
+              <Button
+                onClick={handleSubmit}
+                className="text-white bg-green-500 hover:bg-green-600"
+              >
+                Submit
+              </Button>
+            </div>
           </div>
-          <div className="flex items-center justify-center p-6 space-x-4">
-            <TeamSelect
-              onValueChange={setSelectedTeam}
-              incorrectGuesses={gameState.incorrectGuesses}
-            />
-            <Button
-              onClick={handleSubmit}
-              className="text-white bg-green-500 hover:bg-green-600"
-            >
-              Submit
-            </Button>
+        )}
+        {!gameState.isAbleToGuess && (
+          // Render game result when player can no longer guess
+          <div>
+            <div className="px-4">
+              <PlayerBand
+                players={gameState.players.map((player) => ({
+                  name: player.name,
+                  imageUrl: player.image_url,
+                }))}
+                visible={gameState.players.length}
+              />
+            </div>
+            <div className="flex flex-col items-center justify-center p-4">
+              <h2 className="px-6 py-2 mb-6 text-4xl font-bold text-gray-800">
+                {gameState.teamName}
+              </h2>
+              <Button
+                onClick={() =>
+                  gameState.attempts === 5
+                    ? setIsIncorrectDialogOpen(true)
+                    : setIsCorrectDialogOpen(true)
+                }
+                className="text-white bg-blue-500 hover:bg-blue-600"
+              >
+                View Results
+              </Button>
+            </div>
           </div>
-        </div>
-      )}
-      {!gameState.isAbleToGuess && (
-        // Render game result when player can no longer guess
-        <div>
-          <div className="px-4">
-            <PlayerBand
-              players={gameState.players.map((player) => ({
-                name: player.name,
-                imageUrl: player.image_url,
-              }))}
-              visible={gameState.players.length}
-            />
-          </div>
-          <div className="flex flex-col items-center justify-center p-4">
-            <h2 className="px-6 py-2 mb-6 text-4xl font-bold text-gray-800">
-              {gameState.teamName}
-            </h2>
-            <Button
-              onClick={() =>
-                gameState.attempts === 5
-                  ? setIsIncorrectDialogOpen(true)
-                  : setIsCorrectDialogOpen(true)
-              }
-              className="text-white bg-blue-500 hover:bg-blue-600"
-            >
-              View Results
-            </Button>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
+      {/* InfoHelp component added as a footer */}
+      <footer className="flex justify-center p-4 mt-auto">
+        <InfoHelp />
+      </footer>
       <CorrectDialog
         isOpen={isCorrectDialogOpen}
         onClose={() => setIsCorrectDialogOpen(false)}
@@ -227,10 +233,6 @@ export default function Index() {
         daysInARow={daysInARow}
         correctStreak={correctStreak}
       />
-      {/* InfoHelp component added to the bottom left corner */}
-      <div className="fixed bottom-4 left-4">
-        <InfoHelp />
-      </div>
     </div>
   );
 }
