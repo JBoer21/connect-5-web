@@ -23,11 +23,6 @@ export default function Index() {
   const [isIncorrectDialogOpen, setIsIncorrectDialogOpen] = useState(false);
   const [daysInARow, setDaysInARow] = useState(0);
   const [correctStreak, setCorrectStreak] = useState(0);
-  const [incorrectDays, setIncorrectDays] = useState(0);
-  const [notPlayedDays, setNotPlayedDays] = useState(0);
-  const [attemptsDistribution, setAttemptsDistribution] = useState<{
-    [key: number]: number;
-  }>({});
 
   // Use useEffect hook to initialize or load the game state
   useEffect(() => {
@@ -35,9 +30,6 @@ export default function Index() {
     const currentDate = new Date().toDateString();
     const storedDaysInARow = getItem("daysInARow", 0);
     const storedCorrectStreak = getItem("correctStreak", 0);
-    const storedIncorrectDays = getItem("incorrectDays", 0);
-    const storedNotPlayedDays = getItem("notPlayedDays", 0);
-    const storedAttemptsDistribution = getItem("attemptsDistribution", {});
 
     if (lastPlayedDate === currentDate) {
       // If the game was played today, load the saved game state
@@ -47,9 +39,6 @@ export default function Index() {
       }
       setDaysInARow(storedDaysInARow || 0);
       setCorrectStreak(storedCorrectStreak || 0);
-      setIncorrectDays(storedIncorrectDays || 0);
-      setNotPlayedDays(storedNotPlayedDays || 0);
-      setAttemptsDistribution(storedAttemptsDistribution || {});
     } else {
       // If it's a new day, set up a new game
       const newGameState: GameState = {
@@ -63,7 +52,7 @@ export default function Index() {
       setItem("lastPlayedDate", currentDate);
       setItem("gameState", newGameState);
 
-      // Update days in a row and not played days
+      // Update days in a row
       if (lastPlayedDate) {
         const lastPlayedDateTime = new Date(lastPlayedDate).getTime();
         const currentDateTime = new Date(currentDate).getTime();
@@ -77,13 +66,9 @@ export default function Index() {
           setDaysInARow(newDaysInARow);
           setItem("daysInARow", newDaysInARow);
         } else if (daysDifference > 1) {
-          // Missed some days, reset days in a row and update not played days
+          // Missed some days, reset days in a row
           setDaysInARow(1);
           setItem("daysInARow", 1);
-          const newNotPlayedDays =
-            (storedNotPlayedDays || 0) + daysDifference - 1;
-          setNotPlayedDays(newNotPlayedDays);
-          setItem("notPlayedDays", newNotPlayedDays);
         }
       } else {
         // First time playing, set days in a row to 1
@@ -116,13 +101,6 @@ export default function Index() {
       const newCorrectStreak = correctStreak + 1;
       setCorrectStreak(newCorrectStreak);
       setItem("correctStreak", newCorrectStreak);
-
-      // Update attempts distribution
-      const newAttemptsDistribution = { ...attemptsDistribution };
-      newAttemptsDistribution[newState.attempts] =
-        (newAttemptsDistribution[newState.attempts] || 0) + 1;
-      setAttemptsDistribution(newAttemptsDistribution);
-      setItem("attemptsDistribution", newAttemptsDistribution);
     } else {
       // If the guess is incorrect
       newState.visibleCards = Math.min(newState.visibleCards + 1, 5);
@@ -132,9 +110,6 @@ export default function Index() {
         setIsIncorrectDialogOpen(true);
         setCorrectStreak(0);
         setItem("correctStreak", 0);
-        const newIncorrectDays = incorrectDays + 1;
-        setIncorrectDays(newIncorrectDays);
-        setItem("incorrectDays", newIncorrectDays);
       } else {
         // Show toast only if it's not the last guess
         toast({
@@ -158,9 +133,6 @@ export default function Index() {
     setGameState(null);
     setDaysInARow(0);
     setCorrectStreak(0);
-    setIncorrectDays(0);
-    setNotPlayedDays(0);
-    setAttemptsDistribution({});
   };
 
   // Show loading spinner if game state is not yet initialized
@@ -242,9 +214,6 @@ export default function Index() {
         teamLogo={gameState.teamLogo}
         daysInARow={daysInARow}
         correctStreak={correctStreak}
-        incorrectDays={incorrectDays}
-        notPlayedDays={notPlayedDays}
-        attemptsDistribution={attemptsDistribution}
       />
       <IncorrectDialog
         isOpen={isIncorrectDialogOpen}
@@ -254,9 +223,6 @@ export default function Index() {
         teamLogo={gameState.teamLogo}
         daysInARow={daysInARow}
         correctStreak={correctStreak}
-        incorrectDays={incorrectDays}
-        notPlayedDays={notPlayedDays}
-        attemptsDistribution={attemptsDistribution}
       />
       {/* Clear localStorage button for development testing */}
       {process.env.NODE_ENV === "development" && (
