@@ -58,20 +58,20 @@ export function InstructionsDialog() {
           </svg>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl">
+      <DialogContent className="w-[90vw] max-w-3xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>How to Play</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-xl sm:text-2xl">How to Play</DialogTitle>
+          <DialogDescription className="text-sm sm:text-base">
             All 5 of these players have played for the same club - the more
             guesses you get wrong, the easier it gets.
           </DialogDescription>
         </DialogHeader>
         <div className="mt-4">
-          <h3 className="mb-2 text-sm font-semibold">Example:</h3>
-          <div className="w-full">
+          <h3 className="mb-2 text-sm font-semibold sm:text-base">Example:</h3>
+          <div className="w-full overflow-x-auto">
             <MockPlayerBand players={examplePlayers} />
           </div>
-          <p className="mt-2 text-sm">
+          <p className="mt-2 text-xs sm:text-sm">
             In this example, all players have played for Manchester City.
           </p>
         </div>
