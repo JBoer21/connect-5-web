@@ -10,6 +10,7 @@ import { CorrectDialog } from "~/components/ui/info/correctDialog";
 import { IncorrectDialog } from "~/components/ui/info/incorrectDialog";
 import { getItem, setItem } from "~/lib/utils/local_storage_utils";
 import { InfoHelp } from "~/components/ui/info/info";
+import Confetti from "react-confetti";
 
 // Define the main Index component
 export default function Index() {
@@ -19,15 +20,27 @@ export default function Index() {
   const [isIncorrectDialogOpen, setIsIncorrectDialogOpen] = useState(false);
   const [daysInARow, setDaysInARow] = useState(0);
   const [correctStreak, setCorrectStreak] = useState(0);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   // Use useEffect hook to initialize or load the game state
   useEffect(() => {
+    const getCurrentDateEST = () => {
+      const now = new Date();
+      return new Date(
+        now.toLocaleString("en-US", { timeZone: "America/New_York" }),
+      );
+    };
+
+    const formatDateEST = (date: Date) => {
+      return date.toISOString().split("T")[0];
+    };
+
     const lastPlayedDate = getItem("lastPlayedDate", null);
-    const currentDate = new Date().toDateString();
+    const currentDateEST = formatDateEST(getCurrentDateEST());
     const storedDaysInARow = getItem("daysInARow", 0);
     const storedCorrectStreak = getItem("correctStreak", 0);
 
-    if (lastPlayedDate === currentDate) {
+    if (lastPlayedDate === currentDateEST) {
       // If the game was played today, load the saved game state
       const savedState = getItem("gameState", null);
       if (savedState) {
@@ -45,13 +58,13 @@ export default function Index() {
         isAbleToGuess: true,
       };
       setGameState(newGameState);
-      setItem("lastPlayedDate", currentDate);
+      setItem("lastPlayedDate", currentDateEST);
       setItem("gameState", newGameState);
 
       // Update days in a row
       if (lastPlayedDate) {
         const lastPlayedDateTime = new Date(lastPlayedDate).getTime();
-        const currentDateTime = new Date(currentDate).getTime();
+        const currentDateTime = new Date(currentDateEST).getTime();
         const daysDifference = Math.floor(
           (currentDateTime - lastPlayedDateTime) / (1000 * 60 * 60 * 24),
         );
@@ -97,6 +110,8 @@ export default function Index() {
       const newCorrectStreak = correctStreak + 1;
       setCorrectStreak(newCorrectStreak);
       setItem("correctStreak", newCorrectStreak);
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 5000); // Hide confetti after 5 seconds
     } else {
       // If the guess is incorrect
       newState.visibleCards = Math.min(newState.visibleCards + 1, 5);
@@ -138,6 +153,7 @@ export default function Index() {
   // Render the main game interface
   return (
     <div className="relative min-h-screen">
+      {showConfetti && <Confetti />}
       {gameState.isAbleToGuess && (
         // Render game interface when player can still guess
         <div>
