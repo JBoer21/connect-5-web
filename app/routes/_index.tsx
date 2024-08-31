@@ -8,11 +8,7 @@ import { TeamSelect } from "~/components/ui/teams/teamSelect";
 import { GameState } from "~/types/gameStateTypes";
 import { CorrectDialog } from "~/components/ui/info/correctDialog";
 import { IncorrectDialog } from "~/components/ui/info/incorrectDialog";
-import {
-  getItem,
-  setItem,
-  clearStorage,
-} from "~/lib/utils/local_storage_utils";
+import { getItem, setItem } from "~/lib/utils/local_storage_utils";
 import { InfoHelp } from "~/components/ui/info/info";
 
 // Define the main Index component
@@ -126,15 +122,6 @@ export default function Index() {
     setItem("gameState", newState);
   };
 
-  // Function to clear localStorage
-  const clearLocalStorage = () => {
-    clearStorage();
-    // Reset the game state
-    setGameState(null);
-    setDaysInARow(0);
-    setCorrectStreak(0);
-  };
-
   // Show loading spinner if game state is not yet initialized
   if (!gameState) {
     return (
@@ -224,17 +211,6 @@ export default function Index() {
         daysInARow={daysInARow}
         correctStreak={correctStreak}
       />
-      {/* Clear localStorage button for development testing */}
-      {process.env.NODE_ENV === "development" && (
-        <div className="fixed bottom-4 right-4">
-          <Button
-            onClick={clearLocalStorage}
-            className="text-white bg-red-500 hover:bg-red-600"
-          >
-            Clear localStorage (Dev Only)
-          </Button>
-        </div>
-      )}
       {/* InfoHelp component added to the bottom left corner */}
       <div className="fixed bottom-4 left-4">
         <InfoHelp />
