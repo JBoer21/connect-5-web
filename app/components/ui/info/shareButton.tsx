@@ -12,11 +12,11 @@ export function ShareButton({ attempts, correctGuess }: ShareButtonProps) {
   const { toast } = useToast();
 
   const generateShareText = () => {
-    const gameUrl = "https://footballdle.com"; // Replace with actual URL when available
+    const gameUrl = "https://connectfive.games"; // Replace with actual URL when available
     const result = correctGuess
       ? `I guessed in ${attempts} attempts!`
       : "I couldn't guess today's team.";
-    return `Footballdle ${new Date().toISOString().split("T")[0]}\n${result}\n\nPlay now: ${gameUrl}`;
+    return `Connect 5 ${new Date().toISOString().split("T")[0]}\n${result}\n\nPlay now: ${gameUrl}`;
   };
 
   const handleCopy = async () => {
