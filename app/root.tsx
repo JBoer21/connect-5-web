@@ -20,6 +20,7 @@ import {
 } from "./lib/client-hints";
 import { Header } from "./components/ui/info/header";
 import clsx from "clsx";
+import { Analytics } from "@vercel/analytics/react";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
@@ -52,6 +53,7 @@ export default function App() {
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body>
+        <Analytics />
         <Toaster />
         <Header />
         <Outlet />
