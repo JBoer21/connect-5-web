@@ -34,7 +34,7 @@ export function InfoHelp() {
           </svg>
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Game Dev Information</DialogTitle>
           <DialogDescription>
