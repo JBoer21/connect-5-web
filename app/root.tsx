@@ -51,6 +51,7 @@ export default function App() {
         <Meta />
         <Links />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <title>Connect Five</title>
       </head>
       <body>
         <Analytics />
