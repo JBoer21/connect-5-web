@@ -66,8 +66,8 @@ export function InstructionsDialog() {
             guesses you get wrong, the easier it gets.
           </DialogDescription>
           <DialogDescription className="text-sm sm:text-base">
-            A new game is released every day at midnight EST. Some games are
-            easier than others!
+            A new game is released every day at midnight local time. Some games
+            are easier than others!
           </DialogDescription>
         </DialogHeader>
         <div className="mt-4">

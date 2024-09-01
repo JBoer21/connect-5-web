@@ -24,23 +24,20 @@ export default function Index() {
 
   // Use useEffect hook to initialize or load the game state
   useEffect(() => {
-    const getCurrentDateEST = () => {
-      const now = new Date();
-      return new Date(
-        now.toLocaleString("en-US", { timeZone: "America/New_York" }),
-      );
+    const getCurrentDate = () => {
+      return new Date();
     };
 
-    const formatDateEST = (date: Date) => {
+    const formatDate = (date: Date) => {
       return date.toISOString().split("T")[0];
     };
 
     const lastPlayedDate = getItem("lastPlayedDate", null);
-    const currentDateEST = formatDateEST(getCurrentDateEST());
+    const currentDate = formatDate(getCurrentDate());
     const storedDaysInARow = getItem("daysInARow", 0);
     const storedCorrectStreak = getItem("correctStreak", 0);
 
-    if (lastPlayedDate === currentDateEST) {
+    if (lastPlayedDate === currentDate) {
       // If the game was played today, load the saved game state
       const savedState = getItem("gameState", null);
       if (savedState) {
@@ -58,13 +55,13 @@ export default function Index() {
         isAbleToGuess: true,
       };
       setGameState(newGameState);
-      setItem("lastPlayedDate", currentDateEST);
+      setItem("lastPlayedDate", currentDate);
       setItem("gameState", newGameState);
 
       // Update days in a row
       if (lastPlayedDate) {
         const lastPlayedDateTime = new Date(lastPlayedDate).getTime();
-        const currentDateTime = new Date(currentDateEST).getTime();
+        const currentDateTime = new Date(currentDate).getTime();
         const daysDifference = Math.floor(
           (currentDateTime - lastPlayedDateTime) / (1000 * 60 * 60 * 24),
         );

@@ -36,12 +36,9 @@ export const IncorrectDialog: React.FC<IncorrectDialogProps> = ({
   useEffect(() => {
     const updateTimer = () => {
       const now = new Date();
-      const estNow = new Date(
-        now.toLocaleString("en-US", { timeZone: "America/New_York" }),
-      );
-      const estMidnight = new Date(estNow);
-      estMidnight.setHours(24, 0, 0, 0);
-      const diff = estMidnight.getTime() - estNow.getTime();
+      const midnight = new Date(now);
+      midnight.setHours(24, 0, 0, 0);
+      const diff = midnight.getTime() - now.getTime();
 
       const hours = Math.floor(diff / (1000 * 60 * 60));
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
