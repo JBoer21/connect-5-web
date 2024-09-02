@@ -26,11 +26,13 @@ export default function Index() {
   useEffect(() => {
     const getCurrentDate = () => {
       const now = new Date();
+      // Example returned value: new Date(2023, 5, 15) for June 15, 2023
       return new Date(now.getFullYear(), now.getMonth(), now.getDate());
     };
 
     const formatDate = (date: Date) => {
       return date.toISOString().slice(0, 10);
+      // Example: "2023-06-15" for June 15, 2023
     };
 
     const lastPlayedDate = getItem("lastPlayedDate", null);
@@ -152,10 +154,10 @@ export default function Index() {
   return (
     <div className="relative flex flex-col min-h-screen">
       {showConfetti && <Confetti />}
-      <div className="flex-grow">
+      <main className="flex-grow">
+        <h1 className="sr-only">Connect 5 - Football Trivia Game</h1>
         {gameState.isAbleToGuess && (
-          // Render game interface when player can still guess
-          <div>
+          <section aria-label="Football Quiz Game">
             <div className="px-4">
               <PlayerBand
                 players={gameState.players.map((player) => ({
@@ -177,11 +179,10 @@ export default function Index() {
                 Submit
               </Button>
             </div>
-          </div>
+          </section>
         )}
         {!gameState.isAbleToGuess && (
-          // Render game result when player can no longer guess
-          <div>
+          <section aria-label="Football Trivia Results">
             <div className="px-4">
               <PlayerBand
                 players={gameState.players.map((player) => ({
@@ -206,10 +207,9 @@ export default function Index() {
                 View Results
               </Button>
             </div>
-          </div>
+          </section>
         )}
-      </div>
-      {/* InfoHelp component added as a footer */}
+      </main>
       <footer className="flex justify-center p-4 mt-auto">
         <InfoHelp />
       </footer>

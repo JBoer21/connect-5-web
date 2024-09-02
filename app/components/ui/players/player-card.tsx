@@ -17,7 +17,7 @@ export function PlayerCard({ name, imageUrl, show = false }: PlayerCardProps) {
     >
       <CardHeader className="py-2">
         <CardTitle className="text-sm text-center">
-          {show ? name : " "}
+          {show ? <h2>{name}</h2> : <span aria-hidden="true">&nbsp;</span>}
         </CardTitle>
       </CardHeader>
       <CardContent className="p-2">
@@ -28,8 +28,9 @@ export function PlayerCard({ name, imageUrl, show = false }: PlayerCardProps) {
                 ? imageUrl
                 : "https://www.fifacm.com/content/media/imgs/fc24/players/notfound_0.png"
             }
-            alt={`${name}'s ${show ? "image" : "hidden image"}`}
+            alt={show ? `Football player ${name}` : "Hidden player card"}
             className="object-contain max-w-full max-h-full"
+            loading="lazy"
           />
         </div>
       </CardContent>

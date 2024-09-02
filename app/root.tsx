@@ -1,6 +1,10 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
 import { Toaster } from "./components/ui/toaster";
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import type {
+  LinksFunction,
+  LoaderFunctionArgs,
+  MetaFunction,
+} from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -38,6 +42,38 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   });
 };
 
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Connect 5 - Football Trivia Game" },
+    {
+      name: "description",
+      content:
+        "Test your football knowledge with Connect 5, the ultimate soccer quiz. Play a daily football riddles to test your ball knowledge and see if you know what club all these players played for!",
+    },
+    {
+      name: "keywords",
+      content:
+        "soccer games, soccer riddle, football trivia game, football quiz game, football soccer quiz, football trivia, football quiz",
+    },
+    { property: "og:title", content: "Connect 5 - Football Trivia Game" },
+    {
+      property: "og:description",
+      content:
+        "Test your football knowledge with Connect 5, the ultimate soccer quiz. Play a daily football riddles to test your ball knowledge and see if you know what club all these players played for!",
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "/og-image.jpg" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Connect 5 - Football Trivia Game" },
+    {
+      name: "twitter:description",
+      content:
+        "Test your football knowledge with Connect 5, the ultimate soccer quiz. Play a daily football riddles to test your ball knowledge and see if you know what club all these players played for!",
+    },
+    { name: "twitter:image", content: "/twitter-image.jpg" },
+  ];
+};
+
 export default function App() {
   const theme = useTheme();
   const nonce = useNonce();
@@ -51,7 +87,7 @@ export default function App() {
         <Meta />
         <Links />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <title>Connect 5</title>
+        <link rel="canonical" href="https://connectfive.games" />
       </head>
       <body>
         <Analytics />

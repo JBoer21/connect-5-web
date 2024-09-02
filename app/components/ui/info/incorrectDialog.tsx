@@ -57,10 +57,14 @@ export const IncorrectDialog: React.FC<IncorrectDialogProps> = ({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Better luck next time!</DialogTitle>
+          <DialogTitle>
+            <h2>Better luck next time!</h2>
+          </DialogTitle>
           <DialogDescription>
-            You were unable to guess the correct team in {attempts}{" "}
-            {attempts === 1 ? "try" : "tries"}.
+            <p>
+              You were unable to guess the correct team in {attempts}{" "}
+              {attempts === 1 ? "try" : "tries"}.
+            </p>
           </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col items-center mt-4">
@@ -69,10 +73,11 @@ export const IncorrectDialog: React.FC<IncorrectDialogProps> = ({
             alt={`${teamName} logo`}
             width={100}
             height={100}
+            loading="lazy"
           />
-          <p className="mt-2 text-lg font-semibold">
+          <h3 className="mt-2 text-lg font-semibold">
             The correct team was: {teamName}
-          </p>
+          </h3>
           <ShareButton attempts={attempts} correctGuess={false} />
           <div className="grid w-full grid-cols-2 gap-4 mt-4">
             <StatCard
@@ -88,14 +93,16 @@ export const IncorrectDialog: React.FC<IncorrectDialogProps> = ({
           </div>
           <Card className="w-full mt-4">
             <CardHeader>
-              <CardTitle>Next Game</CardTitle>
+              <CardTitle>
+                <h4>Next Game</h4>
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center justify-center gap-2">
-                <Clock className="w-6 h-6" />
-                <span className="text-lg font-semibold">
+                <Clock className="w-6 h-6" aria-hidden="true" />
+                <time className="text-lg font-semibold">
                   {timeUntilNextGame}
-                </span>
+                </time>
               </div>
             </CardContent>
           </Card>
