@@ -79,6 +79,13 @@ export function InstructionsDialog() {
             In this example, all players have played for Manchester City.
           </p>
         </div>
+        <div className="mt-4 text-xs text-gray-600 sm:text-sm">
+          <p>
+            Note: This game is currently in beta mode. Please be patient with
+            any bugs you may encounter. If you experience any issues, please
+            email us at connectfivegames@gmail.com.
+          </p>
+        </div>
       </DialogContent>
     </Dialog>
   );
