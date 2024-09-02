@@ -25,11 +25,12 @@ export default function Index() {
   // Use useEffect hook to initialize or load the game state
   useEffect(() => {
     const getCurrentDate = () => {
-      return new Date();
+      const now = new Date();
+      return new Date(now.getFullYear(), now.getMonth(), now.getDate());
     };
 
     const formatDate = (date: Date) => {
-      return date.toISOString().split("T")[0];
+      return date.toISOString().slice(0, 10);
     };
 
     const lastPlayedDate = getItem("lastPlayedDate", null);

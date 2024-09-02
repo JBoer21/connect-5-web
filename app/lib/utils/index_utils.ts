@@ -4,15 +4,20 @@ import { IndexLoaderData } from "~/types/playerTypes";
 import gameStates from "~/data/game_states.json";
 
 export function getGameStateForDate(date: Date): number {
-  const baseDate = new Date("2024-08-31"); // Choose a fixed start date
+  const baseDate = new Date(2024, 7, 31); // Month is 0-indexed, so 7 is August
   const timeDiff = date.getTime() - baseDate.getTime();
   const dayDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
-  return dayDiff + 1; // Add 1 to start from game state 1
+  return dayDiff + 1;
 }
 
 export function setGame(): IndexLoaderData {
   const currentDate = new Date();
-  const gameStateId = getGameStateForDate(currentDate);
+  const localMidnight = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    currentDate.getDate(),
+  );
+  const gameStateId = getGameStateForDate(localMidnight);
 
   // Subtract 1 from gameStateId to convert to zero-based index
   const gameState = gameStates[gameStateId - 1];
