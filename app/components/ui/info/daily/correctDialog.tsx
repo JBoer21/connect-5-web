@@ -9,8 +9,8 @@ import {
 import { Clock } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { getHighResLogo } from "~/lib/utils/dialog_utils";
-import { ShareButton } from "./shareButton";
-import { StatCard } from "./stats";
+import { ShareButton } from "../shareButton";
+import { StatCard } from "../stats";
 
 interface CorrectDialogProps {
   isOpen: boolean;

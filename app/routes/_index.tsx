@@ -6,11 +6,12 @@ import { useToast } from "~/components/ui/use-toast";
 import { setGame } from "~/lib/utils/index_utils";
 import { TeamSelect } from "~/components/ui/teams/teamSelect";
 import { GameState } from "~/types/gameStateTypes";
-import { CorrectDialog } from "~/components/ui/info/correctDialog";
-import { IncorrectDialog } from "~/components/ui/info/incorrectDialog";
+import { CorrectDialog } from "~/components/ui/info/daily/correctDialog";
+import { IncorrectDialog } from "~/components/ui/info/daily/incorrectDialog";
 import { getItem, setItem } from "~/lib/utils/local_storage_utils";
 import { InfoHelp } from "~/components/ui/info/info";
 import Confetti from "react-confetti";
+import { Link } from "@remix-run/react";
 
 // Define the main Index component
 export default function Index() {
@@ -196,16 +197,23 @@ export default function Index() {
               <h2 className="px-6 py-2 mb-6 text-4xl font-bold text-gray-800">
                 {gameState.teamName}
               </h2>
-              <Button
-                onClick={() =>
-                  gameState.attempts === 5
-                    ? setIsIncorrectDialogOpen(true)
-                    : setIsCorrectDialogOpen(true)
-                }
-                className="text-white bg-blue-500 hover:bg-blue-600"
-              >
-                View Results
-              </Button>
+              <div className="flex flex-col space-y-4">
+                <Button
+                  onClick={() =>
+                    gameState.attempts === 5
+                      ? setIsIncorrectDialogOpen(true)
+                      : setIsCorrectDialogOpen(true)
+                  }
+                  className="text-white bg-blue-500 hover:bg-blue-600"
+                >
+                  View Results
+                </Button>
+                <Link to="/infinite" className="flex justify-center">
+                  <span className="text-2xl cursor-pointer hover:underline">
+                    ∞
+                  </span>
+                </Link>
+              </div>
             </div>
           </section>
         )}
