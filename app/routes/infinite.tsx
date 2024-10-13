@@ -3,7 +3,7 @@ import { json, LoaderFunction } from "@remix-run/node";
 import { IndexLoaderData } from "~/types/playerTypes";
 import { createRandomGameState } from "~/lib/utils/infinite_utils";
 import { PlayerBand } from "~/components/ui/players/player-band";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, Link } from "@remix-run/react";
 import { TeamSelect } from "~/components/ui/teams/teamSelect";
 import { Button } from "~/components/ui/button";
 import { useState } from "react";
@@ -12,7 +12,6 @@ import { CorrectDialog } from "~/components/ui/info/infinite/correctDialog";
 import { IncorrectDialog } from "~/components/ui/info/infinite/incorrectDialog";
 import { getItem } from "~/lib/utils/local_storage_utils";
 import { InfoHelp } from "~/components/ui/info/info";
-import { Link } from "@remix-run/react";
 
 export const loader: LoaderFunction = async () => {
   const gameState: IndexLoaderData = createRandomGameState();
@@ -24,6 +23,11 @@ export default function TestRoute() {
   const gameState = useLoaderData<IndexLoaderData>();
 
   const completedDaily = getItem("completedDaily", null);
+  if (completedDaily === false) {
+    window.location.href = "/";
+  }
+
+  
 
   const [selectedTeam, setSelectedTeam] = useState<string>("");
   const [incorrectGuesses, setIncorrectGuesses] = useState<string[]>([]);
