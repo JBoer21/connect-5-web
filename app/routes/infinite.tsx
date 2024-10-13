@@ -3,7 +3,7 @@ import { json, LoaderFunction } from "@remix-run/node";
 import { IndexLoaderData } from "~/types/playerTypes";
 import { createRandomGameState } from "~/lib/utils/infinite_utils";
 import { PlayerBand } from "~/components/ui/players/player-band";
-import { useLoaderData, Link } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { TeamSelect } from "~/components/ui/teams/teamSelect";
 import { Button } from "~/components/ui/button";
 import { useState } from "react";
@@ -135,19 +135,6 @@ export default function TestRoute() {
       />
     </div>
   ) : (
-    <div className="flex flex-col items-center justify-start h-screen">
-      <h2 className="mt-4 text-xl font-bold text-center text-gray-800">
-        Finish the{" "}
-        <Link to="/" className="underline hover:text-gray-500">
-          daily game
-        </Link>{" "}
-        before playing the ∞ version.
-      </h2>
-      <img
-        src="https://www.telegraph.co.uk/content/dam/football/2024/03/11/TELEMMGLPICT000370269839_17101966662100_trans_NvBQzQNjv4BqBt9H6QkwRG1YayaFxZfhyKZ_LJP60i4SCm85aMwp6TY.jpeg?imwidth=680"
-        alt="Football"
-        className="mt-4 rounded-lg shadow-lg"
-      />
-    </div>
+null
   );
 }
