@@ -12,6 +12,7 @@ import { CorrectDialog } from "~/components/ui/info/infinite/correctDialog";
 import { IncorrectDialog } from "~/components/ui/info/infinite/incorrectDialog";
 import { getItem } from "~/lib/utils/local_storage_utils";
 import { InfoHelp } from "~/components/ui/info/info";
+import { Link } from "@remix-run/react";
 
 export const loader: LoaderFunction = async () => {
   const gameState: IndexLoaderData = createRandomGameState();
@@ -22,7 +23,7 @@ export default function TestRoute() {
   const { toast } = useToast();
   const gameState = useLoaderData<IndexLoaderData>();
 
-  const completedDaily = getItem("completedDaily", null)
+  const completedDaily = getItem("completedDaily", null);
 
   const [selectedTeam, setSelectedTeam] = useState<string>("");
   const [incorrectGuesses, setIncorrectGuesses] = useState<string[]>([]);
@@ -54,7 +55,6 @@ export default function TestRoute() {
     }
   };
 
-  
   return completedDaily ? (
     <div className="relative flex flex-col min-h-screen">
       <center>
@@ -130,5 +130,20 @@ export default function TestRoute() {
         onPlayAgain={() => window.location.reload()}
       />
     </div>
-  ) : null;
+  ) : (
+    <div className="flex flex-col items-center justify-start h-screen">
+      <h2 className="mt-4 text-xl font-bold text-center text-gray-800">
+        Finish the{" "}
+        <Link to="/" className="underline hover:text-gray-500">
+          daily game
+        </Link>{" "}
+        before playing the ∞ version.
+      </h2>
+      <img
+        src="https://www.telegraph.co.uk/content/dam/football/2024/03/11/TELEMMGLPICT000370269839_17101966662100_trans_NvBQzQNjv4BqBt9H6QkwRG1YayaFxZfhyKZ_LJP60i4SCm85aMwp6TY.jpeg?imwidth=680"
+        alt="Football"
+        className="mt-4 rounded-lg shadow-lg"
+      />
+    </div>
+  );
 }

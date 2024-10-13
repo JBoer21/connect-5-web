@@ -41,8 +41,6 @@ export default function Index() {
     const storedDaysInARow = getItem("daysInARow", 0);
     const storedCorrectStreak = getItem("correctStreak", 0);
 
-
-
     if (lastPlayedDate === currentDate) {
       // If the game was played today, load the saved game state
       const savedState = getItem("gameState", null);
@@ -52,7 +50,7 @@ export default function Index() {
       setDaysInARow(storedDaysInARow || 0);
       setCorrectStreak(storedCorrectStreak || 0);
     } else {
-      setItem("completedDaily", false)
+      setItem("completedDaily", false);
       // If it's a new day, set up a new game
       const newGameState: GameState = {
         ...setGame(),
@@ -108,7 +106,7 @@ export default function Index() {
 
     if (selectedTeam === gameState.teamName) {
       // If the guess is correct
-      setItem("completedDaily", true)
+      setItem("completedDaily", true);
       newState.isAbleToGuess = false;
       newState.visibleCards = 5;
       setIsCorrectDialogOpen(true);
@@ -123,7 +121,7 @@ export default function Index() {
       // Only set isAbleToGuess to false if this was the last possible guess
       if (newState.visibleCards === 5 && newState.attempts === 5) {
         newState.isAbleToGuess = false;
-        setItem("completedDaily", true)
+        setItem("completedDaily", true);
         setIsIncorrectDialogOpen(true);
         setCorrectStreak(0);
         setItem("correctStreak", 0);
