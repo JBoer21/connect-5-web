@@ -8,7 +8,9 @@ export const Header: React.FC = () => {
     <nav className="flex items-center justify-between w-full p-4">
       <div className="flex items-center space-x-2">
         <Link to="/">
-          <Waypoints />
+          <div className="transition-transform transform hover:scale-110">
+            <Waypoints />
+          </div>
         </Link>
         <h1 className="text-xl font-semibold">Connect 5</h1>
       </div>

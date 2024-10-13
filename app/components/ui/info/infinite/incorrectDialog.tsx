@@ -32,9 +32,7 @@ export const IncorrectDialog: React.FC<IncorrectDialogProps> = ({
             <h2>Unlucky!</h2>
           </DialogTitle>
           <DialogDescription>
-            <p>
-                Better luck next time!
-            </p>
+            <p>Better luck next time!</p>
           </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col items-center mt-4">
@@ -46,7 +44,9 @@ export const IncorrectDialog: React.FC<IncorrectDialogProps> = ({
             loading="lazy"
           />
           <h3 className="mt-2 text-lg font-semibold">{teamName}</h3>
-          <div className="mt-6"> {/* Increased vertical spacing */}
+          <div className="mt-6">
+            {" "}
+            {/* Increased vertical spacing */}
             <Button
               onClick={() => onPlayAgain()}
               className="flex items-center justify-center p-2 text-white bg-blue-500 rounded hover:bg-blue-600"

@@ -157,6 +157,15 @@ export default function Index() {
       {showConfetti && <Confetti />}
       <main className="flex-grow">
         <h1 className="sr-only">Connect 5 - Football Trivia Game</h1>
+        <center>
+          <h1 className="font-bold">
+            {new Date().toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </h1>
+        </center>
         {gameState.isAbleToGuess && (
           <section aria-label="Football Quiz Game">
             <div className="px-4">

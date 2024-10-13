@@ -32,7 +32,7 @@ export default function TestRoute() {
   const handleSubmit = () => {
     if (selectedTeam === gameState.teamName) {
       setIsCorrectDialogOpen(true);
-      setAttemptsToCorrect(attempts)
+      setAttemptsToCorrect(attempts);
       setAttempts(5);
       setIsAbleToGuess(false);
     } else {
@@ -92,16 +92,16 @@ export default function TestRoute() {
               {gameState.teamName}
             </h2>
             <div className="flex justify-center">
-            <Button
-                  onClick={() =>
-                    attempts === 5
-                      ? setIsIncorrectDialogOpen(true)
-                      : setIsCorrectDialogOpen(true)
-                  }
-                  className="text-white bg-blue-500 hover:bg-blue-600"
-                >
-                  View Results
-                </Button>
+              <Button
+                onClick={() =>
+                  attempts === 5
+                    ? setIsIncorrectDialogOpen(true)
+                    : setIsCorrectDialogOpen(true)
+                }
+                className="text-white bg-blue-500 hover:bg-blue-600"
+              >
+                View Results
+              </Button>
             </div>
           </>
         )}
@@ -115,11 +115,11 @@ export default function TestRoute() {
         onPlayAgain={() => window.location.reload()}
       />
       <IncorrectDialog
-      isOpen={isIncorrectDialogOpen}
-      onClose={() => setIsIncorrectDialogOpen(false)}
-      teamName={gameState.teamName}
-      teamLogo={gameState.teamLogo}
-      onPlayAgain={() => window.location.reload()}
+        isOpen={isIncorrectDialogOpen}
+        onClose={() => setIsIncorrectDialogOpen(false)}
+        teamName={gameState.teamName}
+        teamLogo={gameState.teamLogo}
+        onPlayAgain={() => window.location.reload()}
       />
     </div>
   );
