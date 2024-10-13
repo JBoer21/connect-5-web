@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
 import { CorrectDialog } from "~/components/ui/info/infinite/correctDialog";
 import { IncorrectDialog } from "~/components/ui/info/infinite/incorrectDialog";
+import { InfoHelp } from "~/components/ui/info/info";
 
 export const loader: LoaderFunction = async () => {
   const gameState: IndexLoaderData = createRandomGameState();
@@ -106,6 +107,9 @@ export default function TestRoute() {
           </>
         )}
       </main>
+      <footer className="flex justify-center p-4 mt-auto">
+        <InfoHelp />
+      </footer>
       <CorrectDialog
         isOpen={isCorrectDialogOpen}
         onClose={() => setIsCorrectDialogOpen(false)}
