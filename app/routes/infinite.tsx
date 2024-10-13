@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useToast } from "~/components/ui/use-toast";
 import { CorrectDialog } from "~/components/ui/info/infinite/correctDialog";
 import { IncorrectDialog } from "~/components/ui/info/infinite/incorrectDialog";
+import { getItem } from "~/lib/utils/local_storage_utils";
 import { InfoHelp } from "~/components/ui/info/info";
 
 export const loader: LoaderFunction = async () => {
@@ -20,6 +21,8 @@ export const loader: LoaderFunction = async () => {
 export default function TestRoute() {
   const { toast } = useToast();
   const gameState = useLoaderData<IndexLoaderData>();
+
+  const completedDaily = getItem("completedDaily", null)
 
   const [selectedTeam, setSelectedTeam] = useState<string>("");
   const [incorrectGuesses, setIncorrectGuesses] = useState<string[]>([]);
@@ -51,7 +54,8 @@ export default function TestRoute() {
     }
   };
 
-  return (
+  
+  return completedDaily ? (
     <div className="relative flex flex-col min-h-screen">
       <center>
         <h1>∞</h1>
@@ -126,5 +130,5 @@ export default function TestRoute() {
         onPlayAgain={() => window.location.reload()}
       />
     </div>
-  );
+  ) : null;
 }
